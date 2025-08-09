@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import type { PersonalInfo } from './personalInfo';
 import Aurora from '../Background/Aurora';
 import Particles from '../Background/Particles';
@@ -11,8 +11,10 @@ interface HeroSectionProps {
 const HeroSection: React.FC<HeroSectionProps> = ({ personalInfo }) => {
   const { name, role, roles, profileImage = "/api/placeholder/200/200", miniAvatarImage, resumeUrl = "#", education, stats } = personalInfo;
   const [isVisible, setIsVisible] = useState(false);
+  const [isInView, setIsInView] = useState(false);
   const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
   const [isTyping, setIsTyping] = useState(true);
+  const sectionRef = useRef<HTMLElement>(null);
   
   // Use roles from personalInfo, fallback to default if not provided
   const rolesList = roles || [role];
@@ -22,6 +24,23 @@ const HeroSection: React.FC<HeroSectionProps> = ({ personalInfo }) => {
 
   useEffect(() => {
     setIsVisible(true);
+    
+    // Intersection Observer for scroll animations
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          setIsInView(entry.isIntersecting);
+        });
+      },
+      {
+        threshold: 0.1,
+        rootMargin: '50px 0px -50px 0px'
+      }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
     
     // Role rotation animation with slower typing and longer pause
     const roleInterval = setInterval(() => {
@@ -33,11 +52,17 @@ const HeroSection: React.FC<HeroSectionProps> = ({ personalInfo }) => {
       }, 3000); // 3 second pause after typing completes
     }, 8000); // Total cycle time: 5s typing + 3s pause
 
-    return () => clearInterval(roleInterval);
+    return () => {
+      clearInterval(roleInterval);
+      observer.disconnect();
+    };
   }, [rolesList.length]);
 
   return (
-    <section className="relative min-h-[60vh] md:min-h-[70vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-900 via-purple-900 to-slate-800 py-8 md:py-12">
+    <section 
+      ref={sectionRef}
+      className="relative min-h-[60vh] md:min-h-[70vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-900 via-purple-900 to-slate-800 py-8 md:py-12"
+    >
       {/* Aurora Background */}
       <div className="absolute inset-0 z-0">
         <Aurora
@@ -65,7 +90,9 @@ const HeroSection: React.FC<HeroSectionProps> = ({ personalInfo }) => {
       {/* Additional overlay for better text readability */}
       <div className="absolute inset-0 z-2 bg-slate-900/20"></div>
 
-      <div className="relative z-10 container mx-auto px-4 md:px-6 max-w-6xl">
+      <div className={`relative z-10 container mx-auto px-4 md:px-6 max-w-6xl transition-all duration-1000 ${
+        isInView ? 'animate-on-scroll in-view' : 'animate-on-scroll'
+      }`}>
         {/* Mobile Layout - Stack vertically */}
         <div className="flex flex-col items-center text-center space-y-4 md:hidden">
           
@@ -192,12 +219,16 @@ const HeroSection: React.FC<HeroSectionProps> = ({ personalInfo }) => {
         <div className="hidden md:grid md:grid-cols-12 gap-8 items-center">
           
           {/* Content Section - Enhanced */}
-          <div className={`lg:col-span-7 space-y-6 transition-all duration-1000 ease-out ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
+          <div className={`lg:col-span-7 space-y-6 transition-all duration-1000 ease-out ${
+            isInView ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
+          }`}>
             
             {/* Name and Role Section */}
             <div className="space-y-4">
               <h1 className="text-4xl md:text-4xl lg:text-4xl xl:text-5xl font-black leading-none">
-                <div className={`transform transition-all duration-700 delay-300 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
+                <div className={`transform transition-all duration-700 delay-300 ${
+                  isInView ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
+                }`}>
                   <span className="bg-clip-text text-transparent bg-gradient-to-r from-white via-blue-100 to-purple-100 hover:from-blue-200 hover:to-purple-200 transition-all duration-500">
                     {name}
                   </span>
@@ -206,7 +237,9 @@ const HeroSection: React.FC<HeroSectionProps> = ({ personalInfo }) => {
               
               {/* Animated role with typewriter effect */}
               <div className="h-12 md:h-14 flex items-center">
-                <h2 className={`text-xl md:text-2xl lg:text-3xl font-bold text-blue-300 transform transition-all duration-500 ${isVisible ? 'translate-x-0 opacity-100' : '-translate-x-10 opacity-0'}`}>
+                <h2 className={`text-xl md:text-2xl lg:text-3xl font-bold text-blue-300 transform transition-all duration-500 delay-500 ${
+                  isInView ? 'translate-x-0 opacity-100' : '-translate-x-10 opacity-0'
+                }`}>
                   <span className={`inline-block ${isTyping ? 'animate-typewriter-slow' : ''}`}>
                     {rolesList[currentRoleIndex]}
                   </span>
@@ -249,9 +282,9 @@ const HeroSection: React.FC<HeroSectionProps> = ({ personalInfo }) => {
 
             {/* Quick Stats Section - Using data from personalInfo */}
             <div className={`grid grid-cols-3 gap-4 transform transition-all duration-700 delay-600 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
-              <div className="group relative text-center bg-gradient-to-br from-blue-500/15 via-blue-600/10 to-blue-700/15 backdrop-blur-md rounded-2xl p-4 border border-blue-500/30 hover:border-blue-400/60 transition-all duration-500 hover:shadow-xl hover:shadow-blue-500/20 hover:-translate-y-1 overflow-hidden">
+              <div className="group relative text-center bg-gradient-to-br from-blue-500/15 via-blue-600/10 to-indigo-500/15 backdrop-blur-md rounded-2xl p-4 border border-blue-500/30 hover:border-blue-400/60 transition-all duration-500 hover:shadow-xl hover:shadow-blue-500/20 hover:-translate-y-1 overflow-hidden">
                 {/* Animated background */}
-                <div className="absolute inset-0 bg-gradient-to-br from-blue-400/20 to-cyan-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl"></div>
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-400/20 to-indigo-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl"></div>
                 
                 {/* Icon */}
                 <div className="relative z-10 w-8 h-8 mx-auto mb-2 bg-blue-500/20 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
@@ -273,19 +306,19 @@ const HeroSection: React.FC<HeroSectionProps> = ({ personalInfo }) => {
                 <div className="absolute inset-0 rounded-2xl bg-blue-400/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl"></div>
               </div>
               
-              <div className="group relative text-center bg-gradient-to-br from-purple-500/15 via-purple-600/10 to-purple-700/15 backdrop-blur-md rounded-2xl p-4 border border-purple-500/30 hover:border-purple-400/60 transition-all duration-500 hover:shadow-xl hover:shadow-purple-500/20 hover:-translate-y-1 overflow-hidden">
+              <div className="group relative text-center bg-gradient-to-br from-emerald-500/15 via-emerald-600/10 to-green-500/15 backdrop-blur-md rounded-2xl p-4 border border-emerald-500/30 hover:border-emerald-400/60 transition-all duration-500 hover:shadow-xl hover:shadow-emerald-500/20 hover:-translate-y-1 overflow-hidden">
                 {/* Animated background */}
-                <div className="absolute inset-0 bg-gradient-to-br from-purple-400/20 to-pink-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl"></div>
+                <div className="absolute inset-0 bg-gradient-to-br from-emerald-400/20 to-green-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl"></div>
                 
                 {/* Icon */}
-                <div className="relative z-10 w-8 h-8 mx-auto mb-2 bg-purple-500/20 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                  <svg className="w-4 h-4 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div className="relative z-10 w-8 h-8 mx-auto mb-2 bg-emerald-500/20 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                  <svg className="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
                   </svg>
                 </div>
                 
                 <div className="relative z-10">
-                  <div className="text-2xl lg:text-3xl font-bold text-purple-300 group-hover:text-purple-200 transition-colors duration-300 mb-1">
+                  <div className="text-2xl lg:text-3xl font-bold text-emerald-300 group-hover:text-emerald-200 transition-colors duration-300 mb-1">
                     {stats.projectsCompleted}+
                   </div>
                   <div className="text-xs lg:text-sm text-slate-400 font-medium tracking-wide">
@@ -294,22 +327,22 @@ const HeroSection: React.FC<HeroSectionProps> = ({ personalInfo }) => {
                 </div>
                 
                 {/* Glow effect */}
-                <div className="absolute inset-0 rounded-2xl bg-purple-400/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl"></div>
+                <div className="absolute inset-0 rounded-2xl bg-emerald-400/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl"></div>
               </div>
               
-              <div className="group relative text-center bg-gradient-to-br from-teal-500/15 via-teal-600/10 to-emerald-500/15 backdrop-blur-md rounded-2xl p-4 border border-teal-500/30 hover:border-teal-400/60 transition-all duration-500 hover:shadow-xl hover:shadow-teal-500/20 hover:-translate-y-1 overflow-hidden">
+              <div className="group relative text-center bg-gradient-to-br from-amber-600/15 via-orange-700/10 to-red-600/15 backdrop-blur-md rounded-2xl p-4 border border-amber-600/30 hover:border-amber-500/60 transition-all duration-500 hover:shadow-xl hover:shadow-amber-600/20 hover:-translate-y-1 overflow-hidden">
                 {/* Animated background */}
-                <div className="absolute inset-0 bg-gradient-to-br from-teal-400/20 to-emerald-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl"></div>
+                <div className="absolute inset-0 bg-gradient-to-br from-amber-500/20 to-orange-600/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl"></div>
                 
                 {/* Icon */}
-                <div className="relative z-10 w-8 h-8 mx-auto mb-2 bg-teal-500/20 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                  <svg className="w-4 h-4 text-teal-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div className="relative z-10 w-8 h-8 mx-auto mb-2 bg-amber-600/20 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                  <svg className="w-4 h-4 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                 </div>
                 
                 <div className="relative z-10">
-                  <div className="text-2xl lg:text-3xl font-bold text-teal-300 group-hover:text-teal-200 transition-colors duration-300 mb-1">
+                  <div className="text-2xl lg:text-3xl font-bold text-amber-300 group-hover:text-amber-200 transition-colors duration-300 mb-1">
                     {stats.certificatesEarned}+
                   </div>
                   <div className="text-xs lg:text-sm text-slate-400 font-medium tracking-wide">
@@ -318,7 +351,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ personalInfo }) => {
                 </div>
                 
                 {/* Glow effect */}
-                <div className="absolute inset-0 rounded-2xl bg-teal-400/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl"></div>
+                <div className="absolute inset-0 rounded-2xl bg-amber-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl"></div>
               </div>
             </div>
 
@@ -422,32 +455,57 @@ const HeroSection: React.FC<HeroSectionProps> = ({ personalInfo }) => {
               </a>
               
               <a 
-                href={personalInfo.social.twitter} 
+                href={personalInfo.social.facebook} 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="group relative w-12 h-12 bg-gradient-to-br from-slate-700/80 to-slate-800/80 hover:from-purple-500/20 hover:to-purple-600/20 backdrop-blur-md rounded-2xl flex items-center justify-center transition-all duration-500 hover:scale-110 hover:-translate-y-1 hover:shadow-xl hover:shadow-purple-500/20 border border-white/10 hover:border-purple-400/30 overflow-hidden"
+                className="group relative w-12 h-12 bg-gradient-to-br from-slate-700/80 to-slate-800/80 hover:from-blue-600/20 hover:to-blue-700/20 backdrop-blur-md rounded-2xl flex items-center justify-center transition-all duration-500 hover:scale-110 hover:-translate-y-1 hover:shadow-xl hover:shadow-blue-600/20 border border-white/10 hover:border-blue-500/30 overflow-hidden"
               >
                 {/* Hover background effect */}
-                <div className="absolute inset-0 bg-gradient-to-br from-purple-400/10 to-purple-600/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl"></div>
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-blue-700/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl"></div>
                 
                 {/* Icon with enhanced styling */}
-                <svg className="relative z-10 w-6 h-6 text-slate-400 group-hover:text-purple-400 transition-all duration-300 group-hover:scale-110" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+                <svg className="relative z-10 w-6 h-6 text-slate-400 group-hover:text-blue-500 transition-all duration-300 group-hover:scale-110" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
                 </svg>
                 
                 {/* Subtle glow effect */}
-                <div className="absolute inset-0 rounded-2xl bg-purple-400/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-md"></div>
+                <div className="absolute inset-0 rounded-2xl bg-blue-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-md"></div>
                 
                 {/* Platform name tooltip */}
                 <div className="absolute -top-10 left-1/2 transform -translate-x-1/2 bg-slate-800/90 backdrop-blur-sm text-white text-xs px-2 py-1 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
-                  Twitter
+                  Facebook
+                </div>
+              </a>
+              
+              <a 
+                href={personalInfo.social.instagram} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="group relative w-12 h-12 bg-gradient-to-br from-slate-700/80 to-slate-800/80 hover:from-pink-500/20 hover:to-purple-600/20 backdrop-blur-md rounded-2xl flex items-center justify-center transition-all duration-500 hover:scale-110 hover:-translate-y-1 hover:shadow-xl hover:shadow-pink-500/20 border border-white/10 hover:border-pink-400/30 overflow-hidden"
+              >
+                {/* Hover background effect */}
+                <div className="absolute inset-0 bg-gradient-to-br from-pink-400/10 to-purple-600/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl"></div>
+                
+                {/* Icon with enhanced styling */}
+                <svg className="relative z-10 w-6 h-6 text-slate-400 group-hover:text-pink-400 transition-all duration-300 group-hover:scale-110" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                </svg>
+                
+                {/* Subtle glow effect */}
+                <div className="absolute inset-0 rounded-2xl bg-pink-400/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-md"></div>
+                
+                {/* Platform name tooltip */}
+                <div className="absolute -top-10 left-1/2 transform -translate-x-1/2 bg-slate-800/90 backdrop-blur-sm text-white text-xs px-2 py-1 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+                  Instagram
                 </div>
               </a>
             </div>
           </div>
 
           {/* Desktop Profile Card Section */}
-          <div className={`lg:col-span-5 flex justify-center lg:justify-end transform transition-all duration-1000 delay-500 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
+          <div className={`lg:col-span-5 flex justify-center lg:justify-end transform transition-all duration-1000 delay-700 ${
+            isInView ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
+          }`}>
             <div className="w-80">
               <ProfileCard
                 name="MaChew"

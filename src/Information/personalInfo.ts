@@ -12,7 +12,7 @@ export interface PersonalInfo {
   social: {
     github?: string;
     linkedin?: string;
-    twitter?: string;
+    facebook?: string;
     instagram?: string;
   };
   // Stats for hero section
@@ -63,11 +63,11 @@ export const personalInfo: PersonalInfo = {
   
   social: {
     github: "https://github.com/MaChewwwww",
-    linkedin: "https://linkedin.com/in/yourprofile",
-    twitter: "https://twitter.com/yourhandle",
-    instagram: "https://instagram.com/yourhandle"
+    linkedin: "https://www.linkedin.com/in/john-mathew-parocha-1b78b22b7/",
+    facebook: "https://www.facebook.com/MaChewww/",
+    instagram: "https://www.instagram.com/hello.machew/"
   },
-
+  
   stats: {
     yearsExperience: 5,
     projectsCompleted: 50,
@@ -116,10 +116,10 @@ export const personalInfo: PersonalInfo = {
   
   education: [
     {
-      institution: "University Name",
-      degree: "Bachelor of Science in Computer Science",
-      year: "2015 - 2019",
-      description: "Focused on software engineering, data structures, and web development. Graduated with honors."
+      institution: "Polytechnic University of the Philippines - Quezon City",
+      degree: "Bachelor of Science in Information Technology",
+      year: "2023 - 2027",
+      description: "Focused on software engineering, data structures, and web development."
     },
     {
       institution: "Online Platform",
