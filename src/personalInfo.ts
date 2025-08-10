@@ -74,9 +74,9 @@ export const personalInfo: PersonalInfo = {
   },
   
   stats: {
-    yearsExperience: 5,
-    projectsCompleted: 50,
-    certificatesEarned: 12
+    yearsExperience: 2,
+    projectsCompleted: 20,
+    certificatesEarned: 15
   },
   
   skills: [
