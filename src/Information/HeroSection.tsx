@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
-import type { PersonalInfo } from './personalInfo';
+import type { PersonalInfo } from '../personalInfo';
 import Aurora from '../Background/Aurora';
 import Particles from '../Background/Particles';
 import ProfileCard from './ProfileCard';

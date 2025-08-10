@@ -225,6 +225,31 @@
   transform: scale(1) translateY(0);
 }
 
+/* Glow lines for section separation */
+.glow-line-top {
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #6366F1, #8B5CF6, #0EA5E9, transparent);
+  box-shadow: 
+    0 0 20px #6366F1,
+    0 0 40px #8B5CF6,
+    0 0 60px #6366F1,
+    0 0 80px rgba(139, 92, 246, 0.4),
+    0 0 100px rgba(99, 102, 241, 0.3);
+  opacity: 0.9;
+}
+
+.glow-line-bottom {
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #8B5CF6, #6366F1, #0EA5E9, transparent);
+  box-shadow: 
+    0 0 20px #8B5CF6,
+    0 0 40px #6366F1,
+    0 0 60px #8B5CF6,
+    0 0 80px rgba(99, 102, 241, 0.4),
+    0 0 100px rgba(139, 92, 246, 0.3);
+  opacity: 0.9;
+}
+
 /* Staggered animation utilities */
 .animate-stagger-1 {
   transition-delay: 0.1s;

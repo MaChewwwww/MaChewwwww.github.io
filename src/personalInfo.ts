@@ -28,7 +28,12 @@ export interface PersonalInfo {
     database: string[];
     framework: string[];
     devops: string[];
+    aiMachineLearning: string[];
   };
+  otherSkills: {
+    name: string;
+    rating: number; // out of 5
+  }[];
   experience: {
     company: string;
     role: string;
@@ -43,8 +48,8 @@ export interface PersonalInfo {
   }[];
 }
 
-import pfpImage from '../assets/pfp_no_bg.png';
-import pfpSmallImage from '../assets/pfp_small.png';
+import pfpImage from './assets/pfp_no_bg.png';
+import pfpSmallImage from './assets/pfp_small.png';
 
 // Default personal information - customize this with your real data
 export const personalInfo: PersonalInfo = {
@@ -86,12 +91,21 @@ export const personalInfo: PersonalInfo = {
   ],
   
   skillsByCategory: {
-    backend: ["Node.js", "Python", "Django", "Express.js", "RESTful APIs", "GraphQL"],
-    frontend: ["React", "TypeScript", "HTML5", "CSS3", "JavaScript", "Tailwind CSS"],
-    database: ["PostgreSQL", "MongoDB", "Redis", "Prisma"],
-    framework: ["Next.js", "Django", "Express.js", "FastAPI", "Vue.js", "Nuxt.js"],
-    devops: ["AWS", "Docker", "Git", "CI/CD", "Vercel", "Linux"]
+    backend: ["Python", "C++", "C#", "PHP", "JavaScript", "TypeScript", "RESTful APIs"],
+    frontend: ["HTML5", "CSS3", "Bootstrap", "Tailwind CSS"],
+    database: ["MySQL", "PostgreSQL", "SQLite", "Redis"],
+    framework: ["Django", "Laravel", "ASP.NET", "FastAPI", "React"],
+    devops: ["Docker", "GitHub", "Git"],
+    aiMachineLearning: ["OpenCV", "Ultralytics", "Roboflow", "Pandas", "NumPy"]
   },
+
+  otherSkills: [
+    { name: "Analytical Thinking", rating: 4 },
+    { name: "Time Management", rating: 4 },
+    { name: "Communication & Collaboration", rating: 5 },
+    { name: "Initiative & Self Motivation", rating: 5 },
+    { name: "Adaptability & Resilience", rating: 4 },
+  ],
   
   experience: [
     {
