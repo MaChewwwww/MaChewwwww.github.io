@@ -33,30 +33,38 @@ const CredentialsSection: React.FC = () => {
       icon: '🎓',
       content: (
         <div className="space-y-6">
-          <h3 className="text-xl font-semibold text-white mb-6 flex items-center gap-2">
-            <span className="text-2xl">🎓</span>
+          <h3 className="text-xl font-semibold text-white mb-6 flex items-center gap-3">
+            <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center shadow-lg">
+              <span className="text-xl">🎓</span>
+            </div>
             Academic
           </h3>
           <div className="space-y-6">
             {academicData.map((record, index) => (
-              <div key={index} className="bg-slate-700/30 rounded-xl p-6 border border-slate-600/50">
-                <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-4 mb-4">
+              <div key={index} className="group relative bg-gradient-to-br from-blue-500/10 via-purple-500/5 to-transparent rounded-2xl p-6 border border-blue-500/20 hover:border-blue-400/40 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/10">
+                {/* Decorative corner accent */}
+                <div className="absolute top-0 right-0 w-16 h-16 bg-gradient-to-br from-blue-500/20 to-purple-600/20 rounded-bl-2xl rounded-tr-2xl opacity-50"></div>
+                
+                <div className="relative flex flex-col lg:flex-row lg:items-start lg:justify-between gap-4 mb-4">
                   <div>
-                    <h4 className="text-lg font-semibold text-white mb-1">
+                    <h4 className="text-lg font-semibold text-white mb-1 group-hover:text-blue-300 transition-colors">
                       {record.institution}
                     </h4>
-                    <p className="text-primary font-medium">{record.period}</p>
+                    <p className="text-blue-400 font-medium">{record.period}</p>
                   </div>
                 </div>
                 
                 {/* Academic Details */}
-                <div className="space-y-4">
+                <div className="relative space-y-4">
                   <div>
-                    <h5 className="text-sm font-semibold text-slate-300 mb-2">Academic Performance</h5>
+                    <h5 className="text-sm font-semibold text-blue-200 mb-2 flex items-center gap-2">
+                      <span className="w-1.5 h-1.5 bg-blue-400 rounded-full"></span>
+                      Academic Performance
+                    </h5>
                     <ul className="space-y-1">
                       {record.details.map((detail, detailIndex) => (
-                        <li key={detailIndex} className="text-sm text-slate-400 flex items-start gap-2">
-                          <span className="text-accent mt-1">•</span>
+                        <li key={detailIndex} className="text-sm text-slate-300 flex items-start gap-2">
+                          <span className="text-blue-400 mt-1">•</span>
                           <span>{detail}</span>
                         </li>
                       ))}
@@ -65,11 +73,14 @@ const CredentialsSection: React.FC = () => {
 
                   {record.positions && (
                     <div>
-                      <h5 className="text-sm font-semibold text-slate-300 mb-2">Leadership Positions</h5>
+                      <h5 className="text-sm font-semibold text-blue-200 mb-2 flex items-center gap-2">
+                        <span className="w-1.5 h-1.5 bg-blue-400 rounded-full"></span>
+                        Leadership Positions
+                      </h5>
                       <ul className="space-y-1">
                         {record.positions.map((position, positionIndex) => (
-                          <li key={positionIndex} className="text-sm text-slate-400 flex items-start gap-2">
-                            <span className="text-accent mt-1">•</span>
+                          <li key={positionIndex} className="text-sm text-slate-300 flex items-start gap-2">
+                            <span className="text-blue-400 mt-1">•</span>
                             <span>{position}</span>
                           </li>
                         ))}
@@ -79,11 +90,14 @@ const CredentialsSection: React.FC = () => {
 
                   {record.achievements && (
                     <div>
-                      <h5 className="text-sm font-semibold text-slate-300 mb-2">Achievements</h5>
+                      <h5 className="text-sm font-semibold text-blue-200 mb-2 flex items-center gap-2">
+                        <span className="w-1.5 h-1.5 bg-blue-400 rounded-full"></span>
+                        Achievements
+                      </h5>
                       <ul className="space-y-1">
                         {record.achievements.map((achievement, achievementIndex) => (
-                          <li key={achievementIndex} className="text-sm text-slate-400 flex items-start gap-2">
-                            <span className="text-accent mt-1">•</span>
+                          <li key={achievementIndex} className="text-sm text-slate-300 flex items-start gap-2">
+                            <span className="text-blue-400 mt-1">•</span>
                             <span>{achievement}</span>
                           </li>
                         ))}
@@ -103,38 +117,46 @@ const CredentialsSection: React.FC = () => {
       icon: '📜',
       content: (
         <div className="space-y-6">
-          <h3 className="text-xl font-semibold text-white mb-6 flex items-center gap-2">
-            <span className="text-2xl">📜</span>
+          <h3 className="text-xl font-semibold text-white mb-6 flex items-center gap-3">
+            <div className="w-10 h-10 rounded-full bg-gradient-to-br from-emerald-500 to-green-600 flex items-center justify-center shadow-lg">
+              <span className="text-xl">📜</span>
+            </div>
             Certificates
           </h3>
           <div className="space-y-6">
             {certificateData.map((provider, index) => (
-              <div key={index} className="bg-slate-700/30 rounded-xl p-6 border border-slate-600/50">
-                <div className="flex items-start justify-between gap-4 mb-4">
+              <div key={index} className="group relative bg-gradient-to-br from-emerald-500/10 via-green-500/5 to-transparent rounded-2xl p-6 border border-emerald-500/20 hover:border-emerald-400/40 transition-all duration-300 hover:shadow-lg hover:shadow-emerald-500/10">
+                {/* Decorative side accent */}
+                <div className="absolute left-0 top-4 bottom-4 w-1 bg-gradient-to-b from-emerald-400 to-green-600 rounded-r-full opacity-60"></div>
+                
+                <div className="relative flex items-start justify-between gap-4 mb-4 pl-4">
                   <div>
-                    <h4 className="text-lg font-semibold text-white mb-1">
+                    <h4 className="text-lg font-semibold text-white mb-2 group-hover:text-emerald-300 transition-colors">
                       {provider.provider}
                     </h4>
                   </div>
-                  <span className={`inline-flex px-3 py-1 rounded-full text-xs font-medium ${
-                    provider.type === 'certification' 
-                      ? 'bg-primary/20 text-primary border border-primary/30' 
-                      : provider.type === 'seminar'
-                      ? 'bg-accent/20 text-accent border border-accent/30'
-                      : 'bg-blue-500/20 text-blue-400 border border-blue-500/30'
-                  }`}>
-                    {provider.type.charAt(0).toUpperCase() + provider.type.slice(1)}
-                  </span>
+                  <div className="flex-shrink-0">
+                    <span className={`inline-flex px-4 py-2 rounded-full text-xs font-semibold border-2 ${
+                      provider.type === 'certification' 
+                        ? 'bg-emerald-500/20 text-emerald-300 border-emerald-500/40 shadow-lg shadow-emerald-500/20' 
+                        : provider.type === 'seminar'
+                        ? 'bg-green-500/20 text-green-300 border-green-500/40 shadow-lg shadow-green-500/20'
+                        : 'bg-teal-500/20 text-teal-300 border-teal-500/40 shadow-lg shadow-teal-500/20'
+                    }`}>
+                      {provider.type.charAt(0).toUpperCase() + provider.type.slice(1)}
+                    </span>
+                  </div>
                 </div>
                 
-                <div className="space-y-2">
-                  <h5 className="text-sm font-semibold text-slate-300 mb-3">
+                <div className="relative space-y-2 pl-4">
+                  <h5 className="text-sm font-semibold text-emerald-200 mb-3 flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full"></span>
                     {provider.type === 'certification' ? 'Completed Courses' : 'Attended Sessions'}
                   </h5>
                   <ul className="space-y-1">
                     {provider.certificates.map((certificate, certIndex) => (
-                      <li key={certIndex} className="text-sm text-slate-400 flex items-start gap-2">
-                        <span className="text-accent mt-1">•</span>
+                      <li key={certIndex} className="text-sm text-slate-300 flex items-start gap-2">
+                        <span className="text-emerald-400 mt-1">•</span>
                         <span>{certificate}</span>
                       </li>
                     ))}
@@ -152,25 +174,34 @@ const CredentialsSection: React.FC = () => {
       icon: '🎮',
       content: (
         <div className="space-y-6">
-          <h3 className="text-xl font-semibold text-white mb-6 flex items-center gap-2">
-            <span className="text-2xl">🎮</span>
+          <h3 className="text-xl font-semibold text-white mb-6 flex items-center gap-3">
+            <div className="w-10 h-10 rounded-full bg-gradient-to-br from-purple-500 to-pink-600 flex items-center justify-center shadow-lg">
+              <span className="text-xl">🎮</span>
+            </div>
             Esports
           </h3>
           <div className="space-y-4">
             {esportsData.map((record, index) => (
-              <div key={index} className="bg-slate-700/30 rounded-xl border border-slate-600/50 overflow-hidden">
-                <div className="p-4">
+              <div key={index} className="group relative bg-gradient-to-br from-purple-500/10 via-pink-500/5 to-transparent rounded-2xl border border-purple-500/20 hover:border-purple-400/40 transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/10 overflow-hidden">
+                {/* Gaming-inspired corner decoration */}
+                <div className="absolute top-0 left-0 w-8 h-8 bg-gradient-to-br from-purple-500/30 to-pink-600/30 transform rotate-45 -translate-x-4 -translate-y-4"></div>
+                <div className="absolute bottom-0 right-0 w-6 h-6 bg-gradient-to-tl from-pink-500/30 to-purple-600/30 transform rotate-45 translate-x-3 translate-y-3"></div>
+                
+                <div className="relative p-4">
                   <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-2 mb-2">
                     <div className="flex-1">
-                      <h4 className="text-lg font-semibold text-white mb-1">
+                      <h4 className="text-lg font-semibold text-white mb-1 group-hover:text-purple-300 transition-colors">
                         {record.organization}
                       </h4>
-                      <p className="text-primary font-medium mb-1">{record.role}</p>
-                      <p className="text-slate-400 text-sm">{record.period}</p>
+                      <p className="text-purple-400 font-medium mb-1">{record.role}</p>
+                      <p className="text-slate-400 text-sm flex items-center gap-2">
+                        <span className="w-1 h-1 bg-purple-400 rounded-full"></span>
+                        {record.period}
+                      </p>
                     </div>
                     <button
                       onClick={() => setExpandedEsports(expandedEsports === index ? null : index)}
-                      className="flex items-center gap-2 px-3 py-1.5 bg-slate-600/50 hover:bg-slate-600/70 rounded-lg text-slate-300 hover:text-white transition-all duration-200 text-sm lg:ml-4"
+                      className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-purple-600/30 to-pink-600/30 hover:from-purple-600/50 hover:to-pink-600/50 border border-purple-500/40 rounded-xl text-purple-200 hover:text-white transition-all duration-200 text-sm shadow-lg hover:shadow-purple-500/20 lg:ml-4"
                     >
                       <span>{expandedEsports === index ? 'Less' : 'More'}</span>
                       <svg
@@ -191,13 +222,15 @@ const CredentialsSection: React.FC = () => {
                 <div className={`overflow-hidden transition-all duration-300 ease-in-out ${
                   expandedEsports === index ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
                 }`}>
-                  <div className="px-4 pb-4 border-t border-slate-600/30">
-                    <div className="pt-3">
-                      <ul className="space-y-1">
+                  <div className="relative px-4 pb-4 border-t border-purple-500/20">
+                    {/* Subtle glow effect */}
+                    <div className="absolute inset-0 bg-gradient-to-r from-purple-500/5 to-pink-500/5"></div>
+                    <div className="relative pt-3">
+                      <ul className="space-y-2">
                         {record.description.map((desc, descIndex) => (
-                          <li key={descIndex} className="text-sm text-slate-400 flex items-start gap-2">
-                            <span className="text-accent mt-1">•</span>
-                            <span>{desc}</span>
+                          <li key={descIndex} className="text-sm text-slate-300 flex items-start gap-2">
+                            <span className="text-purple-400 mt-1 font-bold">•</span>
+                            <span className="leading-relaxed">{desc}</span>
                           </li>
                         ))}
                       </ul>
