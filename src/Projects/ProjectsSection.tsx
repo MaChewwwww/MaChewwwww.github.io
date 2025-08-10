@@ -35,7 +35,7 @@ const ProjectsSection: React.FC = () => {
       longDescription: 'A comprehensive e-commerce platform built from scratch with modern technologies. Features include user authentication, product catalog, shopping cart, order management, payment processing, and admin dashboard. The platform supports multiple payment methods and provides real-time inventory tracking.',
       technologies: ['React', 'Node.js', 'MongoDB', 'Stripe'],
       images: [
-        '/images/ecommerce-homepage.png',
+        'public/images/477776521_1112839684190798_8145947970471293594_n.jpg',
         '/images/ecommerce-product-page.png',
         '/images/ecommerce-checkout.png',
         '/images/ecommerce-admin-dashboard.png'

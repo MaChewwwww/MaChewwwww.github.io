@@ -100,23 +100,6 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, isOpen, onClose })
     }
   };
 
-  // Role badge styling
-  const getRoleBadgeClass = (role: string) => {
-    if (role.includes('Full Stack')) {
-      return 'bg-primary/15 text-primary border border-primary/30';
-    } else if (role.includes('Frontend') || role.includes('UI/UX') || role.includes('Designer')) {
-      return 'bg-accent/15 text-accent border border-accent/30';
-    } else if (role.includes('Mobile')) {
-      return 'bg-green-500/15 text-green-400 border border-green-400/30';
-    } else if (role.includes('AI/ML') || role.includes('Data')) {
-      return 'bg-purple-500/15 text-purple-400 border border-purple-400/30';
-    } else if (role.includes('Security')) {
-      return 'bg-red-500/15 text-red-400 border border-red-400/30';
-    } else {
-      return 'bg-slate-500/15 text-slate-400 border border-slate-400/30';
-    }
-  };
-
   const renderTechStack = (technologies: string[]) => {
     return (
       <div className="flex flex-wrap gap-2">
@@ -139,25 +122,12 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, isOpen, onClose })
         {roleArray.map((role, index) => (
           <span
             key={index}
-            className={`inline-flex items-center px-3 py-1.5 rounded-full text-sm font-semibold ${getRoleBadgeClass(role)}`}
+            className="px-3 py-1.5 bg-indigo-500/20 text-indigo-300 border border-indigo-500/30 rounded-md text-sm font-medium"
           >
             {role}
           </span>
         ))}
       </div>
-    );
-  };
-
-  const renderContributions = (challenges: string[]) => {
-    return (
-      <ul className="space-y-3">
-        {challenges.map((challenge, index) => (
-          <li key={index} className="flex items-start gap-3 text-slate-300">
-            <span className="w-2 h-2 bg-gradient-to-r from-primary to-accent rounded-full mt-2 flex-shrink-0"></span>
-            <span className="leading-relaxed">{challenge}</span>
-          </li>
-        ))}
-      </ul>
     );
   };
 
@@ -191,16 +161,16 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, isOpen, onClose })
           {/* Close Button */}
           <button
             onClick={onClose}
-            className="absolute top-6 right-6 z-20 w-12 h-12 text-red-400 hover:text-red-300 transition-colors duration-200 group flex items-center justify-center"
+            className="absolute top-4 right-4 z-20 w-10 h-10 text-red-400 hover:text-red-300 transition-colors duration-200 group flex items-center justify-center bg-black/20 rounded-lg backdrop-blur-sm"
             aria-label="Close modal"
           >
             <svg 
-              width="28" 
-              height="28" 
+              width="20" 
+              height="20" 
               viewBox="0 0 24 24" 
               fill="none" 
               stroke="currentColor" 
-              strokeWidth="1.5" 
+              strokeWidth="2" 
               strokeLinecap="round" 
               strokeLinejoin="round"
               className="transition-transform duration-200 group-hover:scale-110"
@@ -209,10 +179,41 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, isOpen, onClose })
             </svg>
           </button>
 
-          <div className="flex flex-col lg:flex-row max-h-[85vh]">
-            {/* Left Side - Image Carousel */}
-            <div className="lg:w-2/5 relative bg-gradient-to-br from-slate-800/50 to-slate-900/50">
-              <div className="relative h-64 lg:h-full min-h-[300px] lg:min-h-[500px] overflow-hidden">
+          <div className="flex flex-col lg:flex-row max-h-[90vh]">
+            {/* Left Side - Project Info + Carousel */}
+            <div className="lg:w-1/2 relative bg-gradient-to-br from-slate-800/50 to-slate-900/50 flex flex-col">
+              {/* Top 40% - Project Info */}
+              <div className="h-[40%] p-6 bg-gradient-to-br from-slate-800/60 to-slate-900/60 border-b border-slate-600/40">
+                <div className="space-y-4 h-full flex flex-col justify-center">
+                  {/* Date */}
+                  <div className="flex items-center text-sm text-slate-400">
+                    <span className="border-l-2 border-primary pl-3 font-semibold text-slate-300">{project.date}</span>
+                  </div>
+
+                  {/* Project Name */}
+                  <div className="space-y-3 mt-2">
+                    <h2 className="text-xl lg:text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent leading-tight">
+                      {project.name}
+                    </h2>
+                  </div>
+
+                  {/* Tech Stack */}
+                  <div className="space-y-2 mt-3">
+                    {renderTechStack(project.technologies)}
+                  </div>
+
+                  {/* Description */}
+                  <div className="space-y-3 mt-4">
+                    <h3 className="text-xs font-medium text-slate-400 uppercase tracking-wide">Description</h3>
+                    <p className="text-slate-300 leading-relaxed text-xs">
+                      {project.longDescription || project.description}
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Bottom 60% - Image Carousel */}
+              <div className="h-[60%] relative overflow-hidden">
                 {/* Main Image */}
                 <div className="relative w-full h-full">
                   <img
@@ -224,49 +225,42 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, isOpen, onClose })
                   />
                   
                   {/* Gradient Overlay for Better Contrast */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-black/10" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-black/10" />
                   
                   {/* Navigation Arrows */}
                   {displayImages.length > 1 && (
                     <>
                       <button
                         onClick={prevImage}
-                        className="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 bg-black/60 hover:bg-black/80 border border-slate-500/30 hover:border-slate-400/50 rounded-full flex items-center justify-center text-white hover:text-primary transition-all duration-300 hover:scale-110 backdrop-blur-sm"
+                        className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-black/50 hover:bg-black/70 border border-white/20 hover:border-primary/50 rounded-xl flex items-center justify-center text-white hover:text-primary transition-all duration-300 hover:scale-105 backdrop-blur-md"
                       >
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                           <path d="M15 18l-6-6 6-6"/>
                         </svg>
                       </button>
                       <button
                         onClick={nextImage}
-                        className="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 bg-black/60 hover:bg-black/80 border border-slate-500/30 hover:border-slate-400/50 rounded-full flex items-center justify-center text-white hover:text-primary transition-all duration-300 hover:scale-110 backdrop-blur-sm"
+                        className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-black/50 hover:bg-black/70 border border-white/20 hover:border-primary/50 rounded-xl flex items-center justify-center text-white hover:text-primary transition-all duration-300 hover:scale-105 backdrop-blur-md"
                       >
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                           <path d="M9 18l6-6-6-6"/>
                         </svg>
                       </button>
                     </>
                   )}
-
-                  {/* Image Counter */}
-                  {displayImages.length > 1 && (
-                    <div className="absolute top-3 right-3 bg-black/70 px-3 py-1.5 rounded-full text-sm text-white font-medium backdrop-blur-sm">
-                      {currentImageIndex + 1} / {displayImages.length}
-                    </div>
-                  )}
                 </div>
 
-                {/* Thumbnail Navigation */}
+                {/* Centered Thumbnail Navigation */}
                 {displayImages.length > 1 && (
-                  <div className="absolute bottom-3 left-3 flex gap-2">
+                  <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-3 bg-black/40 px-4 py-2 rounded-full backdrop-blur-md">
                     {displayImages.map((_, index) => (
                       <button
                         key={index}
                         onClick={() => goToImage(index)}
                         className={`w-3 h-3 rounded-full border-2 transition-all duration-300 ${
                           index === currentImageIndex 
-                            ? 'bg-primary border-primary shadow-lg shadow-primary/50 scale-110' 
-                            : 'bg-slate-600/60 border-slate-500/60 hover:bg-slate-500 hover:border-slate-400 hover:scale-105'
+                            ? 'bg-primary border-primary shadow-lg shadow-primary/50 scale-125' 
+                            : 'bg-white/30 border-white/50 hover:bg-white/50 hover:border-white/70 hover:scale-110'
                         }`}
                       />
                     ))}
@@ -276,84 +270,82 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, isOpen, onClose })
             </div>
 
             {/* Right Side - Project Details */}
-            <div className="lg:w-3/5 p-6 lg:p-8 overflow-y-auto modal-scrollbar">
-              <div className="space-y-6">
-                {/* Header */}
-                <div className="space-y-4">
-                  <h2 className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent leading-tight">
-                    {project.name}
-                  </h2>
-                </div>
-
-                {/* Tech Stack */}
-                <div className="space-y-3">
-                  <h3 className="text-lg font-semibold text-white flex items-center gap-2">
-                    <span className="w-1 h-5 bg-gradient-to-b from-primary to-accent rounded-full"></span>
-                    Tech Stack
-                  </h3>
-                  {renderTechStack(project.technologies)}
-                </div>
-
-                {/* Description */}
-                <div className="space-y-3">
-                  <h3 className="text-lg font-semibold text-white flex items-center gap-2">
-                    <span className="w-1 h-5 bg-gradient-to-b from-primary to-accent rounded-full"></span>
-                    Description
-                  </h3>
-                  <p className="text-slate-300 leading-relaxed">
-                    {project.longDescription || project.description}
-                  </p>
-                </div>
-
+            <div className="lg:w-1/2 p-8 overflow-y-auto modal-scrollbar bg-gradient-to-br from-slate-900/40 to-slate-800/40">
+              <div className="space-y-8">
                 {/* Key Features */}
                 {project.features && (
-                  <div className="space-y-3">
-                    <h3 className="text-lg font-semibold text-white flex items-center gap-2">
-                      <span className="w-1 h-5 bg-gradient-to-b from-primary to-accent rounded-full"></span>
-                      Key Features
-                    </h3>
-                    <ul className="space-y-2">
+                  <div className="bg-slate-800/40 rounded-lg p-4 border border-slate-700/50">
+                    <div className="flex items-center gap-2 mb-4">
+                      <div className="w-5 h-5 text-emerald-400">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                          <path d="M9 12l2 2 4-4"/>
+                          <circle cx="12" cy="12" r="10"/>
+                        </svg>
+                      </div>
+                      <h3 className="text-base font-semibold text-white">Key Features</h3>
+                    </div>
+                    <div className="space-y-2">
                       {project.features.map((feature, index) => (
-                        <li key={index} className="flex items-start gap-3 text-slate-300">
-                          <span className="w-1.5 h-1.5 bg-primary rounded-full mt-2.5 flex-shrink-0"></span>
+                        <div key={index} className="flex items-start gap-2 text-sm text-slate-300">
+                          <div className="w-1 h-1 bg-emerald-400 rounded-full mt-2 flex-shrink-0"></div>
                           <span className="leading-relaxed">{feature}</span>
-                        </li>
+                        </div>
                       ))}
-                    </ul>
+                    </div>
                   </div>
                 )}
 
                 {/* My Role in this Project */}
-                <div className="space-y-3">
-                  <h3 className="text-lg font-semibold text-white flex items-center gap-2">
-                    <span className="w-1 h-5 bg-gradient-to-b from-primary to-accent rounded-full"></span>
-                    My Role in this Project
-                  </h3>
-                  {renderRoles(project.role)}
+                <div className="bg-slate-800/40 rounded-lg p-4 border border-slate-700/50">
+                  <div className="flex items-center gap-2 mb-4">
+                    <div className="w-5 h-5 text-indigo-400">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                        <circle cx="12" cy="7" r="4"/>
+                      </svg>
+                    </div>
+                    <h3 className="text-base font-semibold text-white">My Role</h3>
+                  </div>
+                  <div className="flex flex-wrap gap-2">
+                    {renderRoles(project.role)}
+                  </div>
                 </div>
 
                 {/* My Contributions in This Project */}
                 {project.challenges && (
-                  <div className="space-y-3">
-                    <h3 className="text-lg font-semibold text-white flex items-center gap-2">
-                      <span className="w-1 h-5 bg-gradient-to-b from-primary to-accent rounded-full"></span>
-                      My Contributions in This Project
-                    </h3>
-                    {renderContributions(project.challenges)}
+                  <div className="bg-slate-800/40 rounded-lg p-4 border border-slate-700/50">
+                    <div className="flex items-center gap-2 mb-4">
+                      <div className="w-5 h-5 text-amber-400">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                          <circle cx="12" cy="12" r="10"/>
+                          <path d="M12 8v4"/>
+                          <path d="M12 16h.01"/>
+                        </svg>
+                      </div>
+                      <h3 className="text-base font-semibold text-white">My Contributions</h3>
+                    </div>
+                    <div className="space-y-2">
+                      {project.challenges.map((challenge, index) => (
+                        <div key={index} className="flex items-start gap-2 text-sm text-slate-300">
+                          <div className="w-1 h-1 bg-amber-400 rounded-full mt-2 flex-shrink-0"></div>
+                          <span className="leading-relaxed">{challenge}</span>
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 )}
 
                 {/* Action Buttons */}
-                <div className="flex flex-col sm:flex-row gap-3 pt-6 border-t border-slate-700/50">
+                <div className="flex flex-col sm:flex-row gap-3 pt-2">
                   {/* Live Demo Button - Always show */}
                   {project.showLiveDemo && project.liveDemo ? (
                     <a
                       href={project.liveDemo}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center justify-center gap-2 bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 px-6 py-3 rounded-lg font-semibold text-white transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-primary/25"
+                      className="flex items-center justify-center gap-2 bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 px-6 py-2.5 rounded-lg font-medium text-white transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-primary/20 border border-primary/20 text-sm"
                     >
-                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                         <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
                         <polyline points="15,3 21,3 21,9"/>
                         <line x1="10" y1="14" x2="21" y2="3"/>
@@ -361,10 +353,11 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, isOpen, onClose })
                       Live Demo
                     </a>
                   ) : (
-                    <div className="flex items-center justify-center gap-2 bg-slate-700/50 border border-slate-600/50 px-6 py-3 rounded-lg font-semibold text-slate-500 cursor-not-allowed opacity-60">
-                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                        <path d="M18.364 18.364A9 9 0 0 0 5.636 5.636m12.728 12.728L5.636 5.636m12.728 12.728L5.636 5.636"/>
-                        <path d="M9 9v10a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2V9"/>
+                    <div className="flex items-center justify-center gap-2 bg-slate-700/50 border border-slate-600/50 px-6 py-2.5 rounded-lg font-medium text-slate-400 cursor-not-allowed opacity-60 text-sm">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                        <circle cx="12" cy="12" r="10"/>
+                        <line x1="15" y1="9" x2="9" y2="15"/>
+                        <line x1="9" y1="9" x2="15" y2="15"/>
                       </svg>
                       Demo Unavailable
                     </div>
@@ -376,18 +369,19 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, isOpen, onClose })
                       href={project.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center justify-center gap-2 bg-slate-800/80 hover:bg-slate-700/80 border border-slate-600/60 hover:border-slate-500/80 px-6 py-3 rounded-lg font-semibold text-white transition-all duration-300 hover:scale-105 backdrop-blur-sm"
+                      className="flex items-center justify-center gap-2 bg-slate-800/80 hover:bg-slate-700/80 border border-slate-600/60 hover:border-slate-500/80 px-6 py-2.5 rounded-lg font-medium text-white transition-all duration-300 hover:scale-105 backdrop-blur-sm hover:shadow-lg text-sm"
                     >
-                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                         <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
                       </svg>
                       View Code
                     </a>
                   ) : (
-                    <div className="flex items-center justify-center gap-2 bg-slate-700/50 border border-slate-600/50 px-6 py-3 rounded-lg font-semibold text-slate-500 cursor-not-allowed opacity-60">
-                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                        <path d="M18.364 18.364A9 9 0 0 0 5.636 5.636m12.728 12.728L5.636 5.636m12.728 12.728L5.636 5.636"/>
-                        <rect x="3" y="11" width="18" height="2" rx="1"/>
+                    <div className="flex items-center justify-center gap-2 bg-slate-700/50 border border-slate-600/50 px-6 py-2.5 rounded-lg font-medium text-slate-400 cursor-not-allowed opacity-60 text-sm">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                        <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                        <circle cx="12" cy="16" r="1"/>
+                        <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
                       </svg>
                       Code Private
                     </div>
