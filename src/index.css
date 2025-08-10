@@ -102,6 +102,28 @@
   }
 }
 
+@keyframes modalSlideIn {
+  0% {
+    transform: scale(0.8) translateY(40px);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes modalSlideOut {
+  0% {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0.8) translateY(40px);
+    opacity: 0;
+  }
+}
+
 /* Slower Typewriter Animation */
 @keyframes typewriter-slow {
   from {
@@ -282,5 +304,66 @@ html {
 @supports (backdrop-filter: blur(10px)) {
   .backdrop-blur-sm {
     backdrop-filter: blur(4px);
+  }
+}
+
+/* Modern Custom Scrollbar Styles */
+/* For Webkit browsers (Chrome, Safari, Edge) */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: rgba(30, 41, 59, 0.3);
+  border-radius: 4px;
+  margin: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #6366F1, #8B5CF6);
+  border-radius: 4px;
+  box-shadow: 0 0 8px rgba(99, 102, 241, 0.3);
+  transition: all 0.3s ease;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #4F46E5, #7C3AED);
+  box-shadow: 0 0 12px rgba(99, 102, 241, 0.5);
+  transform: scale(1.1);
+}
+
+.custom-scrollbar::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+/* Thin scrollbar variant for modal */
+.modal-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.modal-scrollbar::-webkit-scrollbar-track {
+  background: rgba(15, 23, 42, 0.4);
+  border-radius: 3px;
+  margin: 2px;
+}
+
+.modal-scrollbar::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #6366F1, #8B5CF6);
+  border-radius: 3px;
+  box-shadow: 0 0 6px rgba(99, 102, 241, 0.4);
+  transition: all 0.2s ease;
+}
+
+.modal-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #4F46E5, #7C3AED);
+  box-shadow: 0 0 10px rgba(99, 102, 241, 0.6);
+}
+
+/* Firefox scrollbar styling */
+@supports (scrollbar-width: thin) {
+  .custom-scrollbar, .modal-scrollbar {
+    scrollbar-width: thin;
+    scrollbar-color: #6366F1 rgba(30, 41, 59, 0.3);
   }
 }

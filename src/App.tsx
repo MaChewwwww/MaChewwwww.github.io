@@ -1,5 +1,6 @@
 import { HeroSection, personalInfo } from './Information';
 import { AboutSection } from './About';
+import { ProjectsSection } from './Projects';
 import SplashCursor from './Background/SplashCursor';
 
 function App() {
@@ -47,86 +48,7 @@ function App() {
 
         <AboutSection />
 
-        <section id="projects" className="py-20 px-8 bg-surface/30">
-          <div className="container mx-auto max-w-6xl">
-            <h2 className="text-5xl font-bold mb-16 text-center bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent">
-              My Projects
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              <div className="group bg-surface border border-mutedBorder rounded-lg p-6 hover:shadow-glow hover:border-primary/30 hover:-translate-y-2 transition-all duration-300">
-                <div className="h-2 bg-gradient-to-r from-primary to-accent rounded-full mb-6"></div>
-                <h3 className="text-2xl font-semibold mb-4 text-white group-hover:text-primary transition-colors">
-                  Project One
-                </h3>
-                <p className="text-white/70 leading-relaxed mb-6">
-                  Description of your first project. What technologies did you use? What problems did it solve? 
-                  What challenges did you overcome during development?
-                </p>
-                <div className="flex gap-2 flex-wrap mb-4">
-                  <span className="px-3 py-1 bg-primary/10 border border-primary/20 text-primary rounded-full text-sm">React</span>
-                  <span className="px-3 py-1 bg-accent/10 border border-accent/20 text-accent rounded-full text-sm">Node.js</span>
-                  <span className="px-3 py-1 bg-primary/10 border border-primary/20 text-primary rounded-full text-sm">Tailwind</span>
-                </div>
-                <div className="flex gap-3">
-                  <button className="text-primary hover:text-primaryDark transition-colors font-medium">
-                    Live Demo →
-                  </button>
-                  <button className="text-white/60 hover:text-white transition-colors font-medium">
-                    GitHub →
-                  </button>
-                </div>
-              </div>
-
-              <div className="group bg-surface border border-mutedBorder rounded-lg p-6 hover:shadow-glow hover:border-primary/30 hover:-translate-y-2 transition-all duration-300">
-                <div className="h-2 bg-gradient-to-r from-accent to-primary rounded-full mb-6"></div>
-                <h3 className="text-2xl font-semibold mb-4 text-white group-hover:text-primary transition-colors">
-                  Project Two
-                </h3>
-                <p className="text-white/70 leading-relaxed mb-6">
-                  Description of your second project. Highlight the key features and your role in the development. 
-                  What makes this project special or innovative?
-                </p>
-                <div className="flex gap-2 flex-wrap mb-4">
-                  <span className="px-3 py-1 bg-accent/10 border border-accent/20 text-accent rounded-full text-sm">TypeScript</span>
-                  <span className="px-3 py-1 bg-primary/10 border border-primary/20 text-primary rounded-full text-sm">Python</span>
-                  <span className="px-3 py-1 bg-accent/10 border border-accent/20 text-accent rounded-full text-sm">MongoDB</span>
-                </div>
-                <div className="flex gap-3">
-                  <button className="text-primary hover:text-primaryDark transition-colors font-medium">
-                    Live Demo →
-                  </button>
-                  <button className="text-white/60 hover:text-white transition-colors font-medium">
-                    GitHub →
-                  </button>
-                </div>
-              </div>
-
-              <div className="group bg-surface border border-mutedBorder rounded-lg p-6 hover:shadow-glow hover:border-primary/30 hover:-translate-y-2 transition-all duration-300">
-                <div className="h-2 bg-gradient-to-r from-primary to-accent rounded-full mb-6"></div>
-                <h3 className="text-2xl font-semibold mb-4 text-white group-hover:text-primary transition-colors">
-                  Project Three
-                </h3>
-                <p className="text-white/70 leading-relaxed mb-6">
-                  Description of your third project. What challenges did you overcome? What did you learn? 
-                  How did this project help you grow as a developer?
-                </p>
-                <div className="flex gap-2 flex-wrap mb-4">
-                  <span className="px-3 py-1 bg-primary/10 border border-primary/20 text-primary rounded-full text-sm">Vue.js</span>
-                  <span className="px-3 py-1 bg-accent/10 border border-accent/20 text-accent rounded-full text-sm">Firebase</span>
-                  <span className="px-3 py-1 bg-primary/10 border border-primary/20 text-primary rounded-full text-sm">Sass</span>
-                </div>
-                <div className="flex gap-3">
-                  <button className="text-primary hover:text-primaryDark transition-colors font-medium">
-                    Live Demo →
-                  </button>
-                  <button className="text-white/60 hover:text-white transition-colors font-medium">
-                    GitHub →
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
+        <ProjectsSection />
 
         <section id="contact" className="py-20 px-8 text-center border-t border-mutedBorder">
           <div className="container mx-auto max-w-4xl">
