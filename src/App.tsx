@@ -1,6 +1,7 @@
 import { HeroSection, personalInfo } from './Information';
 import { AboutSection } from './About';
 import { ProjectsSection } from './Projects';
+import { CredentialsSection } from './Credentials';
 import SplashCursor from './Background/SplashCursor';
 
 function App() {
@@ -32,6 +33,15 @@ function App() {
             </li>
             <li>
               <a 
+                href="#credentials" 
+                className="text-white/80 font-medium hover:text-primary transition-colors duration-300 relative group"
+              >
+                Credentials
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+              </a>
+            </li>
+            <li>
+              <a 
                 href="#contact" 
                 className="text-white/80 font-medium hover:text-primary transition-colors duration-300 relative group"
               >
@@ -49,6 +59,8 @@ function App() {
         <AboutSection />
 
         <ProjectsSection />
+
+        <CredentialsSection />
 
         <section id="contact" className="py-20 px-8 text-center border-t border-mutedBorder">
           <div className="container mx-auto max-w-4xl">
