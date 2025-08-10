@@ -417,7 +417,7 @@ const ProjectsSection: React.FC = () => {
     const categorized = categorizeTechs(technologies);
     return (
       <div className="flex flex-wrap gap-1">
-        {Object.entries(categorized).flatMap(([cat, techs]) => (
+        {Object.entries(categorized).flatMap(([, techs]) => (
           techs.map((tech) => {
             const { color } = getTechCategory(tech);
             return (
