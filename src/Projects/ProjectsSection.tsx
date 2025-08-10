@@ -28,32 +28,43 @@ const ProjectsSection: React.FC = () => {
   const projects: Project[] = [
     {
       id: '1',
-      date: 'Dec 2024',
-      name: 'E-Commerce Platform',
-      role: ['Full Stack Developer', 'UI/UX Designer'],
-      description: 'A complete e-commerce solution with user authentication, product management, and payment integration.',
-      longDescription: 'A comprehensive e-commerce platform built from scratch with modern technologies. Features include user authentication, product catalog, shopping cart, order management, payment processing, and admin dashboard. The platform supports multiple payment methods and provides real-time inventory tracking.',
-      technologies: ['React', 'Node.js', 'MongoDB', 'Stripe'],
+      date: 'August 2025',
+      name: 'Patient Record Management System',
+      role: ['Backend-Developer'],
+      description: 'A Laravel-MySQL based Patient Record Management System developed by the Research & Development Team of the Commonwealth Information Technology Society (PUPQC) as a proper developmental research project, designed for actual deployment in the campus clinic to manage patient records, inventory, prescriptions, and analytics with secure, role-based access.',
+      longDescription: 'The Patient Record Management System is a Laravel and MySQL-powered web application developed by the Research & Development Team of the Commonwealth Information Technology Society (PUPQC) as part of a proper developmental research initiative. Designed for actual deployment in the PUPQC campus clinic, the system modernizes and integrates the clinic’s core operations, including patient registration, queue management, consultation handling, prescription issuance, and secure medical history storage. It features robust inventory management for medicines, supplies, and equipment, with automated stock deduction linked to prescriptions and usage. The platform supports document issuance, report generation, and trend analytics to assist in health monitoring and decision-making. Secure role-based authentication with audit logging ensures data privacy and compliance, while notification features keep staff informed of critical updates. A centralized dashboard provides real-time insights on patient flow, inventory status, and clinic activities. Docker containerization ensures consistent, scalable deployment, making the system reliable for long-term campus use.',
+      technologies: ['Laravel', 'MySQL', 'MeiliSearch', 'Fuzzy Algorithm'],
       images: [
-        'public/images/477776521_1112839684190798_8145947970471293594_n.jpg',
-        '/images/ecommerce-product-page.png',
-        '/images/ecommerce-checkout.png',
-        '/images/ecommerce-admin-dashboard.png'
+        'public/images/PRMS/Pic1.jpg'
       ],
       features: [
-        'User authentication and profile management',
-        'Product catalog with search and filtering',
-        'Shopping cart and checkout process',
-        'Stripe payment integration',
-        'Order tracking and history',
-        'Admin dashboard for product management',
-        'Responsive design for all devices'
+        "Developed as a proper developmental research project by the R&D Team of the Commonwealth Information Technology Society (PUPQC) for deployment in the campus clinic",
+        "Secure role-based authentication and access control for doctors, nurses, and admins",
+        "Patient registration, categorization (student, faculty, staff, visitor, dependent), and record management",
+        "Queue management with emergency case prioritization",
+        "Consultation module with diagnosis, treatment plan, and prescription recording",
+        "Prescription management integrated with automated inventory deduction",
+        "Inventory management for medicines, supplies, and equipment with expiry and damage tracking",
+        "Medical history tracking with easy retrieval by patient category",
+        "Document issuance and printing for patient needs",
+        "Report generation with filtering by date, diagnosis, and category",
+        "Health trends and patient activity analytics",
+        "Notification system for staff updates",
+        "Audit logs for user activity and record changes",
+        "Dashboard with real-time statistics on patient flow and resource usage",
+        "Docker containerization for consistent deployment and scalability"
       ],
       challenges: [
-        'Implemented secure payment processing with Stripe API',
-        'Optimized database queries for large product catalogs',
-        'Built responsive design that works across all devices',
-        'Created real-time inventory management system'
+        "Served as backend developer for the R&D Team of the Commonwealth Information Technology Society (PUPQC)",
+        "Developed backend modules for inventory tracking and automated deductions",
+        "Implemented prescription creation and integration with inventory management",
+        "Built secure role-based access control in Laravel",
+        "Integrated notification system for staff alerts",
+        "Created dashboard analytics for patient trends and inventory usage",
+        "Optimized MySQL queries for reporting and filtering",
+        "Implemented audit logging for sensitive actions",
+        "Configured and deployed application using Docker containerization",
+        "Ensured data integrity and security through validation and encryption"
       ],
       liveDemo: 'https://demo.com',
       github: 'https://github.com/user/project1',
@@ -62,129 +73,209 @@ const ProjectsSection: React.FC = () => {
     },
     {
       id: '2',
-      date: 'Nov 2024',
-      name: 'Task Management App',
-      role: 'Frontend Developer',
-      description: 'A collaborative task management application with real-time updates and team collaboration features.',
-      longDescription: 'Modern task management application designed for team collaboration. Built with React and Firebase, featuring real-time updates, drag-and-drop functionality, team workspaces, and advanced filtering capabilities.',
-      technologies: ['React', 'TypeScript', 'Firebase', 'Tailwind'],
+      date: 'June 2025',
+      name: 'Attendify - Smart Attendance Tracking System with Facial Recognition',
+      role: ['Lead Developer', 'Full Stack Developer', 'System Architect'],
+      description: 'Attendify is a face recognition-based attendance system that ensures accurate, secure, and efficient tracking with real-time analytics for students and administrators. It simplifies daily attendance processes while reducing errors and enhancing accountability.',
+      longDescription: 'Attendify is an integrated Face Recognition Attendance System developed to enhance accuracy, accountability, and ease in daily attendance tracking across educational institutions. It uses facial recognition for authentication and attendance recording, backed by a centralized API and database management system. Designed with simplicity and security in mind, Attendify provides dedicated interfaces for both students and administrators, along with real-time, personalized analytics.',
+      technologies: ['FastAPI', 'ASP.NET', 'Python', 'OpenCV', 'Tkinter', 'Tailwind CSS', 'JWT'],
       images: [
-        '/images/taskapp-dashboard.png',
-        '/images/taskapp-kanban.png',
-        '/images/taskapp-calendar.png'
+        'public/images/Attendify/logo_white.jfif',
+        'public/images/Attendify/Pic1.jpg',
+        'public/images/Attendify/Pic2.png',
+        'public/images/Attendify/Pic3.png',
       ],
       features: [
-        'Real-time collaborative task management',
-        'Drag-and-drop task organization',
-        'Team workspaces and permissions',
-        'Due date tracking and notifications',
-        'Advanced filtering and search',
-        'File attachments and comments',
-        'Activity timeline and reporting'
+        "Multi-step authentication and user management",
+        "Role-based access control for all user types",
+        "Password reset and account recovery flows",
+        "Full-featured user management system",
+        "Face recognition attendance system",
+        "Heat index-based suspension logic",
+        "Student, faculty, and admin portals",
+        "Dynamic program, course, section, and schedule management",
+        "Custom dashboards for students, faculty, and admins",
+        "Comprehensive reporting with CSV exports",
+        "API access secured with private API key",
+        "JWT authentication with password hashing",
+        "Input validation with soft delete and data integrity",
+        "Two-factor authentication via PUP Webmail"
       ],
       challenges: [
-        'Implemented real-time synchronization across multiple users',
-        'Built complex drag-and-drop interface with smooth animations',
-        'Designed scalable component architecture with TypeScript',
-        'Optimized performance for large task datasets'
+        "Developed full-featured ASP.NET MVC web application with Tailwind CSS and JavaScript",
+        "Built cross-platform desktop app using Python, Tkinter, and OpenCV with integrated dependencies",
+        "Implemented face recognition attendance system using OpenCV and face_recognition library",
+        "Created RESTful Web API with FastAPI, Python, and SQLite backend",
+        "Designed and maintained centralized SQLite database",
+        "Integrated data analytics using Chart.js for web and Matplotlib for desktop",
+        "Engineered token-based API authentication and ASP.NET session management",
+        "Implemented heat index suspension logic for safety compliance",
+        "Designed role-based access control and multi-step authentication",
+        "Built student, faculty, and admin portals with custom dashboards",
+        "Developed reporting system with CSV export capabilities",
+        "Ensured data integrity with input validation and soft delete functionality",
+        "Secured API endpoints with private API keys and JWT authentication",
+        "Integrated two-factor authentication via PUP Webmail"
+      ],
+      liveDemo: 'https://demo.com',
+      github: 'https://github.com/user/project1',
+      showLiveDemo: false,
+      showGithub: false
+    },
+    {
+      id: '3',
+      date: 'January 2025',
+      name: 'IskoBytes - The Best of Bites and Bytes of PUPQC',
+      role: 'Full-stack Developer',
+      description: 'IskoBytes is a mobile platform for PUPQC entrepreneurs, offering shop creation, POS, analytics, and secure authentication to empower campus businesses.',
+      longDescription: 'IskoBytes is a FlutterFlow-powered mobile app that bridges tradition and innovation for PUPQC’s student entrepreneurs. It offers a digital marketplace with shop creation, product management, order processing, and role-based access for students, faculty, and admins. Key features include multi-step authentication, two-factor security via PUP Webmail, real-time notifications, POS, reviews, CSV reports, and analytics. Beyond commerce, it adds a face recognition attendance system and heat index suspension logic. A static, responsive website built with Tailwind CSS and Animate.css showcases the app’s capabilities.',
+      technologies: ['Flutterflow', 'Firebase', 'Dart'],
+      images: [
+        'public/images/IskoBytes/Pic1.png',
+        'public/images/IskoBytes/Pic2.png',
+        'public/images/IskoBytes/Pic3.png',
+        'public/images/IskoBytes/Pic4.png',
+        'public/images/IskoBytes/Pic5.png',
+        'public/images/IskoBytes/Pic6.png',
+        'public/images/IskoBytes/Pic7.png'
+
+      ],
+      features: [
+        "Multi-step authentication and user management",
+        "Role-based access control for all user types",
+        "Password reset and account recovery",
+        "Two-factor authentication via PUP Webmail",
+        "Student, faculty, and admin portals",
+        "Custom dashboards for each user type",
+        "Shop creation and management",
+        "Product creation with images, pricing, and descriptions",
+        "Marketplace with category and price filtering",
+        "Built-in product review and rating system",
+        "Point of Sale (POS) for in-person transactions",
+        "Admin product approval workflow",
+        "Data analytics with sales and top-product insights",
+        "CSV export for reports",
+        "Heat index-based suspension logic",
+        "Real-time notifications for orders and updates",
+        "Face recognition attendance system",
+        "Secure API access via API key and JWT"
+      ],
+      challenges: [
+        "Designed and developed the FlutterFlow mobile app from scratch",
+        "Built complete authentication flows with JWT, password hashing, and PUP Webmail 2FA",
+        "Implemented role-based access control for students, faculty, and admins",
+        "Created dynamic shop, product, course, and schedule management modules",
+        "Developed face recognition attendance system with OpenCV and Python backend",
+        "Integrated heat index suspension automation logic",
+        "Engineered analytics dashboards using Chart.js (web) and Matplotlib (desktop)",
+        "Implemented CSV export for reporting",
+        "Built a secure Web API using FastAPI, Python, and SQLite",
+        "Designed centralized SQLite database schema",
+        "Added input validation, soft delete, and data integrity safeguards",
+        "Secured API endpoints with private API keys and token-based auth",
+        "Created a responsive static website using Tailwind CSS and Animate.css to showcase the app"
       ],
       liveDemo: 'https://demo.com',
       github: 'https://github.com/user/project2',
       showLiveDemo: false,
-      showGithub: true
-    },
-    {
-      id: '3',
-      date: 'Oct 2024',
-      name: 'Data Analytics Dashboard',
-      role: ['Full Stack Developer', 'Data Analyst'],
-      description: 'Interactive dashboard for data visualization and analytics with real-time charts and reports.',
-      longDescription: 'Comprehensive analytics dashboard for business intelligence. Features interactive charts, real-time data processing, custom report generation, and advanced filtering. Built to handle large datasets with optimized performance.',
-      technologies: ['Vue.js', 'Python', 'PostgreSQL', 'Chart.js'],
-      images: [
-        '/images/analytics-dashboard.png',
-        '/images/analytics-charts.png',
-        '/images/analytics-reports.png'
-      ],
-      features: [
-        'Interactive data visualizations with Chart.js',
-        'Real-time data processing and updates',
-        'Custom report generation and export',
-        'Advanced filtering and data slicing',
-        'User role-based access control',
-        'Automated data refresh and caching',
-        'Responsive dashboard layouts'
-      ],
-      challenges: [
-        'Optimized database queries for large datasets',
-        'Implemented real-time data streaming with WebSockets',
-        'Built complex data aggregation algorithms',
-        'Created responsive charts that work on mobile devices'
-      ],
-      liveDemo: 'https://demo.com',
-      github: 'https://github.com/user/project3',
-      showLiveDemo: true,
       showGithub: false
     },
     {
       id: '4',
-      date: 'Sep 2024',
-      name: 'Mobile Banking App',
-      role: ['Mobile Developer', 'Security Consultant'],
-      description: 'Secure mobile banking application with biometric authentication and transaction management.',
-      longDescription: 'High-security mobile banking application built with React Native. Implements multiple layers of security including biometric authentication, encryption, and fraud detection. Features comprehensive transaction management and account oversight.',
-      technologies: ['React Native', 'Node.js', 'MySQL', 'JWT'],
+      date: 'January 2025',
+      name: 'COBOL Case Study',
+      role: 'Lead Developer',
+      description: 'This project delivers three COBOL programs that calculate student grades, analyze regional sales, and generate payroll reports using standard COBOL features for input, calculations, logic, and formatted output.',
+      longDescription: 'The project "COBOL CASE 2024-2025" is a collection of three distinct COBOL programs developed as final requirements for a structured programming course. The first program calculates a student\'s quiz average and determines the grade equivalent using a provided transmutation table. The second program processes sales data for three salesmen across five regions, calculating regional averages and identifying the highest and lowest average sales. The third program is a payroll system that computes basic pay, overtime pay, deductions, and net pay for employees based on input file data and specific conditions.',
+      technologies: ['COBOL', 'Git'],
       images: [
-        '/images/banking-app-login.png',
-        '/images/banking-app-dashboard.png',
-        '/images/banking-app-transactions.png'
+        'public/images/COBOL/Pic1.jpg'
       ],
       features: [
-        'Biometric authentication (fingerprint/face)',
-        'Secure transaction processing',
-        'Account balance and history tracking',
-        'Bill payment and money transfer',
-        'ATM and branch locator',
-        'Push notifications for transactions',
-        'Multi-factor authentication'
+        "Quiz Grade Calculator: Computes a weighted average of five quizzes and determines a grade equivalent using a specific transmutation table.",
+        "Sales Report Generator: Processes regional sales data, calculates average sales per region, and identifies the highest and lowest average sales.",
+        "Payroll System: Calculates basic pay, overtime pay, total deductions, and net pay for employees based on specified conditions and input data.",
+        "Data Import/Export: Ability to read and load data from external sources and export processed results to new files.",
+        "Data Analytics: Performs small-scale data analysis to provide additional insights beyond the basic requirements.",
+        "Search and Filter: Includes functions to search for specific records and filter data based on certain criteria.",
+        "Formatted Output: Produces clean, readable reports for each case study with specific layouts as requested."
       ],
       challenges: [
-        'Implemented bank-level security protocols',
-        'Built secure biometric authentication system',
-        'Optimized app performance for various devices',
-        'Created offline functionality for critical features'
+        "I was the lead developer and full-stack developer for this project.",
+        "Architectural Design: I was responsible for designing the overall structure of each COBOL program, including the IDENTIFICATION, ENVIRONMENT, DATA, and PROCEDURE divisions.",
+        "Advanced Functionality: I implemented the logic for data loading, exporting, data analytics, searching, and filtering, significantly expanding the scope of the project beyond the basic requirements.",
+        "Logic Implementation: I wrote all the core COBOL code for each case study, implementing the mathematical formulas for the quiz average, sales averages, and payroll calculations (basic pay, overtime, and net pay).",
+        "User Interface (UI) Development: I designed and implemented the ACCEPT and DISPLAY logic for Case Study #2 to handle data entry and display the outputs according to the specified layouts.",
+        "Debugging and Testing: I conducted comprehensive testing and debugging to ensure that each program functioned correctly and produced the accurate outputs as required by the case study conditions.",
+        "Documentation: I was responsible for documenting the program logic and ensuring the final output matched the requested layouts for all three case studies."
       ],
       github: 'https://github.com/user/project4',
       showLiveDemo: false,
-      showGithub: true
+      showGithub: false
     },
     {
       id: '5',
-      date: 'Aug 2024',
-      name: 'AI Chat Bot',
-      role: 'AI/ML Engineer',
-      description: 'Intelligent chatbot with natural language processing for customer support automation.',
-      longDescription: 'Advanced AI chatbot powered by machine learning models for customer support automation. Features natural language understanding, context awareness, and integration with multiple platforms. Continuously learns from interactions to improve responses.',
-      technologies: ['Python', 'TensorFlow', 'Flask', 'OpenAI'],
+      date: 'January 2025',
+      name: 'Data Structures & Algorithm Case Study',
+      role: 'Lead Developer',
+      description: 'This project is a Python command-line tool that simulates a web browser\'s history using an N-nary tree data structure. It allows users to visit, go back, and go forward through pages. The program also performs analytics, exports the data to a JSON file, and generates an HTML website to visualize the navigation history and its insights.',
+      longDescription: 'The "Navigation History" project is a final case study for a Data Structures and Algorithms course at the Polytechnic University of the Philippines. The application utilizes an N-nary tree data structure to model a user\'s Browse journey, with each node representing a visited URL. Users can interact with this history through a command-line interface (CLI) using commands like visit, back, and forward. To extend the project\'s functionality beyond the basic requirements, I implemented the ability to export the navigation history and data analytics to JSON files. This data is then consumed by a single-page HTML website that I developed, which visualizes the navigation tree and displays insights such as the most frequently visited URLs through pie and bar charts.',
+      technologies: ['Python', 'HTML5', 'Tailwind CSS', 'Git'],
       images: [
-        '/images/chatbot-interface.png',
-        '/images/chatbot-admin.png',
-        '/images/chatbot-analytics.png'
+        'public/images/DSA/Pic1.jpg'
       ],
       features: [
-        'Natural language processing and understanding',
-        'Context-aware conversation handling',
-        'Multi-platform integration (web, mobile, Slack)',
-        'Sentiment analysis and emotion detection',
-        'Automated ticket creation and routing',
-        'Learning from conversation history',
-        'Multilingual support'
+        "N-nary Tree Data Structure: Models navigation history with nodes for each URL, parent pointers for 'back' functionality, and child nodes for 'forward' functionality.",
+        "Command-Line Interface (CLI): Allows users to interact with the history via 'visit', 'back', 'forward', and 'clear' commands.",
+        "Data Serialization: Exports the complete navigation history tree to a JSON file, making the data portable and persistent.",
+        "Web Visualization: Automatically opens a single-page HTML website that reads the exported JSON file to visualize the navigation history as a tree.",
+        "Data Analytics: Performs analysis to identify and count the top 10 most visited URLs, saving this information to a JSON file.",
+        "Pie Chart Visualization: Generates data for a pie chart, saving it as a JSON file, to represent the top 5 most visited URLs and an 'others' category.",
+        "Efficient Algorithms: Uses linear time complexity for tree traversal and counting, with logarithmic overhead for sorting operations.",
+        "Styled Interface: Employs colored ASCII art for a visually engaging CLI and uses Tailwind CSS for a modern, responsive web interface."
       ],
       challenges: [
-        'Trained custom NLP models for domain-specific knowledge',
-        'Implemented context-aware conversation flow',
-        'Built scalable architecture for high-volume interactions',
-        'Created seamless handoff to human agents'
+        "I was the lead developer and full-stack developer for this project.",
+        "Core Logic: I designed and implemented the 'Node' and 'NavigationHistory' classes, which form the core N-nary tree data structure.",
+        "Advanced Features: I developed the logic for exporting the entire tree structure to a JSON file and for generating the top 10 URL and pie chart data analytics.",
+        "Visualization: I created the single-page HTML website that reads the generated JSON files and uses a visualization library to display the navigation history tree and analytics.",
+        "Algorithm Optimization: I ensured the implementation of efficient algorithms for tree traversal (O(m)) and URL counting (O(m)), and utilized a Counter for sorting, resulting in a time complexity of O(k log k) for getting the top URLs.",
+        "Debugging and Testing: I was responsible for testing the entire system, ensuring that the CLI, data export, and web visualization components all worked together seamlessly and accurately."
+      ],
+      liveDemo: 'https://demo.com',
+      github: 'https://github.com/user/project5',
+      showLiveDemo: false,
+      showGithub: false
+    },
+    {
+      id: '6',
+      date: 'June 2024',
+      name: 'C++ Case Study',
+      role: 'Full-Stack Developer',
+      description: 'This C program is a menu-driven banking system where users can register, log in, and manage their accounts by depositing, withdrawing, and checking their balance. It also includes an admin menu to approve new users and view all transactions and accounts. The project was a final requirement for a Programming 2 course.',
+      longDescription: 'Developed as a final requirement for a Programming 2 course, this project is a comprehensive C-based, menu-driven program that simulates a bank account management system. The program is structured with distinct user roles: a standard user and an administrator. New users can register by providing their account details, which are stored in a pending_users.dat file. The administrator has a separate login to access an admin menu, where they can approve or deny pending users, moving them to users.dat or denied_users.dat, respectively. Once a user is approved, they can log in to a transaction menu to perform balance inquiries, deposits, and withdrawals. A key feature is the robust authentication system, which includes PIN verification with a three-try limit, after which the user is locked out. To elevate the project beyond the basic case study, I implemented additional features such as colored text for a better user experience and integrated proper authentication, filtering, and searching capabilities.',
+      technologies: ['C++'],
+      images: [
+        'public/images/C++/Pic1.jpg'
+      ],
+      features: [
+        "File Handling: The program reads and writes data to three separate files: `pending_users.dat`, `users.dat`, and `denied_users.dat`.",
+        "Menu-Driven Interface: The program is completely menu-driven with options for different functionalities, enhanced with colored text for a better user experience.",
+        "Proper Authentication: Implements a secure login system with account number, password, and a 6-digit PIN verification with a 3-try limit. After three failed attempts, the account is locked out.",
+        "Admin Panel: A separate menu for administrators to manage user registrations (approve/deny) and view all registered users and transactions.",
+        "Transaction Processing: Supports Balance Inquiry, Deposit, and Withdrawal transactions, with checks for insufficient funds during withdrawals.",
+        "Data Management: Includes advanced functions for searching and filtering data, providing a more robust system.",
+        "Error Handling: Provides clear error messages for invalid PIN, incorrect password, and insufficient funds.",
+        "Input Validation: Validates user input, such as ensuring a 10-digit account number and a 6-digit PIN."
+      ],
+      challenges: [
+        "As the sole developer, I was responsible for the entire project.",
+        "Architectural Design: I designed the entire system architecture, including the file structures (`struct PendingUser`, `struct RegisteredUser`, etc.) and the program flow.",
+        "Core Logic Implementation: I wrote the main logic for user registration, login, and transaction processing, including the PIN verification with a 3-try limit and insufficient funds checks.",
+        "Advanced Features: I went beyond the basic requirements by adding features such as colored text for the interface and implementing functions for filtering and searching data.",
+        "Admin System Development: I was responsible for creating the admin panel, including the secure login, and the functions to approve, deny, and list users and transactions.",
+        "File Handling: I implemented the file handling functions to read from and write to the `.dat` files, ensuring data persistence and integrity.",
+        "Debugging and Testing: I conducted extensive debugging and testing to ensure all functionalities, from user registration to transactions, worked flawlessly and handled various edge cases."
       ],
       liveDemo: 'https://demo.com',
       github: 'https://github.com/user/project5',
@@ -250,45 +341,95 @@ const ProjectsSection: React.FC = () => {
     setSelectedProject(null);
   };
 
-  const getTechBadgeClass = (tech: string) => {
-    const techLower = tech.toLowerCase();
-    if (techLower.includes('react') || techLower.includes('vue') || techLower.includes('angular')) {
-      return 'bg-blue-500/15 text-blue-400 border border-blue-400/30';
-    } else if (techLower.includes('node') || techLower.includes('express') || techLower.includes('python') || techLower.includes('flask')) {
-      return 'bg-green-500/15 text-green-400 border border-green-400/30';
-    } else if (techLower.includes('typescript') || techLower.includes('javascript')) {
-      return 'bg-yellow-500/15 text-yellow-400 border border-yellow-400/30';
-    } else if (techLower.includes('mongodb') || techLower.includes('mysql') || techLower.includes('postgresql')) {
-      return 'bg-purple-500/15 text-purple-400 border border-purple-400/30';
-    } else if (techLower.includes('tailwind') || techLower.includes('css') || techLower.includes('sass')) {
-      return 'bg-cyan-500/15 text-cyan-400 border border-cyan-400/30';
-    } else if (techLower.includes('firebase') || techLower.includes('aws') || techLower.includes('cloud')) {
-      return 'bg-orange-500/15 text-orange-400 border border-orange-400/30';
-    } else {
-      return 'bg-slate-500/15 text-slate-400 border border-slate-400/30';
+  // Categorize and color techs like AboutSection
+  const techCategories = [
+    {
+      name: 'Backend',
+      color: 'bg-purple-500/15 text-purple-200 border border-purple-400/20',
+      match: [
+    'node', 'express', 'python', 'flask', 'fastapi', 'asp.net', 'jwt', 'tkinter', 'cobol', 'c++'
+      ]
+    },
+    {
+      name: 'Frontend',
+      color: 'bg-blue-500/15 text-blue-200 border border-blue-400/20',
+      match: [
+        'react', 'vue', 'angular', 'tailwind', 'tailwind css', 'css', 'sass', 'html', 'dart'
+      ]
+    },
+    {
+      name: 'Database',
+      color: 'bg-green-500/15 text-green-200 border border-green-400/20',
+      match: [
+        'mongodb', 'mysql', 'postgresql', 'sqlite', 'typescript', 'stripe'
+      ]
+    },
+    {
+      name: 'Framework',
+      color: 'bg-cyan-500/15 text-cyan-200 border border-cyan-400/20',
+      match: [
+        'next.js', 'vite', 'django', 'flask', 'fastapi', 'asp.net', 'tkinter', 'flutter', 'flutterflow', 'laravel'
+      ]
+    },
+    {
+      name: 'DevOps & Tools',
+      color: 'bg-orange-500/15 text-orange-200 border border-orange-400/20',
+      match: [
+        'firebase', 'aws', 'cloud', 'docker', 'github', 'git', 'azure', 'meilisearch'
+      ]
+    },
+    {
+      name: 'AI & Machine Learning',
+      color: 'bg-yellow-500/15 text-yellow-200 border border-yellow-400/20',
+      match: [
+        'tensorflow', 'openai', 'opencv', 'ai', 'machine learning', 'ml', 'fuzzy algorithm', 'fuzzy'
+      ]
     }
+  ];
+
+  const getTechCategory = (tech: string) => {
+    const techLower = tech.toLowerCase();
+    for (const cat of techCategories) {
+      if (cat.match.some(m => techLower.includes(m))) {
+        return cat;
+      }
+    }
+    return {
+      name: 'Other',
+      color: 'bg-slate-500/15 text-slate-400 border border-slate-400/30',
+      match: []
+    };
   };
 
+  // Categorize techs for display
+  const categorizeTechs = (technologies: string[]) => {
+    const categorized: { [key: string]: string[] } = {};
+    technologies.forEach(tech => {
+      const cat = getTechCategory(tech).name;
+      if (!categorized[cat]) categorized[cat] = [];
+      categorized[cat].push(tech);
+    });
+    return categorized;
+  };
+
+  // Render tech stack with categories and colors
   const renderTechStack = (technologies: string[]) => {
-    // Show max 5 technologies in the table, with "+" indicator if more
-    const displayTechs = technologies.slice(0, 5);
-    const hasMore = technologies.length > 5;
-    
+    const categorized = categorizeTechs(technologies);
     return (
       <div className="flex flex-wrap gap-1">
-        {displayTechs.map((tech, index) => (
-          <span 
-            key={index}
-            className={`inline-flex items-center px-2 lg:px-2.5 py-0.5 lg:py-1 rounded-md text-xs font-semibold ${getTechBadgeClass(tech)}`}
-          >
-            {tech}
-          </span>
+        {Object.entries(categorized).flatMap(([cat, techs]) => (
+          techs.map((tech) => {
+            const { color } = getTechCategory(tech);
+            return (
+              <span
+                key={tech}
+                className={`inline-flex items-center px-2 py-0.5 rounded-md text-xs font-semibold ${color}`}
+              >
+                {tech}
+              </span>
+            );
+          })
         ))}
-        {hasMore && (
-          <span className="inline-flex items-center px-2 lg:px-2.5 py-0.5 lg:py-1 rounded-md text-xs font-semibold bg-slate-600/15 text-slate-400 border border-slate-500/30">
-            +{technologies.length - 5}
-          </span>
-        )}
       </div>
     );
   };

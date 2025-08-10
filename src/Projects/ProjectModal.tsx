@@ -80,40 +80,91 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, isOpen, onClose })
     }
   };
 
-  // Tech stack styling matching the table
-  const getTechBadgeClass = (tech: string) => {
-    const techLower = tech.toLowerCase();
-    if (techLower.includes('react') || techLower.includes('vue') || techLower.includes('angular')) {
-      return 'bg-blue-500/15 text-blue-400 border border-blue-400/30';
-    } else if (techLower.includes('node') || techLower.includes('express') || techLower.includes('python') || techLower.includes('flask')) {
-      return 'bg-green-500/15 text-green-400 border border-green-400/30';
-    } else if (techLower.includes('typescript') || techLower.includes('javascript')) {
-      return 'bg-yellow-500/15 text-yellow-400 border border-yellow-400/30';
-    } else if (techLower.includes('mongodb') || techLower.includes('mysql') || techLower.includes('postgresql')) {
-      return 'bg-purple-500/15 text-purple-400 border border-purple-400/30';
-    } else if (techLower.includes('tailwind') || techLower.includes('css') || techLower.includes('sass')) {
-      return 'bg-cyan-500/15 text-cyan-400 border border-cyan-400/30';
-    } else if (techLower.includes('firebase') || techLower.includes('aws') || techLower.includes('cloud')) {
-      return 'bg-orange-500/15 text-orange-400 border border-orange-400/30';
-    } else {
-      return 'bg-slate-500/15 text-slate-400 border border-slate-400/30';
+  // Categorize and color techs
+  const techCategories = [
+    {
+      name: 'Backend',
+      color: 'bg-purple-500/15 text-purple-200 border border-purple-400/20',
+      match: [
+    'node', 'express', 'python', 'flask', 'cobol', 'c++'
+      ]
+    },
+    {
+      name: 'Frontend',
+      color: 'bg-blue-500/15 text-blue-200 border border-blue-400/20',
+      match: [
+    'react', 'vue', 'angular', 'tailwind', 'tailwind css', 'css', 'sass', 'html', 'tkinter', 'dart'
+      ]
+    },
+    {
+      name: 'Database',
+      color: 'bg-green-500/15 text-green-200 border border-green-400/20',
+      match: [
+    'mongodb', 'mysql', 'postgresql', 'sqlite', 'typescript', 'stripe'
+      ]
+    },
+    {
+      name: 'Framework',
+      color: 'bg-cyan-500/15 text-cyan-200 border border-cyan-400/20',
+      match: [
+    'next.js', 'vite', 'django', 'flask', 'fastapi', 'asp.net', 'flutter', 'flutterflow', 'laravel'
+      ]
+    },
+    {
+      name: 'DevOps & Tools',
+      color: 'bg-orange-500/15 text-orange-200 border border-orange-400/20',
+      match: [
+    'firebase', 'aws', 'cloud', 'docker', 'github', 'git', 'azure', 'meilisearch', 'mellisearch'
+      ]
+    },
+    {
+      name: 'AI & Machine Learning',
+      color: 'bg-yellow-500/15 text-yellow-200 border border-yellow-400/20',
+      match: [
+    'tensorflow', 'openai', 'opencv', 'ai', 'machine learning', 'ml', 'fuzzy algorithm'
+      ]
+    },
+    {
+      name: 'Security',
+      color: 'bg-red-500/15 text-red-200 border border-red-400/20',
+      match: [
+        'jwt', 'security', 'auth', 'authentication', 'authorization'
+      ]
     }
+  ];
+
+  const getTechCategory = (tech: string) => {
+    const techLower = tech.toLowerCase();
+    for (const cat of techCategories) {
+      if (cat.match.some(m => techLower.includes(m))) {
+        return cat;
+      }
+    }
+    return {
+      name: 'Other',
+      color: 'bg-slate-500/15 text-slate-400 border border-slate-400/30',
+      match: []
+    };
   };
 
   const renderTechStack = (technologies: string[]) => {
     return (
       <div className="flex flex-wrap gap-2">
-        {technologies.map((tech, index) => (
-          <span
-            key={index}
-            className={`inline-flex items-center px-3 py-1.5 rounded-md text-sm font-semibold ${getTechBadgeClass(tech)}`}
-          >
-            {tech}
-          </span>
-        ))}
+        {technologies.map((tech, index) => {
+          const { color } = getTechCategory(tech);
+          return (
+            <span
+              key={index}
+              className={`inline-flex items-center px-3 py-1.5 rounded-md text-sm font-semibold ${color}`}
+            >
+              {tech}
+            </span>
+          );
+        })}
       </div>
     );
   };
+
 
   const renderRoles = (roles: string | string[]) => {
     const roleArray = Array.isArray(roles) ? roles : [roles];
@@ -180,11 +231,11 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, isOpen, onClose })
           </button>
 
           <div className="flex flex-col lg:flex-row max-h-[90vh]">
-            {/* Left Side - Project Info + Carousel */}
-            <div className="lg:w-1/2 relative bg-gradient-to-br from-slate-800/50 to-slate-900/50 flex flex-col">
-              {/* Top 40% - Project Info */}
-              <div className="h-[40%] p-6 bg-gradient-to-br from-slate-800/60 to-slate-900/60 border-b border-slate-600/40">
-                <div className="space-y-4 h-full flex flex-col justify-center">
+            {/* Left Side - Project Info + Carousel (fixed layout) */}
+            <div className="lg:w-1/2 flex flex-col min-h-0 bg-gradient-to-br from-slate-800/50 to-slate-900/50">
+              {/* Top - Project Info */}
+              <div className="p-6 bg-gradient-to-br from-slate-800/60 to-slate-900/60 border-b border-slate-600/40 flex-shrink-0">
+                <div className="space-y-4 flex flex-col justify-center">
                   {/* Date */}
                   <div className="flex items-center text-sm text-slate-400">
                     <span className="border-l-2 border-primary pl-3 font-semibold text-slate-300">{project.date}</span>
@@ -212,8 +263,8 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, isOpen, onClose })
                 </div>
               </div>
 
-              {/* Bottom 60% - Image Carousel */}
-              <div className="h-[60%] relative overflow-hidden">
+              {/* Bottom - Image Carousel */}
+              <div className="flex-1 min-h-0 relative overflow-hidden">
                 {/* Main Image */}
                 <div className="relative w-full h-full">
                   <img
@@ -223,10 +274,8 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, isOpen, onClose })
                       isAnimating ? 'scale-105 opacity-60' : 'scale-100 opacity-100'
                     }`}
                   />
-                  
                   {/* Gradient Overlay for Better Contrast */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-black/10" />
-                  
                   {/* Navigation Arrows */}
                   {displayImages.length > 1 && (
                     <>
@@ -249,7 +298,6 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, isOpen, onClose })
                     </>
                   )}
                 </div>
-
                 {/* Centered Thumbnail Navigation */}
                 {displayImages.length > 1 && (
                   <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-3 bg-black/40 px-4 py-2 rounded-full backdrop-blur-md">
