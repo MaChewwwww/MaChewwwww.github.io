@@ -14,15 +14,18 @@ export const academicData: AcademicRecord[] = [
       "Second Year - 1st Semester: 1.57 GWA - Dean's Lister",
       "Second Year - 2nd Semester: 1.46 GWA - President's Lister",
       "First Year - 1st Semester: 1.29 GWA - President's Lister",
-      "First Year - 2nd Semester: 1.33 GWA - President's Lister"
+      "First Year - 2nd Semester: 1.33 GWA - President's Lister",
+      "Rank 3 Among Overall BSIT First Year Students",
+      "Iskolar ni Gob (Rizal) - Nina Ynares"
     ],
     positions: [
       "BSIT 1-1: Public Relation Officer",
       "BSIT 2-1: Auditor",
-      "CommITs: Backend Developer"
+      "CommITs A.Y. 2024-2025: Backend Developer",
+      "Google Developer Group: Web-Dev Department Member"
     ],
     achievements: [
-      "Iskolar ni Gob (Rizal) - Nina Ynares"
+      "ProtoHype Hackathon - 1st Place (IT Month 2025)",
     ]
   },
   {
