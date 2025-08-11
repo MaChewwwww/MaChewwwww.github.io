@@ -35,7 +35,7 @@ const ProjectsSection: React.FC = () => {
       longDescription: 'The Patient Record Management System is a Laravel and MySQL-powered web application developed by the Research & Development Team of the Commonwealth Information Technology Society (PUPQC) as part of a proper developmental research initiative. Designed for actual deployment in the PUPQC campus clinic, the system modernizes and integrates the clinic’s core operations, including patient registration, queue management, consultation handling, prescription issuance, and secure medical history storage. It features robust inventory management for medicines, supplies, and equipment, with automated stock deduction linked to prescriptions and usage. The platform supports document issuance, report generation, and trend analytics to assist in health monitoring and decision-making. Secure role-based authentication with audit logging ensures data privacy and compliance, while notification features keep staff informed of critical updates. A centralized dashboard provides real-time insights on patient flow, inventory status, and clinic activities. Docker containerization ensures consistent, scalable deployment, making the system reliable for long-term campus use.',
       technologies: ['Laravel', 'MySQL', 'MeiliSearch', 'Fuzzy Algorithm'],
       images: [
-        'public/images/PRMS/Pic1.jpg'
+  '/images/PRMS/Pic1.jpg'
       ],
       features: [
         "Developed as a proper developmental research project by the R&D Team of the Commonwealth Information Technology Society (PUPQC) for deployment in the campus clinic",
@@ -80,10 +80,10 @@ const ProjectsSection: React.FC = () => {
       longDescription: 'Attendify is an integrated Face Recognition Attendance System developed to enhance accuracy, accountability, and ease in daily attendance tracking across educational institutions. It uses facial recognition for authentication and attendance recording, backed by a centralized API and database management system. Designed with simplicity and security in mind, Attendify provides dedicated interfaces for both students and administrators, along with real-time, personalized analytics.',
       technologies: ['FastAPI', 'ASP.NET', 'Python', 'OpenCV', 'Tkinter', 'Tailwind CSS', 'JWT'],
       images: [
-        'public/images/Attendify/logo_white.jfif',
-        'public/images/Attendify/Pic1.jpg',
-        'public/images/Attendify/Pic2.png',
-        'public/images/Attendify/Pic3.png',
+  '/images/Attendify/logo_white.jfif',
+  '/images/Attendify/Pic1.jpg',
+  '/images/Attendify/Pic2.png',
+  '/images/Attendify/Pic3.png',
       ],
       features: [
         "Multi-step authentication and user management",
@@ -131,13 +131,13 @@ const ProjectsSection: React.FC = () => {
       longDescription: 'IskoBytes is a FlutterFlow-powered mobile app that bridges tradition and innovation for PUPQC’s student entrepreneurs. It offers a digital marketplace with shop creation, product management, order processing, and role-based access for students, faculty, and admins. Key features include multi-step authentication, two-factor security via PUP Webmail, real-time notifications, POS, reviews, CSV reports, and analytics. Beyond commerce, it adds a face recognition attendance system and heat index suspension logic. A static, responsive website built with Tailwind CSS and Animate.css showcases the app’s capabilities.',
       technologies: ['Flutterflow', 'Firebase', 'Dart'],
       images: [
-        'public/images/IskoBytes/Pic1.png',
-        'public/images/IskoBytes/Pic2.png',
-        'public/images/IskoBytes/Pic3.png',
-        'public/images/IskoBytes/Pic4.png',
-        'public/images/IskoBytes/Pic5.png',
-        'public/images/IskoBytes/Pic6.png',
-        'public/images/IskoBytes/Pic7.png'
+  '/images/IskoBytes/Pic1.png',
+  '/images/IskoBytes/Pic2.png',
+  '/images/IskoBytes/Pic3.png',
+  '/images/IskoBytes/Pic4.png',
+  '/images/IskoBytes/Pic5.png',
+  '/images/IskoBytes/Pic6.png',
+  '/images/IskoBytes/Pic7.png'
 
       ],
       features: [
@@ -189,7 +189,7 @@ const ProjectsSection: React.FC = () => {
       longDescription: 'The project "COBOL CASE 2024-2025" is a collection of three distinct COBOL programs developed as final requirements for a structured programming course. The first program calculates a student\'s quiz average and determines the grade equivalent using a provided transmutation table. The second program processes sales data for three salesmen across five regions, calculating regional averages and identifying the highest and lowest average sales. The third program is a payroll system that computes basic pay, overtime pay, deductions, and net pay for employees based on input file data and specific conditions.',
       technologies: ['COBOL', 'Git'],
       images: [
-        'public/images/COBOL/Pic1.jpg'
+  '/images/COBOL/Pic1.jpg'
       ],
       features: [
         "Quiz Grade Calculator: Computes a weighted average of five quizzes and determines a grade equivalent using a specific transmutation table.",
@@ -222,7 +222,7 @@ const ProjectsSection: React.FC = () => {
       longDescription: 'The "Navigation History" project is a final case study for a Data Structures and Algorithms course at the Polytechnic University of the Philippines. The application utilizes an N-nary tree data structure to model a user\'s Browse journey, with each node representing a visited URL. Users can interact with this history through a command-line interface (CLI) using commands like visit, back, and forward. To extend the project\'s functionality beyond the basic requirements, I implemented the ability to export the navigation history and data analytics to JSON files. This data is then consumed by a single-page HTML website that I developed, which visualizes the navigation tree and displays insights such as the most frequently visited URLs through pie and bar charts.',
       technologies: ['Python', 'HTML5', 'Tailwind CSS', 'Git'],
       images: [
-        'public/images/DSA/Pic1.jpg'
+  '/images/DSA/Pic1.jpg'
       ],
       features: [
         "N-nary Tree Data Structure: Models navigation history with nodes for each URL, parent pointers for 'back' functionality, and child nodes for 'forward' functionality.",
@@ -256,7 +256,7 @@ const ProjectsSection: React.FC = () => {
       longDescription: 'Developed as a final requirement for a Programming 2 course, this project is a comprehensive C-based, menu-driven program that simulates a bank account management system. The program is structured with distinct user roles: a standard user and an administrator. New users can register by providing their account details, which are stored in a pending_users.dat file. The administrator has a separate login to access an admin menu, where they can approve or deny pending users, moving them to users.dat or denied_users.dat, respectively. Once a user is approved, they can log in to a transaction menu to perform balance inquiries, deposits, and withdrawals. A key feature is the robust authentication system, which includes PIN verification with a three-try limit, after which the user is locked out. To elevate the project beyond the basic case study, I implemented additional features such as colored text for a better user experience and integrated proper authentication, filtering, and searching capabilities.',
       technologies: ['C++'],
       images: [
-        'public/images/C++/Pic1.jpg'
+  '/images/C++/Pic1.jpg'
       ],
       features: [
         "File Handling: The program reads and writes data to three separate files: `pending_users.dat`, `users.dat`, and `denied_users.dat`.",
