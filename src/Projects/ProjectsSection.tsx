@@ -58,11 +58,9 @@ const ProjectsSection: React.FC = () => {
         "Served as backend developer for the R&D Team of the Commonwealth Information Technology Society (PUPQC)",
         "Developed backend modules for inventory tracking and automated deductions",
         "Implemented prescription creation and integration with inventory management",
-        "Built secure role-based access control in Laravel",
         "Integrated notification system for staff alerts",
         "Created dashboard analytics for patient trends and inventory usage",
         "Optimized MySQL queries for reporting and filtering",
-        "Implemented audit logging for sensitive actions",
         "Configured and deployed application using Docker containerization",
         "Ensured data integrity and security through validation and encryption"
       ],
