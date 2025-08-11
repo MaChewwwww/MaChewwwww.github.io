@@ -88,7 +88,7 @@ function App() {
                   <span>Email</span>
                 </button>
                 <a 
-                  href="https://github.com/MaChewwwww" 
+                  href={personalInfo.social.github} 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 px-4 py-2 bg-slate-800/60 hover:bg-slate-700/60 border border-slate-700/50 hover:border-slate-500/50 rounded-lg text-slate-300 hover:text-white transition-all duration-200 text-sm"
@@ -97,7 +97,7 @@ function App() {
                   <span>GitHub</span>
                 </a>
                 <a 
-                  href="https://linkedin.com/in/yourprofile" 
+                  href={personalInfo.social.linkedin} 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 px-4 py-2 bg-slate-800/60 hover:bg-accent/20 border border-slate-700/50 hover:border-accent/40 rounded-lg text-slate-300 hover:text-accent transition-all duration-200 text-sm"
@@ -106,7 +106,7 @@ function App() {
                   <span>LinkedIn</span>
                 </a>
                 <a 
-                  href="https://facebook.com/yourprofile" 
+                  href={personalInfo.social.facebook} 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 px-4 py-2 bg-slate-800/60 hover:bg-blue-500/20 border border-slate-700/50 hover:border-blue-500/40 rounded-lg text-slate-300 hover:text-blue-400 transition-all duration-200 text-sm"
@@ -115,7 +115,7 @@ function App() {
                   <span>Facebook</span>
                 </a>
                 <a 
-                  href="https://instagram.com/yourprofile" 
+                  href={personalInfo.social.instagram} 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 px-4 py-2 bg-slate-800/60 hover:bg-pink-500/20 border border-slate-700/50 hover:border-pink-500/40 rounded-lg text-slate-300 hover:text-pink-400 transition-all duration-200 text-sm"
