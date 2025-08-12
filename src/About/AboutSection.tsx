@@ -60,8 +60,8 @@ const AboutSection: React.FC = () => {
       {/* Bottom Glow Line */}
       <div className="absolute bottom-0 left-0 w-full glow-line-bottom"></div>
       
-      {/* Orb Background */}
-      <div className="absolute inset-0 w-full h-full flex items-center justify-center">
+      {/* Orb Background - Only show on desktop */}
+      <div className="absolute inset-0 w-full h-full items-center justify-center hidden md:flex">
         <div className="w-[860px] h-[860px]">
           <Orb
             hue={220}

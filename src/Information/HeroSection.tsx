@@ -59,46 +59,57 @@ const HeroSection: React.FC<HeroSectionProps> = ({ personalInfo }) => {
   }, [rolesList.length]);
 
   return (
+
     <section 
       ref={sectionRef}
-      className="relative min-h-[60vh] md:min-h-[70vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-900 via-purple-900 to-slate-800 py-8 md:py-12"
+      className="relative min-h-[60vh] md:min-h-[70vh] flex items-center justify-center overflow-hidden py-8 md:py-12"
+      style={{ 
+        background: 'linear-gradient(135deg, #1e293b 0%, #6d28d9 60%, #a78bfa 100%)',
+        backgroundImage: 'repeating-radial-gradient(circle at 20% 40%, rgba(255,255,255,0.04) 0px, rgba(255,255,255,0.04) 2px, transparent 3px, transparent 40px)',
+      }}
     >
-      {/* Aurora Background */}
-      <div className="absolute inset-0 z-0">
-        <Aurora
-          colorStops={["#3A29FF", "#FF94B4", "#FF3232"]}
-          blend={0.5}
-          amplitude={1.0}
-          speed={0.5}
-        />
+      {/* Only show animated backgrounds on desktop */}
+      <div className="hidden md:block">
+        <div className="absolute inset-0 z-0">
+          <Aurora
+            colorStops={["#3A29FF", "#FF94B4", "#FF3232"]}
+            blend={0.5}
+            amplitude={1.0}
+            speed={0.5}
+          />
+        </div>
+        <div className="absolute inset-0 z-1">
+          <Particles
+            particleColors={['#ffffff', '#ffffff']}
+            particleCount={400}
+            particleSpread={15}
+            speed={0.1}
+            particleBaseSize={200}
+            moveParticlesOnHover={true}
+            alphaParticles={true}
+            disableRotation={false}
+          />
+        </div>
+        <div className="absolute inset-0 z-2 bg-slate-900/20"></div>
       </div>
-
-      {/* Particles Background */}
-      <div className="absolute inset-0 z-1">
-        <Particles
-          particleColors={['#ffffff', '#ffffff']}
-          particleCount={400}
-          particleSpread={15}
-          speed={0.1}
-          particleBaseSize={200}
-          moveParticlesOnHover={true}
-          alphaParticles={true}
-          disableRotation={false}
-        />
-      </div>
-
-      {/* Additional overlay for better text readability */}
-      <div className="absolute inset-0 z-2 bg-slate-900/20"></div>
 
       <div className={`relative z-10 container mx-auto px-4 md:px-6 max-w-6xl transition-all duration-1000 ${
         isInView ? 'animate-on-scroll in-view' : 'animate-on-scroll'
       }`}>
         {/* Mobile Layout - Stack vertically */}
-        <div className="flex flex-col items-center text-center space-y-4 md:hidden">
+        <div className="flex flex-col items-center text-center space-y-4 md:hidden" style={{
+          background: 'linear-gradient(135deg, #1e293b 0%, #6d28d9 60%, #a78bfa 100%)',
+          backgroundImage: 'repeating-radial-gradient(circle at 20% 40%, rgba(255,255,255,0.04) 0px, rgba(255,255,255,0.04) 2px, transparent 3px, transparent 40px)',
+          borderRadius: '1.5rem',
+          padding: '1rem 0',
+          width: '100%',
+          maxWidth: '24rem',
+          margin: '0 auto',
+        }}>
           
           {/* Mobile Profile Card */}
           <div className={`transform transition-all duration-1000 delay-300 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
-            <div className="w-64 h-96">
+            <div className="w-full max-w-xs mx-auto">
               <ProfileCard
                 name="MaChew"
                 handle="yourhandle"

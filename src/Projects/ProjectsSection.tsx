@@ -438,8 +438,8 @@ const ProjectsSection: React.FC = () => {
       <div className="absolute top-0 left-0 right-0 h-0.5 glow-line-top z-30"></div>
       <div className="absolute bottom-0 left-0 right-0 h-0.5 glow-line-bottom z-30"></div>
       
-      {/* Hyperspeed Background */}
-      <div className="absolute inset-0 z-0">
+      {/* Hyperspeed Background - Only show on desktop */}
+      <div className="absolute inset-0 z-0 hidden md:block">
         <Hyperspeed
           effectOptions={{
             onSpeedUp: () => { },

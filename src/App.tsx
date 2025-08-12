@@ -7,20 +7,37 @@ import { useState } from 'react';
 
 function App() {
   const [isEmailModalOpen, setIsEmailModalOpen] = useState(false);
+  const [navOpen, setNavOpen] = useState(false);
+
+  // Helper to detect mobile
+  const isMobile = typeof window !== 'undefined' && window.innerWidth < 1024;
 
   return (
     <div className="min-h-screen flex flex-col bg-background text-white">
-      {/* SplashCursor for the entire app */}
-      <SplashCursor />
-      
+      {/* SplashCursor for desktop only */}
+      {!isMobile && <SplashCursor />}
+
       <header className="bg-background/80 backdrop-blur-md py-4 sticky top-0 z-50 border-b border-mutedBorder">
         <nav className="container mx-auto px-4">
-          <ul className="flex justify-center gap-8 list-none">
+          {/* Mobile Nav Toggle */}
+          <div className="lg:hidden flex justify-between items-center">
+            <span className="font-bold text-lg">Portfolio</span>
+            <button
+              className="text-white/80 p-2 rounded focus:outline-none"
+              onClick={() => setNavOpen(!navOpen)}
+              aria-label="Toggle navigation"
+            >
+              <svg width="28" height="28" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                <path d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            </button>
+          </div>
+          <ul className={`list-none lg:flex justify-center gap-8 ${navOpen ? 'flex flex-col items-center mt-4 bg-slate-900/95 rounded-xl shadow-lg py-4' : 'hidden lg:flex'}`}>
             <li>
               <a 
                 href="#" 
-                className="text-white/80 font-medium hover:text-primary transition-colors duration-300 relative group"
-                onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                className="text-white/80 font-medium hover:text-primary transition-colors duration-300 relative group px-2 py-2"
+                onClick={() => { window.scrollTo({ top: 0, behavior: 'smooth' }); setNavOpen(false); }}
               >
                 Home
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
@@ -29,7 +46,8 @@ function App() {
             <li>
               <a 
                 href="#about" 
-                className="text-white/80 font-medium hover:text-primary transition-colors duration-300 relative group"
+                className="text-white/80 font-medium hover:text-primary transition-colors duration-300 relative group px-2 py-2"
+                onClick={() => setNavOpen(false)}
               >
                 About
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
@@ -38,7 +56,8 @@ function App() {
             <li>
               <a 
                 href="#projects" 
-                className="text-white/80 font-medium hover:text-primary transition-colors duration-300 relative group"
+                className="text-white/80 font-medium hover:text-primary transition-colors duration-300 relative group px-2 py-2"
+                onClick={() => setNavOpen(false)}
               >
                 Projects
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
@@ -47,7 +66,8 @@ function App() {
             <li>
               <a 
                 href="#credentials" 
-                className="text-white/80 font-medium hover:text-primary transition-colors duration-300 relative group"
+                className="text-white/80 font-medium hover:text-primary transition-colors duration-300 relative group px-2 py-2"
+                onClick={() => setNavOpen(false)}
               >
                 Credentials
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
@@ -56,7 +76,8 @@ function App() {
             <li>
               <a 
                 href="#contact" 
-                className="text-white/80 font-medium hover:text-primary transition-colors duration-300 relative group"
+                className="text-white/80 font-medium hover:text-primary transition-colors duration-300 relative group px-2 py-2"
+                onClick={() => setNavOpen(false)}
               >
                 Contact
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
@@ -68,18 +89,14 @@ function App() {
 
       <main className="flex-1">
         <HeroSection personalInfo={personalInfo} />
-
         <AboutSection />
-
         <ProjectsSection />
-
         <CredentialsSection />
-
         <section id="contact" className="bg-slate-900/80 border-t border-slate-700/50 py-12">
           <div className="container mx-auto px-4">
             <div className="flex flex-col items-center text-center space-y-6">
               {/* Contact Links */}
-              <div className="flex gap-4">
+              <div className="flex gap-4 flex-wrap justify-center">
                 <button
                   onClick={() => setIsEmailModalOpen(true)}
                   className="flex items-center gap-2 px-4 py-2 bg-slate-800/60 hover:bg-primary/20 border border-slate-700/50 hover:border-primary/40 rounded-lg text-slate-300 hover:text-primary transition-all duration-200 text-sm"
