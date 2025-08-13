@@ -491,8 +491,9 @@ const ProjectsSection: React.FC = () => {
         <div className="animate-on-scroll">
           {/* Table Header */}
           <div className="bg-slate-900/80 backdrop-blur-sm border border-slate-700/60 rounded-t-2xl overflow-hidden shadow-xl">
-            <div className="grid gap-3 lg:gap-6 p-4 lg:p-6 border-b border-slate-700/50 grid-cols-[80px_1fr_1fr_40px] lg:grid-cols-[100px_1fr_1fr_2fr_50px]">
-              <div className="text-xs lg:text-sm font-bold text-slate-200 uppercase tracking-widest">Date</div>
+            <div className="grid gap-3 lg:gap-6 p-4 lg:p-6 border-b border-slate-700/50 grid-cols-[1fr_1fr_40px] lg:grid-cols-[100px_1fr_1fr_2fr_50px]">
+              {/* Date - Only on desktop */}
+              <div className="hidden lg:block text-xs lg:text-sm font-bold text-slate-200 uppercase tracking-widest">Date</div>
               <div className="text-xs lg:text-sm font-bold text-slate-200 uppercase tracking-widest">Name</div>
               <div className="text-xs lg:text-sm font-bold text-slate-200 uppercase tracking-widest">Tech Stack</div>
               <div className="hidden lg:block text-xs lg:text-sm font-bold text-slate-200 uppercase tracking-widest">Description</div>
@@ -505,7 +506,7 @@ const ProjectsSection: React.FC = () => {
             {projects.map((project, index) => (
               <div 
                 key={project.id}
-                className={`grid gap-3 lg:gap-6 p-4 lg:p-6 hover:bg-slate-800/60 transition-all duration-300 group grid-cols-[80px_1fr_1fr_40px] lg:grid-cols-[100px_1fr_1fr_2fr_50px] ${
+                className={`grid gap-3 lg:gap-6 p-4 lg:p-6 hover:bg-slate-800/60 transition-all duration-300 group grid-cols-[1fr_1fr_40px] lg:grid-cols-[100px_1fr_1fr_2fr_50px] ${
                   index !== projects.length - 1 ? 'border-b border-slate-700/40' : ''
                 }`}
                 style={{
@@ -515,8 +516,8 @@ const ProjectsSection: React.FC = () => {
                   transition: `all 0.5s ease-out ${0.1 + index * 0.1}s`
                 }}
               >
-                {/* Date */}
-                <div className="flex items-center text-slate-400 text-xs lg:text-sm font-semibold">
+                {/* Date - Only on desktop */}
+                <div className="hidden lg:flex items-center text-slate-400 text-xs lg:text-sm font-semibold">
                   {project.date}
                 </div>
 

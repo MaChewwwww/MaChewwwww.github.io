@@ -117,7 +117,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ personalInfo }) => {
                 avatarUrl={profileImage}
                 miniAvatarUrl={miniAvatarImage}
                 showUserInfo={true}
-                enableTilt={true}
+                enableTilt={false}
                 enableMobileTilt={false}
               />
             </div>
