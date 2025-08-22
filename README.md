@@ -121,6 +121,10 @@ npm run deploy
 
 This builds the project and deploys it to the `gh-pages` branch.
 
+### Subfolder Deployment Note
+
+If you want your portfolio to be available at `https://MaChewwwww.github.io/Portfolio`, make sure to copy the contents of the `dist` folder into a new folder named `Portfolio` at the root of your repository before pushing. Then set the GitHub Pages source to `/Portfolio` in your repository settings.
+
 ## 🎯 Customization
 
 ### Update Your Information
