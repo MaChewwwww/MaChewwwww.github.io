@@ -47,13 +47,33 @@ jobs:
       - name: Add .nojekyll file
         run: touch dist/.nojekyll
         
+      - name: Prepare Pages artifact with Portfolio root
+        run: |
+          set -euo pipefail
+          rm -rf site || true
+          mkdir -p site
+          # Move the Portfolio folder into site so the artifact root contains Portfolio/
+          if [ -d dist/Portfolio ]; then
+            mv dist/Portfolio site/Portfolio
+          else
+            # fallback: copy everything under dist into site/Portfolio
+            mkdir -p site/Portfolio
+            for f in dist/*; do
+              name=$(basename "$f")
+              if [ "$name" != "site" ]; then
+                mv "dist/$name" site/Portfolio/ || true
+              fi
+            done
+          fi
+          touch site/.nojekyll
+
       - name: Setup Pages
         uses: actions/configure-pages@v4
-        
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './dist'
+          path: './site'
 
   deploy:
     environment:
