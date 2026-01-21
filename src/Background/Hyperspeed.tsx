@@ -1,4 +1,4 @@
-import { useEffect, useRef, type FC } from "react";
+import { useEffect, useRef, useMemo, type FC } from "react";
 import * as THREE from "three";
 import {
   BloomEffect,
@@ -65,8 +65,8 @@ interface HyperspeedProps {
 }
 
 const defaultOptions: HyperspeedOptions = {
-  onSpeedUp: () => {},
-  onSlowDown: () => {},
+  onSpeedUp: () => { },
+  onSlowDown: () => { },
   distortion: "turbulentDistortion",
   length: 400,
   roadWidth: 10,
@@ -157,11 +157,11 @@ const distortions: Distortions = {
       const uAmp = mountainUniforms.uAmp.value;
       const distortion = new THREE.Vector3(
         Math.cos(progress * Math.PI * uFreq.x + time) * uAmp.x -
-          Math.cos(movementProgressFix * Math.PI * uFreq.x + time) * uAmp.x,
+        Math.cos(movementProgressFix * Math.PI * uFreq.x + time) * uAmp.x,
         nsin(progress * Math.PI * uFreq.y + time) * uAmp.y -
-          nsin(movementProgressFix * Math.PI * uFreq.y + time) * uAmp.y,
+        nsin(movementProgressFix * Math.PI * uFreq.y + time) * uAmp.y,
         nsin(progress * Math.PI * uFreq.z + time) * uAmp.z -
-          nsin(movementProgressFix * Math.PI * uFreq.z + time) * uAmp.z
+        nsin(movementProgressFix * Math.PI * uFreq.z + time) * uAmp.z
       );
       const lookAtAmp = new THREE.Vector3(2, 2, 2);
       const lookAtOffset = new THREE.Vector3(0, 0, -5);
@@ -189,12 +189,12 @@ const distortions: Distortions = {
       const uAmp = xyUniforms.uAmp.value;
       const distortion = new THREE.Vector3(
         Math.cos(progress * Math.PI * uFreq.x + time) * uAmp.x -
-          Math.cos(movementProgressFix * Math.PI * uFreq.x + time) * uAmp.x,
+        Math.cos(movementProgressFix * Math.PI * uFreq.x + time) * uAmp.x,
         Math.sin(progress * Math.PI * uFreq.y + time + Math.PI / 2) * uAmp.y -
-          Math.sin(
-            movementProgressFix * Math.PI * uFreq.y + time + Math.PI / 2
-          ) *
-            uAmp.y,
+        Math.sin(
+          movementProgressFix * Math.PI * uFreq.y + time + Math.PI / 2
+        ) *
+        uAmp.y,
         0
       );
       const lookAtAmp = new THREE.Vector3(2, 0.4, 1);
@@ -223,9 +223,9 @@ const distortions: Distortions = {
       const uAmp = LongRaceUniforms.uAmp.value;
       const distortion = new THREE.Vector3(
         Math.sin(progress * Math.PI * uFreq.x + time) * uAmp.x -
-          Math.sin(camProgress * Math.PI * uFreq.x + time) * uAmp.x,
+        Math.sin(camProgress * Math.PI * uFreq.x + time) * uAmp.x,
         Math.sin(progress * Math.PI * uFreq.y + time) * uAmp.y -
-          Math.sin(camProgress * Math.PI * uFreq.y + time) * uAmp.y,
+        Math.sin(camProgress * Math.PI * uFreq.y + time) * uAmp.y,
         0
       );
       const lookAtAmp = new THREE.Vector3(1, 1, 0);
@@ -272,12 +272,12 @@ const distortions: Distortions = {
           Math.cos(Math.PI * p * uFreq.y + time * (uFreq.y / uFreq.x)),
           2
         ) *
-          uAmp.y;
+        uAmp.y;
 
       const getY = (p: number) =>
         -nsin(Math.PI * p * uFreq.z + time) * uAmp.z -
         Math.pow(nsin(Math.PI * p * uFreq.w + time / (uFreq.z / uFreq.w)), 5) *
-          uAmp.w;
+        uAmp.w;
 
       const distortion = new THREE.Vector3(
         getX(progress) - getX(progress + 0.007),
@@ -1075,7 +1075,7 @@ class App {
     this.setSize = this.setSize.bind(this);
     this.onMouseDown = this.onMouseDown.bind(this);
     this.onMouseUp = this.onMouseUp.bind(this);
-    
+
     window.addEventListener("resize", this.onWindowResize.bind(this));
   }
 
@@ -1229,7 +1229,7 @@ class App {
 
   dispose() {
     this.disposed = true;
-    
+
     if (this.renderer) {
       this.renderer.dispose();
     }
@@ -1239,12 +1239,16 @@ class App {
     if (this.scene) {
       this.scene.clear();
     }
-    
+
     window.removeEventListener("resize", this.onWindowResize.bind(this));
     if (this.container) {
       this.container.removeEventListener("mousedown", this.onMouseDown);
       this.container.removeEventListener("mouseup", this.onMouseUp);
       this.container.removeEventListener("mouseout", this.onMouseUp);
+    }
+
+    if (this.renderer) {
+      this.renderer.getContext().getExtension("WEBGL_lose_context")?.loseContext();
     }
   }
 
@@ -1267,10 +1271,10 @@ class App {
 }
 
 const Hyperspeed: FC<HyperspeedProps> = ({ effectOptions = {} }) => {
-  const mergedOptions: HyperspeedOptions = {
+  const mergedOptions = useMemo(() => ({
     ...defaultOptions,
     ...effectOptions,
-  };
+  }), [effectOptions]);
   const hyperspeed = useRef<HTMLDivElement>(null);
   const appRef = useRef<App | null>(null);
 

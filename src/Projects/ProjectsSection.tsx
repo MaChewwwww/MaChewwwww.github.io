@@ -802,9 +802,9 @@ const ProjectsSection: React.FC = () => {
 
       {/* Hyperspeed Background - Only show on desktop */}
       <div className="absolute inset-0 z-0 hidden md:block">
-        {isVisible && (
+        {isVisible && !isModalOpen && (
           <Hyperspeed
-            effectOptions={{
+            effectOptions={React.useMemo(() => ({
               onSpeedUp: () => { },
               onSlowDown: () => { },
               distortion: 'turbulentDistortion',
@@ -840,7 +840,7 @@ const ProjectsSection: React.FC = () => {
                 rightCars: [0x03B3C3, 0x0E5EA5, 0x324555],
                 sticks: 0x03B3C3,
               }
-            }}
+            }), [])}
           />
         )}
         {/* Overlay to ensure content readability */}
