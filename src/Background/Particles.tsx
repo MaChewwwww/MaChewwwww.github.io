@@ -221,6 +221,7 @@ const Particles: React.FC<ParticlesProps> = ({
       if (container.contains(gl.canvas)) {
         container.removeChild(gl.canvas);
       }
+      gl.getExtension("WEBGL_lose_context")?.loseContext();
     };
   }, [
     particleCount,

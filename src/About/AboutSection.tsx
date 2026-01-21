@@ -56,27 +56,29 @@ const AboutSection: React.FC = () => {
     <section id="about" className="py-12 px-8 bg-slate-900/50 relative overflow-hidden">
       {/* Top Glow Line */}
       <div className="absolute top-0 left-0 w-full glow-line-top"></div>
-      
+
       {/* Bottom Glow Line */}
       <div className="absolute bottom-0 left-0 w-full glow-line-bottom"></div>
-      
-      {/* Orb Background - Only show on desktop */}
+
+      {/* Orb Background - Only show on desktop when visible */}
       <div className="absolute inset-0 w-full h-full items-center justify-center hidden md:flex">
-        <div className="w-[860px] h-[860px]">
-          <Orb
-            hue={220}
-            hoverIntensity={0.3}
-            rotateOnHover={true}
-            forceHoverState={false}
-          />
-        </div>
+        {isVisible && (
+          <div className="w-[860px] h-[860px]">
+            <Orb
+              hue={220}
+              hoverIntensity={0.3}
+              rotateOnHover={true}
+              forceHoverState={false}
+            />
+          </div>
+        )}
       </div>
-      
+
       <div className="container mx-auto max-w-6xl relative z-10">
         <h2 className="text-4xl md:text-5xl font-bold mb-12 text-center bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-purple-400 to-teal-400 animate-on-scroll-scale">
           About Me
         </h2>
-        
+
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:items-stretch animate-on-scroll">
           {/* Left Column - About Details */}
           <div className="flex flex-col space-y-6 animate-stagger-1">
@@ -84,23 +86,23 @@ const AboutSection: React.FC = () => {
               <h3 className="text-2xl font-semibold mb-4 text-blue-300">My Journey</h3>
               <div className="flex-1 flex flex-col justify-between space-y-4">
                 <p className="text-slate-300 leading-relaxed">
-                  From an early age, I have nurtured a strong passion for technology, 
-                  which led me to pursue software development during Senior High School. 
-                  This early start allowed me to explore the fundamentals of programming 
+                  From an early age, I have nurtured a strong passion for technology,
+                  which led me to pursue software development during Senior High School.
+                  This early start allowed me to explore the fundamentals of programming
                   and problem-solving, laying the groundwork for my future career in the tech industry.
                 </p>
                 <p className="text-slate-300 leading-relaxed">
-                  Throughout college, I dedicated myself to building robust, 
-                  scalable, and well-structured systems, ensuring that each project, 
-                  case study, and system I developed would serve as a solid foundation 
-                  for my professional growth. With a particular interest in backend engineering, 
-                  I focus on designing efficient architectures, optimizing performance, and ensuring 
+                  Throughout college, I dedicated myself to building robust,
+                  scalable, and well-structured systems, ensuring that each project,
+                  case study, and system I developed would serve as a solid foundation
+                  for my professional growth. With a particular interest in backend engineering,
+                  I focus on designing efficient architectures, optimizing performance, and ensuring
                   reliability in every solution I create.
                 </p>
                 <p className="text-slate-300 leading-relaxed">
-                  Beyond academics, I balanced my role as a consistent honor student with my enthusiasm for esports, 
-                  where I also applied my development skills to support and pioneer initiatives within our 
-                  campus community. This combination of technical expertise, leadership, and collaboration 
+                  Beyond academics, I balanced my role as a consistent honor student with my enthusiasm for esports,
+                  where I also applied my development skills to support and pioneer initiatives within our
+                  campus community. This combination of technical expertise, leadership, and collaboration
                   continues to shape my approach to solving real-world challenges.
                 </p>
               </div>
@@ -109,21 +111,21 @@ const AboutSection: React.FC = () => {
             <div className="bg-slate-900/80 backdrop-blur-sm border border-slate-700/50 rounded-xl p-8 hover:border-purple-500/30 transition-all duration-500 flex-1 flex flex-col animate-on-scroll animate-stagger-2">
               <h3 className="text-2xl font-semibold mb-4 text-purple-300">What Drives Me</h3>
               <ul className="space-y-3 flex-1 flex flex-col justify-center">
-                <li className="flex items-start gap-3">
-                  <span className="text-blue-400 mt-1">🚀</span>
-                  <span className="text-slate-300">Building scalable applications that solve real-world problems</span>
+                <li className="flex items-start gap-3 group/item transition-all duration-300 hover:translate-x-1">
+                  <span className="text-blue-400 mt-1 drop-shadow-[0_0_8px_rgba(96,165,250,0.5)]">🚀</span>
+                  <span className="text-slate-300 group-hover/item:text-blue-100 transition-colors">Architecting scalable ecosystems that transform complex technical challenges into intuitive user solutions.</span>
                 </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-purple-400 mt-1">💡</span>
-                  <span className="text-slate-300">Learning and implementing cutting-edge technologies</span>
+                <li className="flex items-start gap-3 group/item transition-all duration-300 hover:translate-x-1">
+                  <span className="text-purple-400 mt-1 drop-shadow-[0_0_8px_rgba(192,132,252,0.5)]">💡</span>
+                  <span className="text-slate-300 group-hover/item:text-purple-100 transition-colors">Leveraging cutting-edge AI and predictive analytics to engineer intelligent, future-proof applications.</span>
                 </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-teal-400 mt-1">🤝</span>
-                  <span className="text-slate-300">Collaborating with teams to deliver exceptional results</span>
+                <li className="flex items-start gap-3 group/item transition-all duration-300 hover:translate-x-1">
+                  <span className="text-teal-400 mt-1 drop-shadow-[0_0_8px_rgba(45,212,191,0.5)]">🤝</span>
+                  <span className="text-slate-300 group-hover/item:text-teal-100 transition-colors">Fostering high-performance collaboration to deliver exceptional, production-grade results as a cohesive team.</span>
                 </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-green-400 mt-1">📈</span>
-                  <span className="text-slate-300">Continuous improvement and professional growth</span>
+                <li className="flex items-start gap-3 group/item transition-all duration-300 hover:translate-x-1">
+                  <span className="text-green-400 mt-1 drop-shadow-[0_0_8px_rgba(74,222,128,0.5)]">📈</span>
+                  <span className="text-slate-300 group-hover/item:text-green-100 transition-colors">Pursuing technical mastery through continuous learning and a disciplined commitment to professional growth.</span>
                 </li>
               </ul>
             </div>
@@ -135,7 +137,7 @@ const AboutSection: React.FC = () => {
               <h3 className="text-2xl font-semibold mb-6 text-center bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-400">
                 Tech Stack
               </h3>
-              
+
               <div className="space-y-4 flex-1 overflow-y-auto">
                 {/* Backend */}
                 <div className="space-y-2">
@@ -145,10 +147,10 @@ const AboutSection: React.FC = () => {
                   </h4>
                   <div className="flex flex-wrap gap-1.5">
                     {personalInfo.skillsByCategory.backend.map((tech, index) => (
-                      <span 
+                      <span
                         key={tech}
                         className="group px-2 py-1 bg-purple-500/15 backdrop-blur-sm text-purple-200 text-xs font-medium rounded-md border border-purple-400/20 hover:border-purple-400/50 hover:bg-purple-500/25 hover:text-white transition-all duration-300 cursor-default hover:scale-105"
-                        style={{ 
+                        style={{
                           animationDelay: `${index * 0.03}s`,
                           transform: isVisible ? 'translateY(0)' : 'translateY(10px)',
                           opacity: isVisible ? 1 : 0,
@@ -169,10 +171,10 @@ const AboutSection: React.FC = () => {
                   </h4>
                   <div className="flex flex-wrap gap-1.5">
                     {personalInfo.skillsByCategory.frontend.map((tech, index) => (
-                      <span 
+                      <span
                         key={tech}
                         className="group px-2 py-1 bg-blue-500/15 backdrop-blur-sm text-blue-200 text-xs font-medium rounded-md border border-blue-400/20 hover:border-blue-400/50 hover:bg-blue-500/25 hover:text-white transition-all duration-300 cursor-default hover:scale-105"
-                        style={{ 
+                        style={{
                           animationDelay: `${0.1 + index * 0.03}s`,
                           transform: isVisible ? 'translateY(0)' : 'translateY(10px)',
                           opacity: isVisible ? 1 : 0,
@@ -193,10 +195,10 @@ const AboutSection: React.FC = () => {
                   </h4>
                   <div className="flex flex-wrap gap-1.5">
                     {personalInfo.skillsByCategory.database.map((tech, index) => (
-                      <span 
+                      <span
                         key={tech}
                         className="group px-2 py-1 bg-green-500/15 backdrop-blur-sm text-green-200 text-xs font-medium rounded-md border border-green-400/20 hover:border-green-400/50 hover:bg-green-500/25 hover:text-white transition-all duration-300 cursor-default hover:scale-105"
-                        style={{ 
+                        style={{
                           animationDelay: `${0.2 + index * 0.03}s`,
                           transform: isVisible ? 'translateY(0)' : 'translateY(10px)',
                           opacity: isVisible ? 1 : 0,
@@ -217,10 +219,10 @@ const AboutSection: React.FC = () => {
                   </h4>
                   <div className="flex flex-wrap gap-1.5">
                     {personalInfo.skillsByCategory.framework.map((tech, index) => (
-                      <span 
+                      <span
                         key={tech}
                         className="group px-2 py-1 bg-cyan-500/15 backdrop-blur-sm text-cyan-200 text-xs font-medium rounded-md border border-cyan-400/20 hover:border-cyan-400/50 hover:bg-cyan-500/25 hover:text-white transition-all duration-300 cursor-default hover:scale-105"
-                        style={{ 
+                        style={{
                           animationDelay: `${0.3 + index * 0.03}s`,
                           transform: isVisible ? 'translateY(0)' : 'translateY(10px)',
                           opacity: isVisible ? 1 : 0,
@@ -241,10 +243,10 @@ const AboutSection: React.FC = () => {
                   </h4>
                   <div className="flex flex-wrap gap-1.5">
                     {personalInfo.skillsByCategory.devops.map((tech, index) => (
-                      <span 
+                      <span
                         key={tech}
                         className="group px-2 py-1 bg-orange-500/15 backdrop-blur-sm text-orange-200 text-xs font-medium rounded-md border border-orange-400/20 hover:border-orange-400/50 hover:bg-orange-500/25 hover:text-white transition-all duration-300 cursor-default hover:scale-105"
-                        style={{ 
+                        style={{
                           animationDelay: `${0.4 + index * 0.03}s`,
                           transform: isVisible ? 'translateY(0)' : 'translateY(10px)',
                           opacity: isVisible ? 1 : 0,
@@ -265,14 +267,38 @@ const AboutSection: React.FC = () => {
                   </h4>
                   <div className="flex flex-wrap gap-1.5">
                     {personalInfo.skillsByCategory.aiMachineLearning.map((tech, index) => (
-                      <span 
+                      <span
                         key={tech}
                         className="group px-2 py-1 bg-amber-500/15 backdrop-blur-sm text-amber-200 text-xs font-medium rounded-md border border-amber-400/20 hover:border-amber-400/50 hover:bg-amber-500/25 hover:text-white transition-all duration-300 cursor-default hover:scale-105"
-                        style={{ 
+                        style={{
                           animationDelay: `${0.5 + index * 0.03}s`,
                           transform: isVisible ? 'translateY(0)' : 'translateY(10px)',
                           opacity: isVisible ? 1 : 0,
                           transition: `all 0.4s ease-out ${0.5 + index * 0.03}s`
+                        }}
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                {/* AI-Assisted Programming */}
+                <div className="space-y-2">
+                  <h4 className="text-rose-300 text-xs font-semibold uppercase tracking-wider flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 bg-rose-400 rounded-full"></span>
+                    AI-Assisted Programming
+                  </h4>
+                  <div className="flex flex-wrap gap-1.5">
+                    {personalInfo.skillsByCategory.aiAssistedProgramming.map((tech, index) => (
+                      <span
+                        key={tech}
+                        className="group px-2 py-1 bg-rose-500/15 backdrop-blur-sm text-rose-200 text-xs font-medium rounded-md border border-rose-400/20 hover:border-rose-400/50 hover:bg-rose-500/25 hover:text-white transition-all duration-300 cursor-default hover:scale-105"
+                        style={{
+                          animationDelay: `${0.6 + index * 0.03}s`,
+                          transform: isVisible ? 'translateY(0)' : 'translateY(10px)',
+                          opacity: isVisible ? 1 : 0,
+                          transition: `all 0.4s ease-out ${0.6 + index * 0.03}s`
                         }}
                       >
                         {tech}
@@ -290,13 +316,13 @@ const AboutSection: React.FC = () => {
                 <h3 className="text-xl font-semibold mb-6 text-center bg-clip-text text-transparent bg-gradient-to-r from-pink-400 to-purple-400">
                   Other Skills
                 </h3>
-                
+
                 <div className="space-y-3">
                   {personalInfo.otherSkills.map((skill, index) => (
-                    <div 
+                    <div
                       key={skill.name}
                       className="group"
-                      style={{ 
+                      style={{
                         animationDelay: `${0.6 + index * 0.1}s`,
                         transform: isVisible ? 'translateX(0)' : 'translateX(-20px)',
                         opacity: isVisible ? 1 : 0,
@@ -308,7 +334,7 @@ const AboutSection: React.FC = () => {
                         <span className="text-pink-300 text-xs font-semibold">{skill.rating}/5</span>
                       </div>
                       <div className="w-full bg-slate-700/50 rounded-full h-2 overflow-hidden">
-                        <div 
+                        <div
                           className="h-full bg-gradient-to-r from-pink-400 via-purple-400 to-pink-500 rounded-full transition-all duration-1000 ease-out group-hover:shadow-lg group-hover:shadow-pink-500/25"
                           style={{
                             width: isVisible ? `${(skill.rating / 5) * 100}%` : '0%',

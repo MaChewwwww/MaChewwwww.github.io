@@ -7,6 +7,17 @@ export interface EsportsRecord {
 
 export const esportsData: EsportsRecord[] = [
   {
+    organization: "Converge FiberX Student League",
+    role: "FiberX Student League Member",
+    period: "December 2025 - Present",
+    description: [
+      "Selected as one of the 100 members representing the next generation of creators, leaders, and game-changers",
+      "Participating in a comprehensive program designed to power student dreams and passions across gaming, content creation, and leadership",
+      "Representing Converge in fostering a student-led ecosystem for innovators and storytellers",
+      "Engaging in community initiatives to empower fellow students in their unique creative and professional journeys"
+    ]
+  },
+  {
     organization: "Siklaw Esports",
     role: "MLBB Head",
     period: "July 2025 - Present",

@@ -21,6 +21,7 @@ export const academicData: AcademicRecord[] = [
     positions: [
       "BSIT 1-1: Public Relation Officer",
       "BSIT 2-1: Auditor",
+      "CommITs A.Y. 2025-2026: Lead Developer",
       "CommITs A.Y. 2024-2025: Backend Developer",
       "Google Developer Group: Web-Dev Department Member"
     ],

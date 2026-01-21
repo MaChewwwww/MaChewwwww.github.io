@@ -37,5 +37,12 @@ export const certificateData: CertificateProvider[] = [
     certificates: [
       "Are Schools Ready for the Cyberstorm? Building Resilience in a Globalized World"
     ]
+  },
+  {
+    provider: "Commonwealth Information Technology Society",
+    type: "seminar",
+    certificates: [
+      "Career in the Era of Artificial Intelligence"
+    ]
   }
 ];

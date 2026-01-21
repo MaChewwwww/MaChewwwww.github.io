@@ -29,6 +29,7 @@ export interface PersonalInfo {
     framework: string[];
     devops: string[];
     aiMachineLearning: string[];
+    aiAssistedProgramming: string[];
   };
   otherSkills: {
     name: string;
@@ -65,20 +66,20 @@ export const personalInfo: PersonalInfo = {
   phone: "+1 (555) 123-4567",
   location: "Your City, Country",
   website: "https://yourname.dev",
-  
+
   social: {
     github: "https://github.com/MaChewwwww",
     linkedin: "https://www.linkedin.com/in/john-mathew-parocha-1b78b22b7/",
     facebook: "https://www.facebook.com/MaChewww/",
     instagram: "https://www.instagram.com/hello.machew/"
   },
-  
+
   stats: {
     yearsExperience: 2,
     projectsCompleted: 20,
     certificatesEarned: 15
   },
-  
+
   skills: [
     "React & TypeScript",
     "Node.js & APIs",
@@ -89,14 +90,15 @@ export const personalInfo: PersonalInfo = {
     "Git & CI/CD",
     "UI/UX Design"
   ],
-  
+
   skillsByCategory: {
     backend: ["Python", "C++", "C#", "PHP", "JavaScript", "TypeScript", "RESTful APIs"],
-    frontend: ["HTML5", "CSS3", "Bootstrap", "Tailwind CSS"],
-    database: ["MySQL", "PostgreSQL", "SQLite", "Redis"],
-    framework: ["Django", "Laravel", "ASP.NET", "FastAPI", "React"],
-    devops: ["Docker", "GitHub", "Git"],
-    aiMachineLearning: ["OpenCV", "Ultralytics", "Roboflow", "Pandas", "NumPy"]
+    frontend: ["HTML5", "CSS3", "Bootstrap", "Tailwind CSS", "ShadCN UI"],
+    database: ["MySQL", "PostgreSQL", "SQLite", "Redis", "Google Cloud SQL", "Google Cloud Storage"],
+    framework: ["Django", "Laravel", "ASP.NET", "FastAPI", "React", "Next.js"],
+    devops: ["Docker", "GitHub", "Git", "Google Cloud", "Digital Ocean", "Vercel", "Redis Upstash", "Railway"],
+    aiMachineLearning: ["OpenCV", "Ultralytics", "Roboflow", "Pandas", "NumPy", "InsightFace.ai", "Gemini AI"],
+    aiAssistedProgramming: ["Github Copilot", "Windsurf", "Cursor", "Google Antigravity", "Gemini", "ChatGPT"]
   },
 
   otherSkills: [
@@ -106,7 +108,7 @@ export const personalInfo: PersonalInfo = {
     { name: "Initiative & Self Motivation", rating: 5 },
     { name: "Adaptability & Resilience", rating: 4 },
   ],
-  
+
   experience: [
     {
       company: "Tech Company",
@@ -127,7 +129,7 @@ export const personalInfo: PersonalInfo = {
       description: "Developed custom websites for small businesses using various technologies. Managed entire project lifecycle from conception to deployment."
     }
   ],
-  
+
   education: [
     {
       institution: "Polytechnic University of the Philippines - Quezon City",

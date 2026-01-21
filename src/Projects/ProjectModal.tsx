@@ -15,6 +15,7 @@ interface Project {
   challenges?: string[];
   showLiveDemo?: boolean;
   showGithub?: boolean;
+  badges?: string[];
 }
 
 interface ProjectModalProps {
@@ -50,7 +51,7 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, isOpen, onClose })
     if (project?.images && !isAnimating) {
       setIsAnimating(true);
       setTimeout(() => {
-        setCurrentImageIndex((prev) => 
+        setCurrentImageIndex((prev) =>
           prev === project.images!.length - 1 ? 0 : prev + 1
         );
         setIsAnimating(false);
@@ -62,7 +63,7 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, isOpen, onClose })
     if (project?.images && !isAnimating) {
       setIsAnimating(true);
       setTimeout(() => {
-        setCurrentImageIndex((prev) => 
+        setCurrentImageIndex((prev) =>
           prev === 0 ? project.images!.length - 1 : prev - 1
         );
         setIsAnimating(false);
@@ -86,49 +87,49 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, isOpen, onClose })
       name: 'Backend',
       color: 'bg-purple-500/15 text-purple-200 border border-purple-400/20',
       match: [
-    'node', 'express', 'python', 'flask', 'cobol', 'c++'
+        'node', 'express', 'python', 'flask', 'cobol', 'c++', 'sharp', 'webhook', 'smtp', 'brevo', 'php', 'laravel', 'composer', 'artisan', 'cosine similarity', 'sqlalchemy', 'alembic', 'bcrypt', 'pyjwt', 'mvc', 'repository pattern'
       ]
     },
     {
       name: 'Frontend',
       color: 'bg-blue-500/15 text-blue-200 border border-blue-400/20',
       match: [
-    'react', 'vue', 'angular', 'tailwind', 'tailwind css', 'css', 'sass', 'html', 'tkinter', 'dart'
+        'react', 'vue', 'angular', 'tailwind', 'tailwind css', 'css', 'sass', 'html', 'tkinter', 'dart', 'shadcn', 'alpine.js', 'vite', 'leaflet', 'customtkinter'
       ]
     },
     {
       name: 'Database',
       color: 'bg-green-500/15 text-green-200 border border-green-400/20',
       match: [
-    'mongodb', 'mysql', 'postgresql', 'sqlite', 'typescript', 'stripe'
+        'mongodb', 'mysql', 'postgresql', 'sqlite', 'typescript', 'stripe', 'redis', 'prisma', 'mariadb'
       ]
     },
     {
       name: 'Framework',
       color: 'bg-cyan-500/15 text-cyan-200 border border-cyan-400/20',
       match: [
-    'next.js', 'vite', 'django', 'flask', 'fastapi', 'asp.net', 'flutter', 'flutterflow', 'laravel'
+        'next.js', 'vite', 'django', 'flask', 'fastapi', 'asp.net', 'flutter', 'flutterflow', 'laravel', 'react 19', 'next.js 16'
       ]
     },
     {
       name: 'DevOps & Tools',
       color: 'bg-orange-500/15 text-orange-200 border border-orange-400/20',
       match: [
-    'firebase', 'aws', 'cloud', 'docker', 'github', 'git', 'azure', 'meilisearch', 'mellisearch'
+        'firebase', 'aws', 'cloud', 'docker', 'github', 'git', 'azure', 'meilisearch', 'mellisearch', 'digital ocean', 'nginx', 'osrm', 'nominatim', 'geospatial', 'routing'
       ]
     },
     {
       name: 'AI & Machine Learning',
       color: 'bg-yellow-500/15 text-yellow-200 border border-yellow-400/20',
       match: [
-    'tensorflow', 'openai', 'opencv', 'ai', 'machine learning', 'ml', 'fuzzy algorithm'
+        'tensorflow', 'openai', 'opencv', 'ai', 'machine learning', 'ml', 'fuzzy algorithm', 'insightface', 'face-api', 'gemini', 'vector embeddings', 'embeddings', 'holt-winters', 'arima', 'regression', 'ema'
       ]
     },
     {
       name: 'Security',
       color: 'bg-red-500/15 text-red-200 border border-red-400/20',
       match: [
-        'jwt', 'security', 'auth', 'authentication', 'authorization'
+        'jwt', 'security', 'auth', 'authentication', 'authorization', 'zod', 'auth.js', 'nextauth', 'supabase auth'
       ]
     }
   ];
@@ -145,6 +146,68 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, isOpen, onClose })
       color: 'bg-slate-500/15 text-slate-400 border border-slate-400/30',
       match: []
     };
+  };
+
+  const getBadgeColor = (badge: string) => {
+    switch (badge.toLowerCase()) {
+      case 'academic':
+        return 'bg-indigo-500/15 text-indigo-200 border border-indigo-400/20';
+      case 'freelance':
+        return 'bg-emerald-500/15 text-emerald-200 border border-emerald-400/20';
+      case 'contract':
+        return 'bg-amber-500/15 text-amber-200 border border-amber-400/20';
+      case 'personal project':
+        return 'bg-pink-500/15 text-pink-200 border border-pink-400/20';
+      case 'deployed':
+        return 'bg-teal-500/15 text-teal-200 border border-teal-400/20';
+      case 'local':
+        return 'bg-sky-500/15 text-sky-200 border border-sky-400/20';
+      case 'research':
+        return 'bg-violet-500/15 text-violet-200 border border-violet-400/20';
+      case 'solo project':
+        return 'bg-rose-500/15 text-rose-200 border border-rose-400/20';
+      case 'client-work':
+        return 'bg-emerald-500/15 text-emerald-200 border border-emerald-400/20';
+      case 'ai-integrated':
+        return 'bg-amber-500/15 text-amber-200 border border-amber-400/20';
+      case 'full-stack':
+        return 'bg-blue-500/15 text-blue-200 border border-blue-400/20';
+      case 'ai/predictive':
+      case 'ai-predictive':
+        return 'bg-indigo-500/15 text-indigo-200 border border-indigo-400/20';
+      case 'saas':
+        return 'bg-cyan-500/15 text-cyan-200 border border-cyan-400/20';
+      case 'logistics':
+        return 'bg-orange-500/15 text-orange-200 border border-orange-400/20';
+      case 'ai-security':
+        return 'bg-red-500/15 text-red-200 border border-red-400/20';
+      case 'marketplace':
+        return 'bg-fuchsia-500/15 text-fuchsia-200 border border-fuchsia-400/20';
+      case 'production-ready':
+        return 'bg-emerald-500/15 text-emerald-200 border border-emerald-400/20';
+      case 'desktop-app':
+        return 'bg-sky-500/15 text-sky-200 border border-sky-400/20';
+      case 'financial-systems':
+        return 'bg-green-500/15 text-green-200 border border-green-400/20';
+      default:
+        return 'bg-slate-500/15 text-slate-200 border border-slate-400/20';
+    }
+  };
+
+  const renderBadges = (badges?: string[]) => {
+    if (!badges || badges.length === 0) return null;
+    return (
+      <div className="flex flex-wrap gap-2">
+        {badges.map((badge, index) => (
+          <span
+            key={index}
+            className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${getBadgeColor(badge)}`}
+          >
+            {badge}
+          </span>
+        ))}
+      </div>
+    );
   };
 
   const renderTechStack = (technologies: string[]) => {
@@ -196,7 +259,7 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, isOpen, onClose })
   return (
     <div className="fixed inset-0 z-50 overflow-y-auto">
       {/* Backdrop */}
-      <div 
+      <div
         className="fixed inset-0 bg-black/80 backdrop-blur-sm transition-opacity duration-300"
         onClick={onClose}
       />
@@ -212,18 +275,18 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, isOpen, onClose })
               className="absolute top-4 right-4 z-20 w-10 h-10 text-red-400 hover:text-red-300 transition-colors duration-200 group flex items-center justify-center bg-black/20 rounded-lg backdrop-blur-sm"
               aria-label="Close modal"
             >
-              <svg 
-                width="20" 
-                height="20" 
-                viewBox="0 0 24 24" 
-                fill="none" 
-                stroke="currentColor" 
-                strokeWidth="2" 
-                strokeLinecap="round" 
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
                 strokeLinejoin="round"
                 className="transition-transform duration-200 group-hover:scale-110"
               >
-                <path d="M18 6L6 18M6 6l12 12"/>
+                <path d="M18 6L6 18M6 6l12 12" />
               </svg>
             </button>
             <div className="flex flex-row max-h-[90vh]">
@@ -248,7 +311,10 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, isOpen, onClose })
                     </div>
                     {/* Description */}
                     <div className="space-y-3 mt-4">
-                      <h3 className="text-xs font-medium text-slate-400 uppercase tracking-wide">Description</h3>
+                      <div className="flex items-center gap-2">
+                        <h3 className="text-xs font-medium text-slate-400 uppercase tracking-wide">Description</h3>
+                        {renderBadges(project.badges)}
+                      </div>
                       <p className="text-slate-300 leading-relaxed text-xs">
                         {project.longDescription || project.description}
                       </p>
@@ -261,9 +327,8 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, isOpen, onClose })
                     <img
                       src={displayImages[currentImageIndex]}
                       alt={`${project.name} screenshot ${currentImageIndex + 1}`}
-                      className={`w-full h-full object-cover transition-all duration-300 ${
-                        isAnimating ? 'scale-105 opacity-60' : 'scale-100 opacity-100'
-                      }`}
+                      className={`w-full h-full object-cover transition-all duration-300 ${isAnimating ? 'scale-105 opacity-60' : 'scale-100 opacity-100'
+                        }`}
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-black/10" />
                     {displayImages.length > 1 && (
@@ -273,7 +338,7 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, isOpen, onClose })
                           className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-black/50 hover:bg-black/70 border border-white/20 hover:border-primary/50 rounded-xl flex items-center justify-center text-white hover:text-primary transition-all duration-300 hover:scale-105 backdrop-blur-md"
                         >
                           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                            <path d="M15 18l-6-6 6-6"/>
+                            <path d="M15 18l-6-6 6-6" />
                           </svg>
                         </button>
                         <button
@@ -281,7 +346,7 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, isOpen, onClose })
                           className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-black/50 hover:bg-black/70 border border-white/20 hover:border-primary/50 rounded-xl flex items-center justify-center text-white hover:text-primary transition-all duration-300 hover:scale-105 backdrop-blur-md"
                         >
                           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                            <path d="M9 18l6-6-6-6"/>
+                            <path d="M9 18l6-6-6-6" />
                           </svg>
                         </button>
                       </>
@@ -293,11 +358,10 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, isOpen, onClose })
                         <button
                           key={index}
                           onClick={() => goToImage(index)}
-                          className={`w-3 h-3 rounded-full border-2 transition-all duration-300 ${
-                            index === currentImageIndex 
-                              ? 'bg-primary border-primary shadow-lg shadow-primary/50 scale-125' 
-                              : 'bg-white/30 border-white/50 hover:bg-white/50 hover:border-white/70 hover:scale-110'
-                          }`}
+                          className={`w-3 h-3 rounded-full border-2 transition-all duration-300 ${index === currentImageIndex
+                            ? 'bg-primary border-primary shadow-lg shadow-primary/50 scale-125'
+                            : 'bg-white/30 border-white/50 hover:bg-white/50 hover:border-white/70 hover:scale-110'
+                            }`}
                         />
                       ))}
                     </div>
@@ -313,8 +377,8 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, isOpen, onClose })
                       <div className="flex items-center gap-2 mb-4">
                         <div className="w-5 h-5 text-emerald-400">
                           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                            <path d="M9 12l2 2 4-4"/>
-                            <circle cx="12" cy="12" r="10"/>
+                            <path d="M9 12l2 2 4-4" />
+                            <circle cx="12" cy="12" r="10" />
                           </svg>
                         </div>
                         <h3 className="text-base font-semibold text-white">Key Features</h3>
@@ -334,8 +398,8 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, isOpen, onClose })
                     <div className="flex items-center gap-2 mb-4">
                       <div className="w-5 h-5 text-indigo-400">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
-                          <circle cx="12" cy="7" r="4"/>
+                          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                          <circle cx="12" cy="7" r="4" />
                         </svg>
                       </div>
                       <h3 className="text-base font-semibold text-white">My Role</h3>
@@ -350,9 +414,9 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, isOpen, onClose })
                       <div className="flex items-center gap-2 mb-4">
                         <div className="w-5 h-5 text-amber-400">
                           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                            <circle cx="12" cy="12" r="10"/>
-                            <path d="M12 8v4"/>
-                            <path d="M12 16h.01"/>
+                            <circle cx="12" cy="12" r="10" />
+                            <path d="M12 8v4" />
+                            <path d="M12 16h.01" />
                           </svg>
                         </div>
                         <h3 className="text-base font-semibold text-white">My Contributions</h3>
@@ -377,18 +441,18 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, isOpen, onClose })
                         className="flex items-center justify-center gap-2 bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 px-6 py-2.5 rounded-lg font-medium text-white transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-primary/20 border border-primary/20 text-sm"
                       >
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                          <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
-                          <polyline points="15,3 21,3 21,9"/>
-                          <line x1="10" y1="14" x2="21" y2="3"/>
+                          <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                          <polyline points="15,3 21,3 21,9" />
+                          <line x1="10" y1="14" x2="21" y2="3" />
                         </svg>
                         Live Demo
                       </a>
                     ) : (
                       <div className="flex items-center justify-center gap-2 bg-slate-700/50 border border-slate-600/50 px-6 py-2.5 rounded-lg font-medium text-slate-400 cursor-not-allowed opacity-60 text-sm">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                          <circle cx="12" cy="12" r="10"/>
-                          <line x1="15" y1="9" x2="9" y2="15"/>
-                          <line x1="9" y1="9" x2="15" y2="15"/>
+                          <circle cx="12" cy="12" r="10" />
+                          <line x1="15" y1="9" x2="9" y2="15" />
+                          <line x1="9" y1="9" x2="15" y2="15" />
                         </svg>
                         Demo Unavailable
                       </div>
@@ -401,16 +465,16 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, isOpen, onClose })
                         className="flex items-center justify-center gap-2 bg-slate-800/80 hover:bg-slate-700/80 border border-slate-600/60 hover:border-slate-500/80 px-6 py-2.5 rounded-lg font-medium text-white transition-all duration-300 hover:scale-105 backdrop-blur-sm hover:shadow-lg text-sm"
                       >
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                          <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+                          <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
                         </svg>
                         View Code
                       </a>
                     ) : (
                       <div className="flex items-center justify-center gap-2 bg-slate-700/50 border border-slate-600/50 px-6 py-2.5 rounded-lg font-medium text-slate-400 cursor-not-allowed opacity-60 text-sm">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                          <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
-                          <circle cx="12" cy="16" r="1"/>
-                          <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                          <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+                          <circle cx="12" cy="16" r="1" />
+                          <path d="M7 11V7a5 5 0 0 1 10 0v4" />
                         </svg>
                         Code Private
                       </div>
@@ -430,9 +494,9 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, isOpen, onClose })
               className="absolute top-3 right-3 z-20 w-9 h-9 text-red-400 hover:text-red-300 transition-colors duration-200 group flex items-center justify-center bg-black/20 rounded-lg backdrop-blur-sm"
               aria-label="Close modal"
             >
-              <svg 
+              <svg
                 width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="transition-transform duration-200 group-hover:scale-110">
-                <path d="M18 6L6 18M6 6l12 12"/>
+                <path d="M18 6L6 18M6 6l12 12" />
               </svg>
             </button>
             {/* Single scrollable container for all content */}
@@ -452,7 +516,7 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, isOpen, onClose })
                       className="absolute left-2 top-1/2 -translate-y-1/2 w-8 h-8 bg-black/50 hover:bg-black/70 border border-white/20 hover:border-primary/50 rounded-xl flex items-center justify-center text-white hover:text-primary transition-all duration-300 hover:scale-105 backdrop-blur-md"
                     >
                       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                        <path d="M15 18l-6-6 6-6"/>
+                        <path d="M15 18l-6-6 6-6" />
                       </svg>
                     </button>
                     <button
@@ -460,7 +524,7 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, isOpen, onClose })
                       className="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 bg-black/50 hover:bg-black/70 border border-white/20 hover:border-primary/50 rounded-xl flex items-center justify-center text-white hover:text-primary transition-all duration-300 hover:scale-105 backdrop-blur-md"
                     >
                       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                        <path d="M9 18l6-6-6-6"/>
+                        <path d="M9 18l6-6-6-6" />
                       </svg>
                     </button>
                   </>
@@ -491,8 +555,11 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, isOpen, onClose })
                   <div className="space-y-1 mt-2">
                     {renderTechStack(project.technologies)}
                   </div>
-                  <div className="space-y-2 mt-2">
-                    <h3 className="text-xs font-medium text-slate-400 uppercase tracking-wide">Description</h3>
+                  <div className="space-y-2 mt-3">
+                    <div className="flex items-center gap-2">
+                      <h3 className="text-xs font-medium text-slate-400 uppercase tracking-wide">Description</h3>
+                      {renderBadges(project.badges)}
+                    </div>
                     <p className="text-slate-300 leading-relaxed text-xs">
                       {project.longDescription || project.description}
                     </p>
@@ -506,8 +573,8 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, isOpen, onClose })
                     <div className="flex items-center gap-2 mb-2">
                       <div className="w-4 h-4 text-emerald-400">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                          <path d="M9 12l2 2 4-4"/>
-                          <circle cx="12" cy="12" r="10"/>
+                          <path d="M9 12l2 2 4-4" />
+                          <circle cx="12" cy="12" r="10" />
                         </svg>
                       </div>
                       <h3 className="text-sm font-semibold text-white">Key Features</h3>
@@ -526,8 +593,8 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, isOpen, onClose })
                   <div className="flex items-center gap-2 mb-2">
                     <div className="w-4 h-4 text-indigo-400">
                       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
-                        <circle cx="12" cy="7" r="4"/>
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                        <circle cx="12" cy="7" r="4" />
                       </svg>
                     </div>
                     <h3 className="text-sm font-semibold text-white">My Role</h3>
@@ -541,9 +608,9 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, isOpen, onClose })
                     <div className="flex items-center gap-2 mb-2">
                       <div className="w-4 h-4 text-amber-400">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                          <circle cx="12" cy="12" r="10"/>
-                          <path d="M12 8v4"/>
-                          <path d="M12 16h.01"/>
+                          <circle cx="12" cy="12" r="10" />
+                          <path d="M12 8v4" />
+                          <path d="M12 16h.01" />
                         </svg>
                       </div>
                       <h3 className="text-sm font-semibold text-white">My Contributions</h3>
@@ -567,18 +634,18 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, isOpen, onClose })
                       className="flex items-center justify-center gap-2 bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 px-4 py-2 rounded-lg font-medium text-white transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-primary/20 border border-primary/20 text-xs"
                     >
                       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
-                        <polyline points="15,3 21,3 21,9"/>
-                        <line x1="10" y1="14" x2="21" y2="3"/>
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                        <polyline points="15,3 21,3 21,9" />
+                        <line x1="10" y1="14" x2="21" y2="3" />
                       </svg>
                       Live Demo
                     </a>
                   ) : (
                     <div className="flex items-center justify-center gap-2 bg-slate-700/50 border border-slate-600/50 px-4 py-2 rounded-lg font-medium text-slate-400 cursor-not-allowed opacity-60 text-xs">
                       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                        <circle cx="12" cy="12" r="10"/>
-                        <line x1="15" y1="9" x2="9" y2="15"/>
-                        <line x1="9" y1="9" x2="15" y2="15"/>
+                        <circle cx="12" cy="12" r="10" />
+                        <line x1="15" y1="9" x2="9" y2="15" />
+                        <line x1="9" y1="9" x2="15" y2="15" />
                       </svg>
                       Demo Unavailable
                     </div>
@@ -591,16 +658,16 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, isOpen, onClose })
                       className="flex items-center justify-center gap-2 bg-slate-800/80 hover:bg-slate-700/80 border border-slate-600/60 hover:border-slate-500/80 px-4 py-2 rounded-lg font-medium text-white transition-all duration-300 hover:scale-105 backdrop-blur-sm hover:shadow-lg text-xs"
                     >
                       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                        <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+                        <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
                       </svg>
                       View Code
                     </a>
                   ) : (
                     <div className="flex items-center justify-center gap-2 bg-slate-700/50 border border-slate-600/50 px-4 py-2 rounded-lg font-medium text-slate-400 cursor-not-allowed opacity-60 text-xs">
                       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                        <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
-                        <circle cx="12" cy="16" r="1"/>
-                        <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                        <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+                        <circle cx="12" cy="16" r="1" />
+                        <path d="M7 11V7a5 5 0 0 1 10 0v4" />
                       </svg>
                       Code Private
                     </div>
