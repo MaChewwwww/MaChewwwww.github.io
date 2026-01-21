@@ -75,7 +75,7 @@ export const personalInfo: PersonalInfo = {
   },
 
   stats: {
-    yearsExperience: 2,
+    yearsExperience: 3,
     projectsCompleted: 20,
     certificatesEarned: 15
   },
