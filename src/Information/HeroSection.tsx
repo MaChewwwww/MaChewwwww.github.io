@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
+import { useIsMobile } from '../hooks/useIsMobile';
 import type { PersonalInfo } from '../personalInfo';
 import Aurora from '../Background/Aurora';
 import Particles from '../Background/Particles';
@@ -14,7 +15,9 @@ const HeroSection: React.FC<HeroSectionProps> = ({ personalInfo }) => {
   const [isInView, setIsInView] = useState(false);
   const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
   const [isTyping, setIsTyping] = useState(true);
+
   const sectionRef = useRef<HTMLElement>(null);
+  const isMobile = useIsMobile();
 
   // Use roles from personalInfo, fallback to default if not provided
   const rolesList = roles || [role];
@@ -68,34 +71,37 @@ const HeroSection: React.FC<HeroSectionProps> = ({ personalInfo }) => {
         backgroundImage: 'repeating-radial-gradient(circle at 20% 40%, rgba(255,255,255,0.04) 0px, rgba(255,255,255,0.04) 2px, transparent 3px, transparent 40px)',
       }}
     >
+
       {/* Only show animated backgrounds on desktop when in view */}
-      <div className="hidden md:block">
-        <div className="absolute inset-0 z-0">
-          {isInView && (
-            <Aurora
-              colorStops={["#3A29FF", "#FF94B4", "#FF3232"]}
-              blend={0.5}
-              amplitude={1.0}
-              speed={0.5}
-            />
-          )}
+      {!isMobile && (
+        <div className="hidden md:block">
+          <div className="absolute inset-0 z-0">
+            {isInView && (
+              <Aurora
+                colorStops={["#3A29FF", "#FF94B4", "#FF3232"]}
+                blend={0.5}
+                amplitude={1.0}
+                speed={0.5}
+              />
+            )}
+          </div>
+          <div className="absolute inset-0 z-1">
+            {isInView && (
+              <Particles
+                particleColors={['#ffffff', '#ffffff']}
+                particleCount={400}
+                particleSpread={15}
+                speed={0.1}
+                particleBaseSize={200}
+                moveParticlesOnHover={true}
+                alphaParticles={true}
+                disableRotation={false}
+              />
+            )}
+          </div>
+          <div className="absolute inset-0 z-2 bg-slate-900/20"></div>
         </div>
-        <div className="absolute inset-0 z-1">
-          {isInView && (
-            <Particles
-              particleColors={['#ffffff', '#ffffff']}
-              particleCount={400}
-              particleSpread={15}
-              speed={0.1}
-              particleBaseSize={200}
-              moveParticlesOnHover={true}
-              alphaParticles={true}
-              disableRotation={false}
-            />
-          )}
-        </div>
-        <div className="absolute inset-0 z-2 bg-slate-900/20"></div>
-      </div>
+      )}
 
       <div className={`relative z-10 container mx-auto px-4 md:px-6 max-w-6xl transition-all duration-1000 ${isInView ? 'animate-on-scroll in-view' : 'animate-on-scroll'
         }`}>

@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useMemo } from 'react';
+import { useIsMobile } from '../hooks/useIsMobile';
 import Hyperspeed from '../Background/Hyperspeed';
 import ProjectModal from './ProjectModal';
 
@@ -24,6 +25,7 @@ const ProjectsSection: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const isMobile = useIsMobile();
 
   // Memoize Hyperspeed options at component level to avoid hooks in conditional JSX
   const hyperspeedOptions = useMemo(() => ({
@@ -840,13 +842,15 @@ const ProjectsSection: React.FC = () => {
       <div className="absolute bottom-0 left-0 right-0 h-0.5 glow-line-bottom z-30"></div>
 
       {/* Hyperspeed Background - Only show on desktop */}
-      <div className="absolute inset-0 z-0 hidden md:block">
-        {isVisible && !isModalOpen && (
-          <Hyperspeed effectOptions={hyperspeedOptions} />
-        )}
-        {/* Overlay to ensure content readability */}
-        <div className="absolute inset-0 bg-black/20 backdrop-blur-[0.5px] z-5" />
-      </div>
+      {!isMobile && (
+        <div className="absolute inset-0 z-0 hidden md:block">
+          {isVisible && !isModalOpen && (
+            <Hyperspeed effectOptions={hyperspeedOptions} />
+          )}
+          {/* Overlay to ensure content readability */}
+          <div className="absolute inset-0 bg-black/20 backdrop-blur-[0.5px] z-5" />
+        </div>
+      )}
 
       <div className="container mx-auto max-w-6xl relative z-10">
         <h2 className="text-5xl font-bold mb-16 text-center bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent animate-on-scroll-scale">

@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
+import { useIsMobile } from '../hooks/useIsMobile';
 import { personalInfo } from '../personalInfo';
 import Orb from '../Background/Orb';
 
 const AboutSection: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const isMobile = useIsMobile();
 
   useEffect(() => {
     // Observer for triggering animations when 25% visible
@@ -61,18 +63,20 @@ const AboutSection: React.FC = () => {
       <div className="absolute bottom-0 left-0 w-full glow-line-bottom"></div>
 
       {/* Orb Background - Only show on desktop when visible */}
-      <div className="absolute inset-0 w-full h-full items-center justify-center hidden md:flex">
-        {isVisible && (
-          <div className="w-[860px] h-[860px]">
-            <Orb
-              hue={220}
-              hoverIntensity={0.3}
-              rotateOnHover={true}
-              forceHoverState={false}
-            />
-          </div>
-        )}
-      </div>
+      {!isMobile && (
+        <div className="absolute inset-0 w-full h-full items-center justify-center hidden md:flex">
+          {isVisible && (
+            <div className="w-[860px] h-[860px]">
+              <Orb
+                hue={220}
+                hoverIntensity={0.3}
+                rotateOnHover={true}
+                forceHoverState={false}
+              />
+            </div>
+          )}
+        </div>
+      )}
 
       <div className="container mx-auto max-w-6xl relative z-10">
         <h2 className="text-4xl md:text-5xl font-bold mb-12 text-center bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-purple-400 to-teal-400 animate-on-scroll-scale">

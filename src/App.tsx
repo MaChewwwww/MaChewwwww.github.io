@@ -4,13 +4,14 @@ import { ProjectsSection } from './Projects';
 import { CredentialsSection } from './Credentials';
 import SplashCursor from './Background/SplashCursor';
 import { useState } from 'react';
+import { useIsMobile } from './hooks/useIsMobile';
 
 function App() {
   const [isEmailModalOpen, setIsEmailModalOpen] = useState(false);
   const [navOpen, setNavOpen] = useState(false);
 
   // Helper to detect mobile
-  const isMobile = typeof window !== 'undefined' && window.innerWidth < 1024;
+  const isMobile = useIsMobile();
 
   return (
     <div className="min-h-screen flex flex-col bg-background text-white">
@@ -34,8 +35,8 @@ function App() {
           </div>
           <ul className={`list-none lg:flex justify-center gap-8 ${navOpen ? 'flex flex-col items-center mt-4 bg-slate-900/95 rounded-xl shadow-lg py-4' : 'hidden lg:flex'}`}>
             <li>
-              <a 
-                href="#" 
+              <a
+                href="#"
                 className="text-white/80 font-medium hover:text-primary transition-colors duration-300 relative group px-2 py-2"
                 onClick={() => { window.scrollTo({ top: 0, behavior: 'smooth' }); setNavOpen(false); }}
               >
@@ -44,8 +45,8 @@ function App() {
               </a>
             </li>
             <li>
-              <a 
-                href="#about" 
+              <a
+                href="#about"
                 className="text-white/80 font-medium hover:text-primary transition-colors duration-300 relative group px-2 py-2"
                 onClick={() => setNavOpen(false)}
               >
@@ -54,8 +55,8 @@ function App() {
               </a>
             </li>
             <li>
-              <a 
-                href="#projects" 
+              <a
+                href="#projects"
                 className="text-white/80 font-medium hover:text-primary transition-colors duration-300 relative group px-2 py-2"
                 onClick={() => setNavOpen(false)}
               >
@@ -64,8 +65,8 @@ function App() {
               </a>
             </li>
             <li>
-              <a 
-                href="#credentials" 
+              <a
+                href="#credentials"
                 className="text-white/80 font-medium hover:text-primary transition-colors duration-300 relative group px-2 py-2"
                 onClick={() => setNavOpen(false)}
               >
@@ -74,8 +75,8 @@ function App() {
               </a>
             </li>
             <li>
-              <a 
-                href="#contact" 
+              <a
+                href="#contact"
                 className="text-white/80 font-medium hover:text-primary transition-colors duration-300 relative group px-2 py-2"
                 onClick={() => setNavOpen(false)}
               >
@@ -104,36 +105,36 @@ function App() {
                   <span>📧</span>
                   <span>Email</span>
                 </button>
-                <a 
-                  href={personalInfo.social.github} 
-                  target="_blank" 
+                <a
+                  href={personalInfo.social.github}
+                  target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 px-4 py-2 bg-slate-800/60 hover:bg-slate-700/60 border border-slate-700/50 hover:border-slate-500/50 rounded-lg text-slate-300 hover:text-white transition-all duration-200 text-sm"
                 >
                   <span>💻</span>
                   <span>GitHub</span>
                 </a>
-                <a 
-                  href={personalInfo.social.linkedin} 
-                  target="_blank" 
+                <a
+                  href={personalInfo.social.linkedin}
+                  target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 px-4 py-2 bg-slate-800/60 hover:bg-accent/20 border border-slate-700/50 hover:border-accent/40 rounded-lg text-slate-300 hover:text-accent transition-all duration-200 text-sm"
                 >
                   <span>👔</span>
                   <span>LinkedIn</span>
                 </a>
-                <a 
-                  href={personalInfo.social.facebook} 
-                  target="_blank" 
+                <a
+                  href={personalInfo.social.facebook}
+                  target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 px-4 py-2 bg-slate-800/60 hover:bg-blue-500/20 border border-slate-700/50 hover:border-blue-500/40 rounded-lg text-slate-300 hover:text-blue-400 transition-all duration-200 text-sm"
                 >
                   <span>📘</span>
                   <span>Facebook</span>
                 </a>
-                <a 
-                  href={personalInfo.social.instagram} 
-                  target="_blank" 
+                <a
+                  href={personalInfo.social.instagram}
+                  target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 px-4 py-2 bg-slate-800/60 hover:bg-pink-500/20 border border-slate-700/50 hover:border-pink-500/40 rounded-lg text-slate-300 hover:text-pink-400 transition-all duration-200 text-sm"
                 >
@@ -167,14 +168,14 @@ function App() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
               </svg>
             </button>
-            
+
             <div className="text-center">
               <div className="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-primary to-accent rounded-full flex items-center justify-center text-3xl">
                 📧
               </div>
               <h3 className="text-xl font-semibold text-white mb-4">Get In Touch</h3>
               <p className="text-slate-300 mb-6">Feel free to reach out to me via email :</p>
-              
+
               <div className="bg-slate-700/50 rounded-lg p-4 mb-6 flex items-center justify-center gap-3">
                 <p className="text-primary font-mono text-lg select-all">
                   parocha.johnmathew23@gmail.com
