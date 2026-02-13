@@ -8,7 +8,7 @@ const AboutSection: React.FC = () => {
   const isMobile = useIsMobile();
 
   useEffect(() => {
-    // Observer for triggering animations when 25% visible
+    // Observer for triggering animations when 10% visible (lowered from 25% for better mobile feel)
     const triggerObserver = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -22,7 +22,7 @@ const AboutSection: React.FC = () => {
           }
         }
       },
-      { threshold: 0.25 }
+      { threshold: isMobile ? 0.05 : 0.15 }
     );
 
     // Observer for resetting animations when completely out of view
@@ -52,7 +52,7 @@ const AboutSection: React.FC = () => {
       triggerObserver.disconnect();
       resetObserver.disconnect();
     };
-  }, []);
+  }, [isMobile]);
 
   return (
     <section id="about" className="py-12 px-8 bg-slate-900/50 relative overflow-hidden">

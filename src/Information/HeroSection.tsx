@@ -36,8 +36,8 @@ const HeroSection: React.FC<HeroSectionProps> = ({ personalInfo }) => {
         });
       },
       {
-        threshold: 0.1,
-        rootMargin: '50px 0px -50px 0px'
+        threshold: 0.01, // Lowered from 0.1 to trigger as soon as it enters
+        rootMargin: '100px 0px' // Expanded margin to trigger animations slightly before entering
       }
     );
 
