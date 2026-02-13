@@ -121,7 +121,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ personalInfo }) => {
             <div className="w-full max-w-xs mx-auto">
               <ProfileCard
                 name="MaChew"
-                handle="yourhandle"
+                handle="MaChewwwww"
                 status="Available for work"
                 avatarUrl={profileImage}
                 miniAvatarUrl={miniAvatarImage}
