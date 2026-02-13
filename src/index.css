@@ -4,58 +4,136 @@
 
 /* Custom animations for the hero section */
 @keyframes float {
-  0%, 100% { transform: translateY(0px) rotate(0deg); }
-  33% { transform: translateY(-10px) rotate(1deg); }
-  66% { transform: translateY(-5px) rotate(-1deg); }
+
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+
+  33% {
+    transform: translateY(-10px) rotate(1deg);
+  }
+
+  66% {
+    transform: translateY(-5px) rotate(-1deg);
+  }
 }
 
 @keyframes float-complex {
-  0%, 100% { transform: translateY(0px) translateX(0px) rotate(0deg) scale(1); }
-  25% { transform: translateY(-15px) translateX(5px) rotate(2deg) scale(1.1); }
-  50% { transform: translateY(-8px) translateX(-3px) rotate(-1deg) scale(0.9); }
-  75% { transform: translateY(-12px) translateX(8px) rotate(1deg) scale(1.05); }
+
+  0%,
+  100% {
+    transform: translateY(0px) translateX(0px) rotate(0deg) scale(1);
+  }
+
+  25% {
+    transform: translateY(-15px) translateX(5px) rotate(2deg) scale(1.1);
+  }
+
+  50% {
+    transform: translateY(-8px) translateX(-3px) rotate(-1deg) scale(0.9);
+  }
+
+  75% {
+    transform: translateY(-12px) translateX(8px) rotate(1deg) scale(1.05);
+  }
 }
 
 @keyframes shimmer {
-  0% { background-position: -200px 0; }
-  100% { background-position: calc(200px + 100%) 0; }
+  0% {
+    background-position: -200px 0;
+  }
+
+  100% {
+    background-position: calc(200px + 100%) 0;
+  }
 }
 
 @keyframes glow-pulse {
-  0%, 100% { box-shadow: 0 0 5px currentColor; }
-  50% { box-shadow: 0 0 20px currentColor, 0 0 30px currentColor; }
+
+  0%,
+  100% {
+    box-shadow: 0 0 5px currentColor;
+  }
+
+  50% {
+    box-shadow: 0 0 20px currentColor, 0 0 30px currentColor;
+  }
 }
 
 @keyframes wave {
-  0%, 100% { transform: rotate(0deg); }
-  25% { transform: rotate(20deg); }
-  75% { transform: rotate(-10deg); }
+
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+
+  25% {
+    transform: rotate(20deg);
+  }
+
+  75% {
+    transform: rotate(-10deg);
+  }
 }
 
 @keyframes blob {
-  0%, 100% { transform: translate(0px, 0px) scale(1); }
-  33% { transform: translate(30px, -50px) scale(1.1); }
-  66% { transform: translate(-20px, 20px) scale(0.9); }
+
+  0%,
+  100% {
+    transform: translate(0px, 0px) scale(1);
+  }
+
+  33% {
+    transform: translate(30px, -50px) scale(1.1);
+  }
+
+  66% {
+    transform: translate(-20px, 20px) scale(0.9);
+  }
 }
 
 @keyframes typewriter {
-  from { width: 0; }
-  to { width: 100%; }
+  from {
+    width: 0;
+  }
+
+  to {
+    width: 100%;
+  }
 }
 
 @keyframes blink {
-  0%, 50% { opacity: 1; }
-  51%, 100% { opacity: 0; }
+
+  0%,
+  50% {
+    opacity: 1;
+  }
+
+  51%,
+  100% {
+    opacity: 0;
+  }
 }
 
 @keyframes spin-slow {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 @keyframes reverse-spin {
-  from { transform: rotate(360deg); }
-  to { transform: rotate(0deg); }
+  from {
+    transform: rotate(360deg);
+  }
+
+  to {
+    transform: rotate(0deg);
+  }
 }
 
 @keyframes slideInUp {
@@ -63,6 +141,7 @@
     transform: translateY(100px);
     opacity: 0;
   }
+
   to {
     transform: translateY(0);
     opacity: 1;
@@ -74,6 +153,7 @@
     transform: translateY(0);
     opacity: 1;
   }
+
   to {
     transform: translateY(100px);
     opacity: 0;
@@ -85,6 +165,7 @@
     transform: scale(0.9);
     opacity: 0;
   }
+
   to {
     transform: scale(1);
     opacity: 1;
@@ -96,6 +177,7 @@
     transform: scale(1);
     opacity: 1;
   }
+
   to {
     transform: scale(0.9);
     opacity: 0;
@@ -107,6 +189,7 @@
     transform: scale(0.8) translateY(40px);
     opacity: 0;
   }
+
   100% {
     transform: scale(1) translateY(0);
     opacity: 1;
@@ -118,6 +201,7 @@
     transform: scale(1) translateY(0);
     opacity: 1;
   }
+
   100% {
     transform: scale(0.8) translateY(40px);
     opacity: 0;
@@ -129,19 +213,28 @@
   from {
     max-width: 0;
   }
+
   to {
     max-width: 100%;
   }
 }
 
 @keyframes typewriter-cursor {
-  0%, 50% { opacity: 1; }
-  51%, 100% { opacity: 0; }
+
+  0%,
+  50% {
+    opacity: 1;
+  }
+
+  51%,
+  100% {
+    opacity: 0;
+  }
 }
 
 /* Grid pattern background */
 .bg-grid-pattern {
-  background-image: 
+  background-image:
     linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px),
     linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
   background-size: 50px 50px;
@@ -158,7 +251,7 @@
 
 .animate-shimmer {
   animation: shimmer 2s infinite;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
   background-size: 200px 100%;
 }
 
@@ -251,7 +344,7 @@
 .glow-line-top {
   height: 2px;
   background: linear-gradient(90deg, transparent, #6366F1, #8B5CF6, #0EA5E9, transparent);
-  box-shadow: 
+  box-shadow:
     0 0 20px #6366F1,
     0 0 40px #8B5CF6,
     0 0 60px #6366F1,
@@ -263,7 +356,7 @@
 .glow-line-bottom {
   height: 2px;
   background: linear-gradient(90deg, transparent, #8B5CF6, #6366F1, #0EA5E9, transparent);
-  box-shadow: 
+  box-shadow:
     0 0 20px #8B5CF6,
     0 0 40px #6366F1,
     0 0 60px #8B5CF6,
@@ -290,10 +383,21 @@
 }
 
 /* Animation delays */
-.animation-delay-1000 { animation-delay: 1s; }
-.animation-delay-2000 { animation-delay: 2s; }
-.animation-delay-3000 { animation-delay: 3s; }
-.animation-delay-4000 { animation-delay: 4s; }
+.animation-delay-1000 {
+  animation-delay: 1s;
+}
+
+.animation-delay-2000 {
+  animation-delay: 2s;
+}
+
+.animation-delay-3000 {
+  animation-delay: 3s;
+}
+
+.animation-delay-4000 {
+  animation-delay: 4s;
+}
 
 /* Smooth scrolling */
 html {
@@ -362,8 +466,22 @@ html {
 
 /* Firefox scrollbar styling */
 @supports (scrollbar-width: thin) {
-  .custom-scrollbar, .modal-scrollbar {
+
+  .custom-scrollbar,
+  .modal-scrollbar {
     scrollbar-width: thin;
     scrollbar-color: #6366F1 rgba(30, 41, 59, 0.3);
   }
+}
+
+/* Utility classes */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
 }

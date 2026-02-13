@@ -41,9 +41,9 @@ const CredentialsSection: React.FC = () => {
           </h3>
           <div className="space-y-6">
             {academicData.map((record, index) => (
-              <div key={index} className="group relative bg-gradient-to-br from-blue-500/10 via-purple-500/5 to-transparent rounded-2xl p-6 border border-blue-500/20 hover:border-blue-400/40 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/10">
+              <div key={index} className="group relative bg-gradient-to-br from-blue-500/10 via-purple-500/5 to-transparent rounded-2xl p-4 sm:p-6 border border-blue-500/20 hover:border-blue-400/40 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/10">
                 {/* Decorative corner accent */}
-                <div className="absolute top-0 right-0 w-16 h-16 bg-gradient-to-br from-blue-500/20 to-purple-600/20 rounded-bl-2xl rounded-tr-2xl opacity-50"></div>
+                <div className="absolute top-0 right-0 w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-br from-blue-500/20 to-purple-600/20 rounded-bl-2xl rounded-tr-2xl opacity-50"></div>
 
                 <div className="relative flex flex-col lg:flex-row lg:items-start lg:justify-between gap-4 mb-4">
                   <div>
@@ -125,11 +125,11 @@ const CredentialsSection: React.FC = () => {
           </h3>
           <div className="space-y-6">
             {certificateData.map((provider, index) => (
-              <div key={index} className="group relative bg-gradient-to-br from-emerald-500/10 via-green-500/5 to-transparent rounded-2xl p-6 border border-emerald-500/20 hover:border-emerald-400/40 transition-all duration-300 hover:shadow-lg hover:shadow-emerald-500/10">
+              <div key={index} className="group relative bg-gradient-to-br from-emerald-500/10 via-green-500/5 to-transparent rounded-2xl p-4 sm:p-6 border border-emerald-500/20 hover:border-emerald-400/40 transition-all duration-300 hover:shadow-lg hover:shadow-emerald-500/10">
                 {/* Decorative side accent */}
                 <div className="absolute left-0 top-4 bottom-4 w-1 bg-gradient-to-b from-emerald-400 to-green-600 rounded-r-full opacity-60"></div>
 
-                <div className="relative flex items-start justify-between gap-4 mb-4 pl-4">
+                <div className="relative flex items-start justify-between gap-4 mb-4 pl-2 sm:pl-4">
                   <div>
                     <h4 className="text-lg font-semibold text-white mb-2 group-hover:text-emerald-300 transition-colors">
                       {provider.provider}
@@ -137,17 +137,17 @@ const CredentialsSection: React.FC = () => {
                   </div>
                   <div className="flex-shrink-0">
                     <span className={`inline-flex px-4 py-2 rounded-full text-xs font-semibold border-2 ${provider.type === 'certification'
-                        ? 'bg-emerald-500/20 text-emerald-300 border-emerald-500/40 shadow-lg shadow-emerald-500/20'
-                        : provider.type === 'seminar'
-                          ? 'bg-green-500/20 text-green-300 border-green-500/40 shadow-lg shadow-green-500/20'
-                          : 'bg-teal-500/20 text-teal-300 border-teal-500/40 shadow-lg shadow-teal-500/20'
+                      ? 'bg-emerald-500/20 text-emerald-300 border-emerald-500/40 shadow-lg shadow-emerald-500/20'
+                      : provider.type === 'seminar'
+                        ? 'bg-green-500/20 text-green-300 border-green-500/40 shadow-lg shadow-green-500/20'
+                        : 'bg-teal-500/20 text-teal-300 border-teal-500/40 shadow-lg shadow-teal-500/20'
                       }`}>
                       {provider.type.charAt(0).toUpperCase() + provider.type.slice(1)}
                     </span>
                   </div>
                 </div>
 
-                <div className="relative space-y-2 pl-4">
+                <div className="relative space-y-2 pl-2 sm:pl-4">
                   <h5 className="text-sm font-semibold text-emerald-200 mb-3 flex items-center gap-2">
                     <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full"></span>
                     {provider.type === 'certification' ? 'Completed Courses' : 'Attended Sessions'}
@@ -186,7 +186,7 @@ const CredentialsSection: React.FC = () => {
                 <div className="absolute top-0 left-0 w-8 h-8 bg-gradient-to-br from-purple-500/30 to-pink-600/30 transform rotate-45 -translate-x-4 -translate-y-4"></div>
                 <div className="absolute bottom-0 right-0 w-6 h-6 bg-gradient-to-tl from-pink-500/30 to-purple-600/30 transform rotate-45 translate-x-3 translate-y-3"></div>
 
-                <div className="relative p-4">
+                <div className="relative p-3 sm:p-4">
                   <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-2 mb-2">
                     <div className="flex-1">
                       <h4 className="text-lg font-semibold text-white mb-1 group-hover:text-purple-300 transition-colors">
@@ -250,7 +250,7 @@ const CredentialsSection: React.FC = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 py-20"
+      className="relative min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 py-12 md:py-20 overflow-hidden"
       id="credentials"
     >
       {/* Background Elements */}
@@ -274,20 +274,22 @@ const CredentialsSection: React.FC = () => {
         {/* Tab Navigation - Mobile Only */}
         <div className={`flex justify-center mb-8 lg:hidden transition-all duration-1000 delay-200 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}>
-          <div className="inline-flex bg-slate-800/40 backdrop-blur-sm border border-slate-700/50 rounded-2xl p-2">
-            {credentialSections.map((section) => (
-              <button
-                key={section.id}
-                onClick={() => setActiveTab(section.id)}
-                className={`px-6 py-3 rounded-xl font-semibold transition-all duration-300 flex items-center gap-2 ${activeTab === section.id
+          <div className="w-full overflow-x-auto hide-scrollbar flex justify-start sm:justify-center px-4">
+            <div className="inline-flex bg-slate-800/40 backdrop-blur-sm border border-slate-700/50 rounded-2xl p-1.5 whitespace-nowrap">
+              {credentialSections.map((section) => (
+                <button
+                  key={section.id}
+                  onClick={() => setActiveTab(section.id)}
+                  className={`px-4 py-2.5 rounded-xl font-semibold transition-all duration-300 flex items-center gap-2 ${activeTab === section.id
                     ? 'bg-gradient-to-r from-primary to-accent text-white shadow-lg transform scale-105'
                     : 'text-slate-400 hover:text-white hover:bg-slate-700/50'
-                  }`}
-              >
-                <span className="text-xl">{section.icon}</span>
-                <span className="text-sm">{section.label}</span>
-              </button>
-            ))}
+                    }`}
+                >
+                  <span className="text-lg">{section.icon}</span>
+                  <span className="text-xs sm:text-sm">{section.label}</span>
+                </button>
+              ))}
+            </div>
           </div>
         </div>
 
