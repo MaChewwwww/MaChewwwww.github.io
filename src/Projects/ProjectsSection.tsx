@@ -128,7 +128,7 @@ const ProjectsSection: React.FC = () => {
     {
       id: 'trusted-ai-marketplace',
       date: 'January 2026',
-      name: 'TrustMart : An Online Marketplace with AI-Powered Fraud Detection and Real-Time Seller Verification System',
+      name: 'An Online Marketplace with AI-Powered Fraud Detection and Real-Time Seller Verification System',
       role: ['Full-Stack Developer'],
       description: 'A sophisticated e-commerce ecosystem designed to secure digital transactions and verify user identities in real-time using advanced biometrics and behavioral analysis.',
       longDescription: 'This platform provides a comprehensive solution for high-trust digital trade, integrating multiple security layers to prevent fraud at every stage of the user journey. The architecture utilizes a hybrid AI approach, combining local statistical models for instantaneous anomaly detection with cloud-based computer vision for identity verification. By implementing a "Master Key" identity baseline during registration, the system can perform biometric matching against government-issued IDs and live selfies to authenticate sellers. The backend is engineered to handle high-concurrency order processing while a "Fraud Firewall" monitors transaction velocity and behavioral signals to block suspicious activity before it impacts the marketplace.',
@@ -183,13 +183,13 @@ const ProjectsSection: React.FC = () => {
         "Production-Grade Security: Implemented HTTP-only cookie management and multi-factor authentication (MFA) to safeguard sensitive financial data and user profiles."
       ],
       liveDemo: 'http://143.198.84.128:8083',
-      showLiveDemo: true,
+      showLiveDemo: false,
       showGithub: false
     },
     {
       id: 'cyperus',
       date: 'January 2026',
-      name: 'Cyperus: An AI-Powered Food Ordering & Delivery Platform with Predictive Demand Forecasting',
+      name: 'An AI-Powered Food Ordering & Delivery Platform with Predictive Demand Forecasting',
       role: ['Full-Stack Developer'],
       description: 'A production-ready, AI-driven food delivery and marketplace platform optimized for Cash on Delivery (COD) and local logistics, featuring predictive demand forecasting and zero-cost geospatial routing.',
       longDescription: 'Cyperus is a high-performance marketplace engineered to solve local logistics challenges through a "Defense in Depth" AI strategy. I developed a two-stage forecasting pipeline: a custom, local statistical engine (EMA + Linear Regression) for instantaneous, zero-cost predictions, and a high-fidelity Gemini 1.5 Flash integration for complex nightly demand reasoning. The system features a unique geospatial architecture that bypasses paid mapping APIs by integrating Leaflet, OpenStreetMap, and OSRM for real-time route visualization, distance calculation, and delivery duration estimation. Built with Next.js 16 and PostgreSQL, the platform includes a touch-optimized POS for vendors, real-time inventory management, and a robust fraud-prevention layer via Auth.js and seller verification protocols.',
@@ -237,13 +237,13 @@ const ProjectsSection: React.FC = () => {
         "Secure Auth Implementation: Integrated NextAuth v4 with custom credentials providers and middleware to protect sensitive admin and financial routes."
       ],
       liveDemo: 'http://143.198.84.128:8082',
-      showLiveDemo: true,
+      showLiveDemo: false,
       showGithub: false
     },
     {
       id: 'smartstore-iq',
       date: 'December 2025',
-      name: 'SmartStoreIQ: AI-Powered Web-Based Inventory and POS System with AI-Driven Demand Forecasting and Smart Sales Tracking & Analytics',
+      name: 'AI-Powered Web-Based Inventory and POS System with AI-Driven Demand Forecasting and Smart Sales Tracking & Analytics',
       role: ['Full-Stack Developer'],
       description: 'A cutting-edge POS and inventory ecosystem for SMEs that integrates predictive analytics and LLM-based reasoning to transform raw sales data into actionable business strategies.',
       longDescription: 'SmartStoreIQ is a modern, web-based solution designed to solve the "Bundle Problem" and inventory waste for small businesses. Unlike traditional POS systems, I engineered a high-performance "Recipe Engine" that automatically deducts raw ingredient stocks (e.g., flour, patties) when a composite product (e.g., a burger) is sold. The system’s standout feature is the "Intelligence Hub," which utilizes a hybrid AI approach: local Holt-Winters algorithms for 7-day sales forecasting and anomaly detection (z-score analysis), combined with Google Gemini for generating plain-English executive summaries. The platform includes a touch-optimized checkout UI, real-time inventory alerts, and automated reorder suggestions based on predicted demand, all secured by a robust OTP-verified authentication layer.',
@@ -274,7 +274,7 @@ const ProjectsSection: React.FC = () => {
         "Forecasting Accuracy: Implemented a 'Walk-Forward Validation' backtesting script to evaluate MAE/RMSE metrics, ensuring the accuracy of sales predictions before deploying to production."
       ],
       liveDemo: 'http://143.198.84.128:8080',
-      showLiveDemo: true,
+      showLiveDemo: false,
       showGithub: false
     },
     {
@@ -315,7 +315,7 @@ const ProjectsSection: React.FC = () => {
         "Security & API Integration: Secured sensitive Gemini API interactions using advanced environment configuration and custom headers to protect client secrets."
       ],
       liveDemo: 'http://143.198.84.128:8081',
-      showLiveDemo: true,
+      showLiveDemo: false,
       showGithub: false
     },
     {
