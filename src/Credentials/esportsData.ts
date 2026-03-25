@@ -44,7 +44,7 @@ export const esportsData: EsportsRecord[] = [
   {
     organization: "EG Empire",
     role: "Operations Manager",
-    period: "March 2025 - Present",
+    period: "March 2025 - June 2025",
     description: [
       "Managing day-to-day operations and resource allocation for esports organization",
       "Oversee day-to-day operations of the esports organization and events",

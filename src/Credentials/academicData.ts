@@ -11,6 +11,7 @@ export const academicData: AcademicRecord[] = [
     institution: "Polytechnic University of the Philippines",
     period: "2023 - Present",
     details: [
+      "Third Year - 1st Semester: 1.54 GWA - Dean's Lister",
       "Second Year - 1st Semester: 1.57 GWA - Dean's Lister",
       "Second Year - 2nd Semester: 1.46 GWA - President's Lister",
       "First Year - 1st Semester: 1.29 GWA - President's Lister",
@@ -19,14 +20,12 @@ export const academicData: AcademicRecord[] = [
       "Iskolar ni Gob (Rizal) - Nina Ynares"
     ],
     positions: [
-      "BSIT 1-1: Public Relation Officer",
-      "BSIT 2-1: Auditor",
       "CommITs A.Y. 2025-2026: Lead Developer",
       "CommITs A.Y. 2024-2025: Backend Developer",
       "Google Developer Group: Web-Dev Department Member"
     ],
     achievements: [
-      "ProtoHype Hackathon - 1st Place (IT Month 2025)",
+      "Prototype Hackathon - 1st Place (PUPQC IT Month 2025)",
     ]
   },
   {
