@@ -69,6 +69,53 @@ const ProjectsSection: React.FC = () => {
   // Sample projects data - you can move this to a separate data file later
   const projects: Project[] = [
     {
+      id: 'typecognito',
+      date: 'March 2026',
+      name: 'TypeCognito: Intelligent Assessment Platform for Typing & Reading Comprehension',
+      role: ['Full-Stack Developer'],
+      description: 'A robust Next.js educational platform that merges traditional typing tests with complex cognitive evaluations, featuring interactive mechanics, multi-modal narrative assessments, and comprehensive administrative oversight.',
+      longDescription: 'TypeCognito elevates standard typing interfaces by integrating multi-layered cognitive evaluations spanning reading comprehension, paragraph organization, and cohesive sentence structuring. I engineered four distinct interactive gameplay modes leveraging modern React states and Framer Motion for highly responsive UI feedback. Built atop Next.js 16 and Prisma ORM, the platform features a highly modular, multi-page data architecture to cleanly separate user analytics, assessment attempts, and global statistics. For educators and administrators, I developed a sophisticated oversight dashboard to track student progress across specialized instructional strands (e.g., HUMSS, STEM) utilizing interactive Recharts radar visualizations. To ensure academic integrity throughout the assessments, the frontend employs rigorous custom event interception to block text extraction attempts while dynamically adapting difficulty based on automated grade thresholds.',
+      technologies: [
+        'Next.js 16',
+        'React 19',
+        'TypeScript',
+        'Prisma ORM',
+        'PostgreSQL / MariaDB',
+        'Tailwind CSS',
+        'Framer Motion',
+        'Recharts Data Viz',
+        'JWT Authentication',
+        'Bcrypt Security'
+      ],
+      badges: ['Full-Stack', 'Educational Tech'],
+      images: [
+        'images/TypeCognito/TrypeCognito1.png',
+        'images/TypeCognito/TrypeCognito2.png',
+        'images/TypeCognito/TrypeCognito3.png'
+      ],
+      features: [
+        "Multi-Modal Assessments: Four distinct assessment types including traditional typing speeds, subjective reading comprehension, and interactive paragraph/sentence organization.",
+        "Comprehensive Analytics Engine: Dynamic radar charts and specialized metrics (WPM, Accuracy, Cohesion Score, Ordering Precision) computed in real-time.",
+        "Adaptive Difficulty Gateways: Algorithmic routing checks that enforce performance thresholds, preventing users from attempting difficulties they haven't academically qualified for.",
+        "Custom Authentication System: Secure credential management built from scratch using JWTs and Bcrypt.js, offering strict middleware safeguards and role-based access control (Admin vs User).",
+        "Strand-Based User Grouping: Logical categorization of student cohorts into specific educational strands for granular analytical tracking by administrators.",
+        "Assessment Protection Protocols: Custom UI/UX implementations explicitly blocking right-click, selection, and clipboard duplication during active examinations.",
+        "Modern, Glassmorphic UI: High-performance visual styling built entirely with Tailwind CSS, utilizing complex gradients, soft shadows, and dynamic color theming based on difficulty.",
+        "Optimized Routing Architecture: A strictly refactored Next.js routing schema separating massive components into distinct, asynchronous, high-LCP dashboard pages."
+      ],
+      challenges: [
+        "Precision State Constraints: Architecting a massive, multi-step React state machine to handle interactive storytelling followed instantly by multi-question narrative analysis without performance loss.",
+        "Rigorous Arithmetic Formatting: Troubleshooting and implementing codebase-wide floating-point standardizations to prevent visual fragmentation when displaying high-precision averages via custom rounding utilities.",
+        "Legacy Monolith Refactoring: Efficiently bisecting a heavily-loaded single-page parallax dashboard into independent Next.js App routes to substantially decrease page overhead while retaining existing complex logic.",
+        "Securing the Evaluation Loop: Creating foolproof front-end boundaries that physically prevent students from scraping testing content or bypassing attempt limits utilizing React's Event system.",
+        "Data Migration & ORM Versatility: Managing an intricate Prisma 7 schema designed to remain flexible across multiple database variants (PostgreSQL and MariaDB) through careful standard indexing.",
+        "Adaptive Visual Engineering: Formulating complex dynamic Tailwind color-theming logic depending on string-based difficulty triggers (EASY yielding emerald arrays, HARD yielding red variants)."
+      ],
+      liveDemo: 'https://typecognito.vercel.app/',
+      showLiveDemo: true,
+      showGithub: false
+    },
+    {
       id: 'payroll-retail-system',
       date: 'January 2026',
       name: 'Payroll Management System – Multi-Branch Retail Client',
@@ -814,6 +861,8 @@ const ProjectsSection: React.FC = () => {
         return 'bg-sky-500/15 text-sky-200 border border-sky-400/20';
       case 'financial-systems':
         return 'bg-green-500/15 text-green-200 border border-green-400/20';
+      case 'educational tech':
+        return 'bg-fuchsia-500/15 text-fuchsia-200 border border-fuchsia-400/20';
       default:
         return 'bg-slate-500/15 text-slate-200 border border-slate-400/20';
     }
