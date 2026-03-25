@@ -454,10 +454,9 @@ const ProjectsSection: React.FC = () => {
       longDescription: 'Attendify is an integrated Face Recognition Attendance System developed to enhance accuracy, accountability, and ease in daily attendance tracking across educational institutions. It uses facial recognition for authentication and attendance recording, backed by a centralized API and database management system. Designed with simplicity and security in mind, Attendify provides dedicated interfaces for both students and administrators, along with real-time, personalized analytics.',
       technologies: ['FastAPI', 'ASP.NET', 'Python', 'OpenCV', 'Tkinter', 'Tailwind CSS', 'JWT'],
       images: [
-        'images/Attendify/logo_white.jfif',
         'images/Attendify/Pic1.jpg',
         'images/Attendify/Pic2.png',
-        'images/Attendify/Pic3.png',
+        'images/Attendify/Pic3.png'
       ],
       features: [
         "Multi-step authentication and user management",
