@@ -139,7 +139,7 @@ const AboutSection: React.FC = () => {
           <div className="flex animate-stagger-3">
             <div className="bg-slate-900/80 backdrop-blur-sm border border-slate-700/50 rounded-xl p-8 hover:border-gradient-to-r hover:border-blue-500/30 transition-all duration-500 flex-1 flex flex-col animate-on-scroll-scale">
               <h3 className="text-2xl font-semibold mb-6 text-center bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-400">
-                Tech Stack
+                Tech Experience
               </h3>
 
               <div className="space-y-4 flex-1 overflow-y-auto">
