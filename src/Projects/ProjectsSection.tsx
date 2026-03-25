@@ -87,7 +87,7 @@ const ProjectsSection: React.FC = () => {
         'JWT Authentication',
         'Bcrypt Security'
       ],
-      badges: ['Full-Stack', 'Educational Tech'],
+      badges: ['Academic', 'Research', 'Deployed'],
       images: [
         'images/TypeCognito/TrypeCognito1.png',
         'images/TypeCognito/TrypeCognito2.png',
