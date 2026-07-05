@@ -142,7 +142,7 @@ const AboutSection: React.FC = () => {
                 Tech Experience
               </h3>
 
-              <div className="space-y-4 flex-1 overflow-y-auto">
+              <div className="space-y-4 flex-1">
                 {/* Backend */}
                 <div className="space-y-2">
                   <h4 className="text-purple-300 text-xs font-semibold uppercase tracking-wider flex items-center gap-2">
