@@ -87,7 +87,7 @@ const ProjectsSection: React.FC = () => {
         'Framer Motion',
         'Vercel'
       ],
-      badges: ['Personal Project', 'Full-Stack', 'Production-Ready'],
+      badges: ['Freelance', 'Deployed'],
       images: [
         'images/Wedding_RSVP/1.png',
         'images/Wedding_RSVP/2.png',
@@ -142,7 +142,7 @@ const ProjectsSection: React.FC = () => {
         'Prisma',
         'TailwindCSS'
       ],
-      badges: ['Microservices', 'Healthcare', 'System Architecture', 'AI/Predictive'],
+      badges: ['Academic', 'Deployed'],
       images: [
         'images/UHSE/1.png',
         'images/UHSE/2.png',
@@ -192,7 +192,7 @@ const ProjectsSection: React.FC = () => {
         'Solidity',
         'Challonge API'
       ],
-      badges: ['Blockchain', 'Biometrics', 'Web3', 'Tournament Management'],
+      badges: ['Academic', 'Local'],
       images: [
         'images/placeholder.png' // Fallback image as requested
       ],
@@ -868,21 +868,21 @@ const ProjectsSection: React.FC = () => {
       name: 'Backend',
       color: 'bg-purple-500/15 text-purple-200 border border-purple-400/20',
       match: [
-        'node', 'express', 'python', 'flask', 'fastapi', 'asp.net', 'tkinter', 'cobol', 'c++', 'sharp', 'webhook', 'smtp', 'brevo', 'php', 'laravel', 'composer', 'artisan', 'cosine similarity', 'sqlalchemy', 'alembic', 'bcrypt', 'pyjwt', 'mvc', 'repository pattern'
+        'node', 'express', 'python', 'flask', 'fastapi', 'asp.net', 'tkinter', 'cobol', 'c++', 'sharp', 'webhook', 'smtp', 'brevo', 'php', 'laravel', 'composer', 'artisan', 'cosine similarity', 'sqlalchemy', 'alembic', 'bcrypt', 'pyjwt', 'mvc', 'repository pattern', 'rabbitmq', 'web3.py', 'solidity', 'challonge api'
       ]
     },
     {
       name: 'Frontend',
       color: 'bg-blue-500/15 text-blue-200 border border-blue-400/20',
       match: [
-        'react', 'vue', 'angular', 'tailwind', 'tailwind css', 'css', 'sass', 'html', 'dart', 'shadcn', 'alpine.js', 'vite', 'leaflet', 'customtkinter'
+        'react', 'vue', 'angular', 'tailwind', 'tailwind css', 'css', 'sass', 'html', 'dart', 'shadcn', 'alpine.js', 'vite', 'leaflet', 'customtkinter', 'framer motion'
       ]
     },
     {
       name: 'Database',
       color: 'bg-green-500/15 text-green-200 border border-green-400/20',
       match: [
-        'mongodb', 'mysql', 'postgresql', 'sqlite', 'typescript', 'stripe', 'redis', 'prisma', 'mariadb'
+        'mongodb', 'mysql', 'postgresql', 'sqlite', 'typescript', 'stripe', 'redis', 'prisma', 'mariadb', 'supabase', 'pgvector', 'clickhouse'
       ]
     },
     {
@@ -896,14 +896,14 @@ const ProjectsSection: React.FC = () => {
       name: 'DevOps & Tools',
       color: 'bg-orange-500/15 text-orange-200 border border-orange-400/20',
       match: [
-        'firebase', 'aws', 'cloud', 'docker', 'github', 'git', 'azure', 'meilisearch', 'mellisearch', 'digital ocean', 'nginx', 'osrm', 'nominatim', 'geospatial', 'routing'
+        'firebase', 'aws', 'cloud', 'docker', 'github', 'git', 'azure', 'meilisearch', 'mellisearch', 'digital ocean', 'nginx', 'osrm', 'nominatim', 'geospatial', 'routing', 'vercel', 'loki', 'grafana'
       ]
     },
     {
       name: 'AI & Machine Learning',
       color: 'bg-yellow-500/15 text-yellow-200 border border-yellow-400/20',
       match: [
-        'tensorflow', 'openai', 'opencv', 'ai', 'machine learning', 'ml', 'fuzzy algorithm', 'fuzzy', 'insightface', 'face-api', 'gemini', 'vector embeddings', 'embeddings', 'holt-winters', 'arima', 'regression', 'ema'
+        'tensorflow', 'openai', 'opencv', 'ai', 'machine learning', 'ml', 'fuzzy algorithm', 'fuzzy', 'insightface', 'face-api', 'gemini', 'vector embeddings', 'embeddings', 'holt-winters', 'arima', 'regression', 'ema', 'google cloud vision'
       ]
     },
     {
@@ -1062,7 +1062,7 @@ const ProjectsSection: React.FC = () => {
           </div>
 
           {/* Table Body */}
-          <div className="bg-slate-900/70 backdrop-blur-sm border-x border-b border-slate-700/60 rounded-b-2xl shadow-xl">
+          <div className="bg-slate-900/70 backdrop-blur-sm border-x border-slate-700/60 shadow-xl">
             {projects.map((project, index) => (
               <div
                 key={project.id}
@@ -1122,22 +1122,21 @@ const ProjectsSection: React.FC = () => {
               </div>
             ))}
           </div>
-        </div>
-
-        {/* GitHub Contributions Graph */}
-        <div className="mt-16 bg-slate-900/80 backdrop-blur-sm border border-slate-700/60 rounded-2xl p-8 shadow-xl flex flex-col items-center animate-on-scroll">
-          <h3 className="text-2xl font-bold mb-8 text-center text-white">GitHub Contributions</h3>
-          <div className="w-full overflow-x-auto pb-4 flex justify-center">
-            <div className="min-w-fit">
-              <GitHubCalendar
-                username="MaChewwwww"
-                colorScheme="dark"
-                theme={{
-                  dark: ['#0f172a', '#14532d', '#166534', '#15803d', '#16a34a'],
-                }}
-                fontSize={14}
-                blockSize={12}
-              />
+          {/* GitHub Contributions Graph */}
+          <div className="bg-slate-900/80 backdrop-blur-sm border border-slate-700/60 rounded-b-2xl p-8 shadow-xl flex flex-col items-center">
+            <h3 className="text-2xl font-bold mb-8 text-center text-white">GitHub Contributions</h3>
+            <div className="w-full overflow-x-auto pb-4 flex justify-center">
+              <div className="min-w-fit">
+                <GitHubCalendar
+                  username="MaChewwwww"
+                  colorScheme="dark"
+                  theme={{
+                    dark: ['#0f172a', '#14532d', '#166534', '#15803d', '#16a34a'],
+                  }}
+                  fontSize={14}
+                  blockSize={12}
+                />
+              </div>
             </div>
           </div>
         </div>
