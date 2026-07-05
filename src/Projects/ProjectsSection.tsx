@@ -188,7 +188,7 @@ const ProjectsSection: React.FC = () => {
         'pgvector',
         'MongoDB',
         'RabbitMQ',
-        'web3.py',
+        'WEB3',
         'Solidity',
         'Challonge API'
       ],
@@ -227,8 +227,7 @@ const ProjectsSection: React.FC = () => {
         'Tailwind CSS',
         'Framer Motion',
         'Recharts Data Viz',
-        'JWT Authentication',
-        'Bcrypt Security'
+        'JWT Authentication'
       ],
       badges: ['Academic', 'Research', 'Deployed'],
       images: [
@@ -270,12 +269,8 @@ const ProjectsSection: React.FC = () => {
         'CustomTkinter',
         'PostgreSQL',
         'SQLAlchemy ORM',
-        'Alembic',
         'Supabase Auth',
-        'Bcrypt',
         'PyJWT',
-        'Repository Pattern',
-        'MVC Architecture',
         'Docker'
       ],
       badges: ['Freelance', 'Local'],
@@ -437,7 +432,7 @@ const ProjectsSection: React.FC = () => {
       role: ['Full-Stack Developer'],
       description: 'A cutting-edge POS and inventory ecosystem for SMEs that integrates predictive analytics and LLM-based reasoning to transform raw sales data into actionable business strategies.',
       longDescription: 'SmartStoreIQ is a modern, web-based solution designed to solve the "Bundle Problem" and inventory waste for small businesses. Unlike traditional POS systems, I engineered a high-performance "Recipe Engine" that automatically deducts raw ingredient stocks (e.g., flour, patties) when a composite product (e.g., a burger) is sold. The system’s standout feature is the "Intelligence Hub," which utilizes a hybrid AI approach: local Holt-Winters algorithms for 7-day sales forecasting and anomaly detection (z-score analysis), combined with Google Gemini for generating plain-English executive summaries. The platform includes a touch-optimized checkout UI, real-time inventory alerts, and automated reorder suggestions based on predicted demand, all secured by a robust OTP-verified authentication layer.',
-      technologies: ['Next.js', 'TypeScript', 'Prisma', 'MariaDB', 'Gemini AI API', 'Tailwind CSS', 'Holt-Winters Algorithm', 'Docker', 'Zod', 'Lucide React', 'ARIMA (Optional)'],
+      technologies: ['Next.js', 'TypeScript', 'Prisma', 'MariaDB', 'Gemini AI API', 'Tailwind CSS', 'Holt-Winters Algorithm', 'Docker', 'Zod', 'ARIMA (Optional)'],
       badges: ['Freelance', 'Local'],
       images: [
         'images/InventoryPOS/1.png',
@@ -474,7 +469,7 @@ const ProjectsSection: React.FC = () => {
       role: ['Full-Stack Developer'],
       description: 'A Laravel-based health and fitness ecosystem that leverages Google Gemini AI and vector embeddings to generate hyper-personalized workout and nutrition plans based on semantic user requests.',
       longDescription: 'Developed as a comprehensive solo project for a private client, this platform utilizes a robust Laravel backend to manage complex user fitness data, including body metrics, exercise logs, and nutritional intake. The core innovation lies in the "AI Templates" engine, which integrates Google Gemini for plan generation and a custom Vector Embedding system. By computing 768-dimensional vectors for a catalog of hundreds of exercises, the system performs semantic matching via cosine similarity to ensure AI-generated plans only include verified, available equipment and movements. The frontend is built with a modern stack of Blade, Tailwind CSS, and Alpine.js, providing a reactive and mobile-optimized experience for tracking sessions in real-time.',
-      technologies: ['Laravel', 'MySQL', 'Google Gemini AI', 'Vector Embeddings', 'Tailwind CSS', 'Alpine.js', 'Vite', 'Composer', 'Artisan CLI', 'Cosine Similarity', 'JWT'],
+      technologies: ['Laravel', 'MySQL', 'Google Gemini AI', 'Vector Embeddings', 'Tailwind CSS', 'Alpine.js', 'Vite', 'Cosine Similarity', 'JWT'],
       badges: ['Freelance', 'Local'],
       images: [
         'images/HealthForge/1.png',
@@ -515,7 +510,7 @@ const ProjectsSection: React.FC = () => {
       role: ['Lead Full-Stack Developer'],
       description: 'Attendify is a high-performance, biometric attendance management system built with Next.js 15 and FastAPI. It leverages multi-layered facial recognition and 6-stage anti-spoofing liveness detection to provide a secure, mobile-first solution for tracking student and faculty attendance in real-time.',
       longDescription: 'Attendify is a sophisticated "Defense in Depth" attendance solution designed to eliminate "buddy punching" through advanced computer vision. The system features a unique 3-layer JWT validation architecture (Client-side decode, In-memory cache, and Backend API) that improves authentication speed by up to 200x. On the frontend, I implemented a robust liveness detection pipeline that performs six concurrent tests—Blur, Texture, Reflection, Color Spectrum, Depth Estimation, and Eye Detection (using BlazeFace)—before validating identities via Google Cloud Vision. The backend utilizes FastAPI to orchestrate biometric processing and PostgreSQL for storing complex data relationships, including face embeddings and class records, while Redis handles session caching and OTP storage.',
-      technologies: ['Next.js', 'Tensorflow.js', 'Face-api.js', 'Sharp', 'ShadCN', 'FastAPI', 'Python', 'InsightFace.ai', 'Redis', 'PostgreSQL', 'JWT', 'TailwindCSS', 'Google Cloud Storage', 'Digital Ocean', 'Brevo SMTP', 'Docker', 'Webhook'],
+      technologies: ['Next.js', 'Tensorflow.js', 'Face-api.js', 'Sharp', 'ShadCN', 'FastAPI', 'Python', 'InsightFace.ai', 'Redis', 'PostgreSQL', 'JWT', 'TailwindCSS', 'Google Cloud Storage', 'Digital Ocean', 'Brevo SMTP', 'Docker'],
       badges: ['Academic', 'Research', 'Deployed'],
       images: [
         'images/Attendify_Research/1.png'
@@ -705,7 +700,7 @@ const ProjectsSection: React.FC = () => {
       role: 'Lead Developer',
       description: 'This project delivers three COBOL programs that calculate student grades, analyze regional sales, and generate payroll reports using standard COBOL features for input, calculations, logic, and formatted output.',
       longDescription: 'The project "COBOL CASE 2024-2025" is a collection of three distinct COBOL programs developed as final requirements for a structured programming course. The first program calculates a student\'s quiz average and determines the grade equivalent using a provided transmutation table. The second program processes sales data for three salesmen across five regions, calculating regional averages and identifying the highest and lowest average sales. The third program is a payroll system that computes basic pay, overtime pay, deductions, and net pay for employees based on input file data and specific conditions.',
-      technologies: ['COBOL', 'Git'],
+      technologies: ['COBOL'],
       images: [
         'images/COBOL/Pic1.jpg'
       ],
@@ -739,7 +734,7 @@ const ProjectsSection: React.FC = () => {
       role: 'Lead Developer',
       description: 'This project is a Python command-line tool that simulates a web browser\'s history using an N-nary tree data structure. It allows users to visit, go back, and go forward through pages. The program also performs analytics, exports the data to a JSON file, and generates an HTML website to visualize the navigation history and its insights.',
       longDescription: 'The "Navigation History" project is a final case study for a Data Structures and Algorithms course at the Polytechnic University of the Philippines. The application utilizes an N-nary tree data structure to model a user\'s Browse journey, with each node representing a visited URL. Users can interact with this history through a command-line interface (CLI) using commands like visit, back, and forward. To extend the project\'s functionality beyond the basic requirements, I implemented the ability to export the navigation history and data analytics to JSON files. This data is then consumed by a single-page HTML website that I developed, which visualizes the navigation tree and displays insights such as the most frequently visited URLs through pie and bar charts.',
-      technologies: ['Python', 'HTML5', 'Tailwind CSS', 'Git'],
+      technologies: ['Python', 'Tailwind CSS'],
       images: [
         'images/DSA/Pic1.jpg'
       ],

@@ -87,49 +87,49 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, isOpen, onClose })
       name: 'Backend',
       color: 'bg-purple-500/15 text-purple-200 border border-purple-400/20',
       match: [
-        'node', 'express', 'python', 'flask', 'cobol', 'c++', 'sharp', 'webhook', 'smtp', 'brevo', 'php', 'laravel', 'composer', 'artisan', 'cosine similarity', 'sqlalchemy', 'alembic', 'bcrypt', 'pyjwt', 'mvc', 'repository pattern'
+        'node', 'express', 'python', 'flask', 'cobol', 'c++', 'c#', 'sharp', 'webhook', 'smtp', 'brevo', 'php', 'laravel', 'composer', 'artisan', 'cosine similarity', 'sqlalchemy', 'alembic', 'bcrypt', 'bcrypt security', 'pyjwt', 'mvc', 'repository pattern', 'rabbitmq', 'solidity', 'web3.py', 'restful apis', 'blockchain', 'javascript', 'typescript'
       ]
     },
     {
       name: 'Frontend',
       color: 'bg-blue-500/15 text-blue-200 border border-blue-400/20',
       match: [
-        'react', 'vue', 'angular', 'tailwind', 'tailwind css', 'css', 'sass', 'html', 'tkinter', 'dart', 'shadcn', 'alpine.js', 'vite', 'leaflet', 'customtkinter'
+        'react', 'react 19', 'vue', 'angular', 'tailwind', 'tailwind css', 'tailwindcss', 'css', 'css3', 'sass', 'html', 'html5', 'bootstrap', 'tkinter', 'customtkinter', 'dart', 'shadcn', 'shadcn ui', 'alpine.js', 'vite', 'leaflet', 'leaflet.js', 'framer motion', 'recharts', 'recharts data viz'
       ]
     },
     {
       name: 'Database',
       color: 'bg-green-500/15 text-green-200 border border-green-400/20',
       match: [
-        'mongodb', 'mysql', 'postgresql', 'sqlite', 'typescript', 'stripe', 'redis', 'prisma', 'mariadb'
+        'mongodb', 'mysql', 'postgresql', 'postgresql / mariadb', 'sqlite', 'stripe', 'redis', 'redis upstash', 'prisma', 'prisma orm', 'mariadb', 'supabase', 'clickhouse', 'pgvector', 'google cloud sql', 'google cloud storage'
       ]
     },
     {
       name: 'Framework',
       color: 'bg-cyan-500/15 text-cyan-200 border border-cyan-400/20',
       match: [
-        'next.js', 'vite', 'django', 'flask', 'fastapi', 'asp.net', 'flutter', 'flutterflow', 'laravel', 'react 19', 'next.js 16'
+        'next.js', 'next.js 16', 'django', 'flask', 'fastapi', 'asp.net', 'flutter', 'flutterflow', 'laravel'
       ]
     },
     {
       name: 'DevOps & Tools',
       color: 'bg-orange-500/15 text-orange-200 border border-orange-400/20',
       match: [
-        'firebase', 'aws', 'cloud', 'docker', 'github', 'git', 'azure', 'meilisearch', 'mellisearch', 'digital ocean', 'nginx', 'osrm', 'nominatim', 'geospatial', 'routing'
+        'firebase', 'aws', 'cloud', 'docker', 'docker & nginx', 'github', 'github actions', 'git', 'azure', 'meilisearch', 'mellisearch', 'digital ocean', 'nginx', 'osrm', 'osrm api', 'nominatim', 'nominatim geocoding', 'geospatial', 'routing', 'vercel', 'railway', 'grafana', 'loki', 'prometheus', 'challonge api'
       ]
     },
     {
       name: 'AI & Machine Learning',
       color: 'bg-yellow-500/15 text-yellow-200 border border-yellow-400/20',
       match: [
-        'tensorflow', 'openai', 'opencv', 'ai', 'machine learning', 'ml', 'fuzzy algorithm', 'insightface', 'face-api', 'gemini', 'vector embeddings', 'embeddings', 'holt-winters', 'arima', 'regression', 'ema'
+        'tensorflow', 'tensorflow.js', 'openai', 'opencv', 'ultralytics', 'roboflow', 'pandas', 'numpy', 'insightface', 'insightface.ai', 'ai', 'machine learning', 'ml', 'fuzzy algorithm', 'face-api', 'gemini', 'gemini 2.5 flash', 'gemini ai', 'vector embeddings', 'embeddings', 'holt-winters', 'arima', 'regression', 'ema', 'google cloud vision', 'prophet', 'xgboost', 'github copilot', 'google antigravity', 'chatgpt', 'codex'
       ]
     },
     {
       name: 'Security',
       color: 'bg-red-500/15 text-red-200 border border-red-400/20',
       match: [
-        'jwt', 'security', 'auth', 'authentication', 'authorization', 'zod', 'auth.js', 'nextauth', 'supabase auth'
+        'jwt', 'jwt authentication', 'security', 'auth', 'authentication', 'authorization', 'zod', 'auth.js', 'auth.js (nextauth)', 'nextauth', 'supabase auth'
       ]
     }
   ];
@@ -293,7 +293,7 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, isOpen, onClose })
               {/* Left Side - Project Info + Carousel */}
               <div className="w-1/2 flex flex-col min-h-0 bg-gradient-to-br from-slate-800/50 to-slate-900/50">
                 {/* Top - Project Info */}
-                <div className="p-6 bg-gradient-to-br from-slate-800/60 to-slate-900/60 border-b border-slate-600/40 flex-shrink-0">
+                <div className="p-6 bg-gradient-to-br from-slate-800/60 to-slate-900/60 border-b border-slate-600/40 flex-1 min-h-0 overflow-y-auto">
                   <div className="space-y-4 flex flex-col justify-center">
                     {/* Date */}
                     <div className="flex items-center text-sm text-slate-400">
@@ -502,7 +502,7 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, isOpen, onClose })
             {/* Single scrollable container for all content */}
             <div className="overflow-y-auto max-h-[90vh] flex flex-col custom-scrollbar">
               {/* Image Carousel */}
-              <div className="w-full aspect-video relative overflow-hidden">
+              <div className="w-full aspect-video relative overflow-hidden flex-shrink-0">
                 <img
                   src={displayImages[currentImageIndex]}
                   alt={`${project.name} screenshot ${currentImageIndex + 1}`}
@@ -552,10 +552,7 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, isOpen, onClose })
                       {project.name}
                     </h2>
                   </div>
-                  <div className="space-y-1 mt-2">
-                    {renderTechStack(project.technologies)}
-                  </div>
-                  <div className="space-y-2 mt-3">
+                  <div className="space-y-2 mt-2">
                     <div className="flex items-center gap-2">
                       <h3 className="text-xs font-medium text-slate-400 uppercase tracking-wide">Description</h3>
                       {renderBadges(project.badges)}
@@ -568,6 +565,19 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, isOpen, onClose })
               </div>
               {/* Details Section */}
               <div className="p-4 space-y-6 bg-gradient-to-br from-slate-900/40 to-slate-800/40">
+                <div className="bg-slate-800/40 rounded-lg p-3 border border-slate-700/50">
+                  <div className="flex items-center gap-2 mb-3">
+                    <div className="w-4 h-4 text-cyan-400">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <polygon points="12 2 2 7 12 12 22 7 12 2" />
+                        <polyline points="2 17 12 22 22 17" />
+                        <polyline points="2 12 12 17 22 12" />
+                      </svg>
+                    </div>
+                    <h3 className="text-sm font-semibold text-white">Tech Stack</h3>
+                  </div>
+                  {renderTechStack(project.technologies)}
+                </div>
                 {project.features && (
                   <div className="bg-slate-800/40 rounded-lg p-3 border border-slate-700/50">
                     <div className="flex items-center gap-2 mb-2">
