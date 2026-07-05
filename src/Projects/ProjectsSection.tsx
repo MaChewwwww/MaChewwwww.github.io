@@ -72,7 +72,7 @@ const ProjectsSection: React.FC = () => {
     {
       id: 'wedding-rsvp',
       date: 'June 2026',
-      name: 'Wedding RSVP',
+      name: 'Wedding RSVP & Digital Pass Platform',
       role: ['Full-Stack Developer'],
       description: 'A modern, responsive Wedding RSVP application built with Next.js App Router, Tailwind CSS, and Supabase.',
       longDescription: 'A sophisticated Wedding RSVP platform that offers an immersive guest experience starting with an interactive, animated invitation envelope. The application features a robust single-page design with custom watercolor and panoramic backgrounds, an editorial photo timeline, and a dynamic pre-wedding gallery. Guests can seamlessly search for their invitation using fuzzy name matching, submit their attendance and dietary preferences, and instantly receive a personalized wedding pass containing a secure, revocable QR code token. The backend is powered by Supabase PostgreSQL, utilizing pg_trgm for intelligent name matching, strict Row-Level Security (RLS) for data protection, and Supabase Auth for the administrative dashboard.',
@@ -1129,8 +1129,8 @@ const ProjectsSection: React.FC = () => {
           <h3 className="text-2xl font-bold mb-8 text-center text-white">GitHub Contributions</h3>
           <div className="w-full overflow-x-auto pb-4 flex justify-center">
             <div className="min-w-fit">
-              <GitHubCalendar 
-                username="MaChewwwww" 
+              <GitHubCalendar
+                username="MaChewwwww"
                 colorScheme="dark"
                 theme={{
                   dark: ['#0f172a', '#14532d', '#166534', '#15803d', '#16a34a'],
