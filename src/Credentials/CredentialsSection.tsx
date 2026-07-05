@@ -272,10 +272,11 @@ const CredentialsSection: React.FC = () => {
         </div>
 
         {/* Tab Navigation - Mobile Only */}
-        <div className={`flex justify-center mb-8 lg:hidden transition-all duration-1000 delay-200 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+        <div className={`mb-8 lg:hidden transition-all duration-1000 delay-200 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}>
-          <div className="w-full overflow-x-auto hide-scrollbar flex justify-start sm:justify-center px-4">
-            <div className="inline-flex bg-slate-800/40 backdrop-blur-sm border border-slate-700/50 rounded-2xl p-1.5 whitespace-nowrap">
+          <div className="w-full overflow-x-auto hide-scrollbar px-4 pb-2">
+            <div className="w-fit mx-auto">
+              <div className="inline-flex bg-slate-800/40 backdrop-blur-sm border border-slate-700/50 rounded-2xl p-1.5 whitespace-nowrap">
               {credentialSections.map((section) => (
                 <button
                   key={section.id}
@@ -289,6 +290,7 @@ const CredentialsSection: React.FC = () => {
                   <span className="text-xs sm:text-sm">{section.label}</span>
                 </button>
               ))}
+              </div>
             </div>
           </div>
         </div>

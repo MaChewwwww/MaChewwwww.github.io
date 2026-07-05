@@ -1120,8 +1120,8 @@ const ProjectsSection: React.FC = () => {
           {/* GitHub Contributions Graph */}
           <div className="bg-slate-900/80 backdrop-blur-sm border border-slate-700/60 rounded-b-2xl p-8 shadow-xl flex flex-col items-center">
             <h3 className="text-2xl font-bold mb-8 text-center text-white">GitHub Contributions</h3>
-            <div className="w-full overflow-x-auto pb-4 flex justify-center">
-              <div className="min-w-fit">
+            <div className="w-full overflow-x-auto pb-4 custom-scrollbar">
+              <div className="w-fit mx-auto">
                 <GitHubCalendar
                   username="MaChewwwww"
                   colorScheme="dark"
