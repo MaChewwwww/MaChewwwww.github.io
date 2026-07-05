@@ -32,8 +32,9 @@ export interface PersonalInfo {
     aiAssistedProgramming: string[];
   };
   methodologies: {
-    name: string;
-    rating: number; // out of 5
+    category: string;
+    color: string;
+    items: string[];
   }[];
   experience: {
     company: string;
@@ -102,11 +103,21 @@ export const personalInfo: PersonalInfo = {
   },
 
   methodologies: [
-    { name: "Agile", rating: 5 },
-    { name: "Scrum", rating: 5 },
-    { name: "Waterfall", rating: 4 },
-    { name: "Spec-Driven Development", rating: 5 },
-    { name: "Agentic Software Engineering", rating: 5 },
+    {
+      category: "Agile & Workflows",
+      color: "pink",
+      items: ["Agile", "Scrum", "Waterfall"]
+    },
+    {
+      category: "Engineering Practices",
+      color: "purple",
+      items: ["Spec-Driven Development", "Agentic Software Engineering"]
+    },
+    {
+      category: "Testing & QA",
+      color: "amber",
+      items: ["Unit Testing", "Integration Testing", "Manual Testing", "QA Automation"]
+    }
   ],
 
   experience: [

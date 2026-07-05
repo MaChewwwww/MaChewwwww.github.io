@@ -318,25 +318,45 @@ const AboutSection: React.FC = () => {
               {/* Methodologies Section */}
               <div>
                 <h3 className="text-xl font-semibold mb-6 text-center bg-clip-text text-transparent bg-gradient-to-r from-pink-400 to-purple-400">
-                  Methodologies
+                  Methodologies & Practices
                 </h3>
 
-                <div className="flex flex-wrap gap-3 justify-center">
-                  {personalInfo.methodologies.map((skill, index) => (
-                    <div
-                      key={skill.name}
-                      className="group px-5 py-2.5 bg-gradient-to-r from-pink-500/5 to-purple-500/5 backdrop-blur-md border border-pink-500/20 rounded-xl hover:border-pink-400/50 hover:from-pink-500/10 hover:to-purple-500/10 hover:-translate-y-1 hover:shadow-lg hover:shadow-pink-500/10 transition-all duration-300 flex items-center gap-3 cursor-default"
-                      style={{
-                        animationDelay: `${0.6 + index * 0.1}s`,
-                        transform: isVisible ? 'translateY(0)' : 'translateY(15px)',
-                        opacity: isVisible ? 1 : 0,
-                        transition: `all 0.5s ease-out ${0.6 + index * 0.1}s`
-                      }}
-                    >
-                      <span className="w-2 h-2 rounded-full bg-gradient-to-r from-pink-400 to-purple-400 shadow-[0_0_8px_rgba(244,114,182,0.8)] group-hover:scale-125 transition-transform duration-300"></span>
-                      <span className="text-pink-100 text-sm font-semibold tracking-wide">{skill.name}</span>
-                    </div>
-                  ))}
+                <div className="space-y-6">
+                  {personalInfo.methodologies.map((group, groupIdx) => {
+                    const colorMap: Record<string, { bg: string, border: string, dot: string, text: string }> = {
+                      pink: { bg: 'from-pink-500/5 to-rose-500/5', border: 'border-pink-500/20 hover:border-pink-400/50', dot: 'from-pink-400 to-rose-400', text: 'text-pink-100' },
+                      purple: { bg: 'from-purple-500/5 to-indigo-500/5', border: 'border-purple-500/20 hover:border-purple-400/50', dot: 'from-purple-400 to-indigo-400', text: 'text-purple-100' },
+                      amber: { bg: 'from-amber-500/5 to-orange-500/5', border: 'border-amber-500/20 hover:border-amber-400/50', dot: 'from-amber-400 to-orange-400', text: 'text-amber-100' },
+                      blue: { bg: 'from-blue-500/5 to-cyan-500/5', border: 'border-blue-500/20 hover:border-blue-400/50', dot: 'from-blue-400 to-cyan-400', text: 'text-blue-100' },
+                      green: { bg: 'from-green-500/5 to-emerald-500/5', border: 'border-green-500/20 hover:border-green-400/50', dot: 'from-green-400 to-emerald-400', text: 'text-green-100' },
+                    };
+                    const theme = colorMap[group.color] || colorMap.pink;
+
+                    return (
+                      <div key={group.category} className="space-y-3">
+                        <h4 className="text-slate-400 text-xs font-semibold uppercase tracking-wider text-center">
+                          {group.category}
+                        </h4>
+                        <div className="flex flex-wrap gap-3 justify-center">
+                          {group.items.map((skill, index) => (
+                            <div
+                              key={skill}
+                              className={`group px-5 py-2.5 bg-gradient-to-r ${theme.bg} backdrop-blur-md border ${theme.border} rounded-xl hover:-translate-y-1 hover:shadow-lg transition-all duration-300 flex items-center gap-3 cursor-default`}
+                              style={{
+                                animationDelay: `${0.6 + (groupIdx * 0.1) + (index * 0.05)}s`,
+                                transform: isVisible ? 'translateY(0)' : 'translateY(15px)',
+                                opacity: isVisible ? 1 : 0,
+                                transition: `all 0.5s ease-out ${0.6 + (groupIdx * 0.1) + (index * 0.05)}s`
+                              }}
+                            >
+                              <span className={`w-2 h-2 rounded-full bg-gradient-to-r ${theme.dot} shadow-[0_0_8px_rgba(0,0,0,0.5)] group-hover:scale-125 transition-transform duration-300`}></span>
+                              <span className={`${theme.text} text-sm font-semibold tracking-wide`}>{skill}</span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    );
+                  })}
                 </div>
               </div>
             </div>
