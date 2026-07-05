@@ -243,7 +243,7 @@ const AboutSection: React.FC = () => {
                 <div className="space-y-2">
                   <h4 className="text-orange-300 text-xs font-semibold uppercase tracking-wider flex items-center gap-2">
                     <span className="w-1.5 h-1.5 bg-orange-400 rounded-full"></span>
-                    DevOps & Tools
+                    DevOps & Version Control
                   </h4>
                   <div className="flex flex-wrap gap-1.5">
                     {personalInfo.skillsByCategory.devops.map((tech, index) => (
@@ -318,11 +318,11 @@ const AboutSection: React.FC = () => {
               {/* Other Skills Section */}
               <div>
                 <h3 className="text-xl font-semibold mb-6 text-center bg-clip-text text-transparent bg-gradient-to-r from-pink-400 to-purple-400">
-                  Other Skills
+                  Methodologies
                 </h3>
 
                 <div className="space-y-3">
-                  {personalInfo.otherSkills.map((skill, index) => (
+                  {personalInfo.methodologies.map((skill, index) => (
                     <div
                       key={skill.name}
                       className="group"

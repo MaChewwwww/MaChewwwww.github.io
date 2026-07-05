@@ -31,7 +31,7 @@ export interface PersonalInfo {
     aiMachineLearning: string[];
     aiAssistedProgramming: string[];
   };
-  otherSkills: {
+  methodologies: {
     name: string;
     rating: number; // out of 5
   }[];
@@ -92,21 +92,19 @@ export const personalInfo: PersonalInfo = {
   ],
 
   skillsByCategory: {
-    backend: ["Python", "C++", "C#", "PHP", "JavaScript", "TypeScript", "RESTful APIs"],
-    frontend: ["HTML5", "CSS3", "Bootstrap", "Tailwind CSS", "ShadCN UI"],
+    backend: ["Python", "C++", "C#", "PHP", "JavaScript", "TypeScript", "RESTful APIs", "Blockchain"],
+    frontend: ["HTML5", "CSS3", "Bootstrap", "Tailwind CSS", "ShadCN UI", "React"],
     database: ["MySQL", "PostgreSQL", "SQLite", "Redis", "Google Cloud SQL", "Google Cloud Storage"],
-    framework: ["Django", "Laravel", "ASP.NET", "FastAPI", "React", "Next.js"],
-    devops: ["Docker", "GitHub", "Git", "Google Cloud", "Digital Ocean", "Vercel", "Redis Upstash", "Railway"],
-    aiMachineLearning: ["OpenCV", "Ultralytics", "Roboflow", "Pandas", "NumPy", "InsightFace.ai", "Gemini AI"],
-    aiAssistedProgramming: ["Github Copilot", "Windsurf", "Cursor", "Google Antigravity", "Gemini", "ChatGPT"]
+    framework: ["Django", "Laravel", "ASP.NET", "FastAPI", "Next.js"],
+    devops: ["Docker", "GitHub", "Git", "GitHub Actions", "Google Cloud", "Digital Ocean", "Vercel", "Redis Upstash", "Railway", "Grafana", "Loki", "Prometheus"],
+    aiMachineLearning: ["OpenCV", "Ultralytics", "Roboflow", "Pandas", "NumPy", "InsightFace.ai", "Gemini AI", "Prophet", "XGBoost"],
+    aiAssistedProgramming: ["Github Copilot", "Google Antigravity", "Gemini", "ChatGPT", "Codex"]
   },
 
-  otherSkills: [
-    { name: "Analytical Thinking", rating: 4 },
-    { name: "Time Management", rating: 4 },
-    { name: "Communication & Collaboration", rating: 5 },
-    { name: "Initiative & Self Motivation", rating: 5 },
-    { name: "Adaptability & Resilience", rating: 4 },
+  methodologies: [
+    { name: "Agile", rating: 5 },
+    { name: "Scrum", rating: 5 },
+    { name: "Waterfall", rating: 4 },
   ],
 
   experience: [
