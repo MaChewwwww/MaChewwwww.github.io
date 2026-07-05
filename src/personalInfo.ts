@@ -105,6 +105,8 @@ export const personalInfo: PersonalInfo = {
     { name: "Agile", rating: 5 },
     { name: "Scrum", rating: 5 },
     { name: "Waterfall", rating: 4 },
+    { name: "Spec-Driven Development", rating: 5 },
+    { name: "Agentic Software Engineering", rating: 5 },
   ],
 
   experience: [
