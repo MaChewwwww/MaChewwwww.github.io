@@ -317,11 +317,11 @@ const AboutSection: React.FC = () => {
 
               {/* Methodologies Section */}
               <div>
-                <h3 className="text-xl font-semibold mb-6 text-center bg-clip-text text-transparent bg-gradient-to-r from-pink-400 to-purple-400">
+                <h3 className="text-xl font-semibold mb-4 text-center bg-clip-text text-transparent bg-gradient-to-r from-pink-400 to-purple-400">
                   Methodologies & Practices
                 </h3>
 
-                <div className="space-y-6">
+                <div className="flex flex-wrap gap-2 justify-center">
                   {personalInfo.methodologies.map((group, groupIdx) => {
                     const colorMap: Record<string, { bg: string, border: string, dot: string, text: string }> = {
                       pink: { bg: 'from-pink-500/5 to-rose-500/5', border: 'border-pink-500/20 hover:border-pink-400/50', dot: 'from-pink-400 to-rose-400', text: 'text-pink-100' },
@@ -332,30 +332,21 @@ const AboutSection: React.FC = () => {
                     };
                     const theme = colorMap[group.color] || colorMap.pink;
 
-                    return (
-                      <div key={group.category} className="space-y-3">
-                        <h4 className="text-slate-400 text-xs font-semibold uppercase tracking-wider text-center">
-                          {group.category}
-                        </h4>
-                        <div className="flex flex-wrap gap-3 justify-center">
-                          {group.items.map((skill, index) => (
-                            <div
-                              key={skill}
-                              className={`group px-5 py-2.5 bg-gradient-to-r ${theme.bg} backdrop-blur-md border ${theme.border} rounded-xl hover:-translate-y-1 hover:shadow-lg transition-all duration-300 flex items-center gap-3 cursor-default`}
-                              style={{
-                                animationDelay: `${0.6 + (groupIdx * 0.1) + (index * 0.05)}s`,
-                                transform: isVisible ? 'translateY(0)' : 'translateY(15px)',
-                                opacity: isVisible ? 1 : 0,
-                                transition: `all 0.5s ease-out ${0.6 + (groupIdx * 0.1) + (index * 0.05)}s`
-                              }}
-                            >
-                              <span className={`w-2 h-2 rounded-full bg-gradient-to-r ${theme.dot} shadow-[0_0_8px_rgba(0,0,0,0.5)] group-hover:scale-125 transition-transform duration-300`}></span>
-                              <span className={`${theme.text} text-sm font-semibold tracking-wide`}>{skill}</span>
-                            </div>
-                          ))}
-                        </div>
+                    return group.items.map((skill, index) => (
+                      <div
+                        key={skill}
+                        className={`group px-3 py-1.5 bg-gradient-to-r ${theme.bg} backdrop-blur-md border ${theme.border} rounded-lg hover:-translate-y-1 hover:shadow-lg transition-all duration-300 flex items-center gap-2 cursor-default`}
+                        style={{
+                          animationDelay: `${0.6 + (groupIdx * 0.1) + (index * 0.05)}s`,
+                          transform: isVisible ? 'translateY(0)' : 'translateY(15px)',
+                          opacity: isVisible ? 1 : 0,
+                          transition: `all 0.5s ease-out ${0.6 + (groupIdx * 0.1) + (index * 0.05)}s`
+                        }}
+                      >
+                        <span className={`w-1.5 h-1.5 rounded-full bg-gradient-to-r ${theme.dot} shadow-[0_0_8px_rgba(0,0,0,0.5)] group-hover:scale-125 transition-transform duration-300`}></span>
+                        <span className={`${theme.text} text-xs font-semibold tracking-wide`}>{skill}</span>
                       </div>
-                    );
+                    ));
                   })}
                 </div>
               </div>
