@@ -2,7 +2,7 @@ import React, { useEffect, useState, useMemo } from 'react';
 import { useIsMobile } from '../hooks/useIsMobile';
 import Hyperspeed from '../Background/Hyperspeed';
 import ProjectModal from './ProjectModal';
-import GitHubCalendar from 'react-github-calendar';
+import { GitHubCalendar } from 'react-github-calendar';
 
 interface Project {
   id: string;
