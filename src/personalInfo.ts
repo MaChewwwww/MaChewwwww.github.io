@@ -92,11 +92,11 @@ export const personalInfo: PersonalInfo = {
   ],
 
   skillsByCategory: {
-    backend: ["Python", "C++", "C#", "PHP", "JavaScript", "TypeScript", "RESTful APIs", "Blockchain"],
+    backend: ["Python", "C++", "C#", "PHP", "JavaScript", "TypeScript", "RESTful APIs", "Blockchain", "RabbitMQ"],
     frontend: ["HTML5", "CSS3", "Bootstrap", "Tailwind CSS", "ShadCN UI", "React"],
-    database: ["MySQL", "PostgreSQL", "SQLite", "Redis", "Google Cloud SQL", "Google Cloud Storage"],
+    database: ["MySQL", "PostgreSQL", "SQLite", "Redis", "Google Cloud SQL", "Google Cloud Storage", "MongoDB", "Supabase", "Prisma", "ClickHouse"],
     framework: ["Django", "Laravel", "ASP.NET", "FastAPI", "Next.js"],
-    devops: ["Docker", "GitHub", "Git", "GitHub Actions", "Google Cloud", "Digital Ocean", "Vercel", "Redis Upstash", "Railway", "Grafana", "Loki", "Prometheus"],
+    devops: ["Docker", "GitHub", "GitHub Actions", "Google Cloud", "Digital Ocean", "Vercel", "Redis Upstash", "Railway", "Grafana", "Loki", "Prometheus", "Nginx"],
     aiMachineLearning: ["OpenCV", "Ultralytics", "Roboflow", "Pandas", "NumPy", "InsightFace.ai", "Gemini AI", "Prophet", "XGBoost"],
     aiAssistedProgramming: ["Github Copilot", "Google Antigravity", "Gemini", "ChatGPT", "Codex"]
   },

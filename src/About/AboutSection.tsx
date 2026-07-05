@@ -315,37 +315,26 @@ const AboutSection: React.FC = () => {
               {/* Divider */}
               <div className="border-t border-slate-700/50 my-8"></div>
 
-              {/* Other Skills Section */}
+              {/* Methodologies Section */}
               <div>
                 <h3 className="text-xl font-semibold mb-6 text-center bg-clip-text text-transparent bg-gradient-to-r from-pink-400 to-purple-400">
                   Methodologies
                 </h3>
 
-                <div className="space-y-3">
+                <div className="flex flex-wrap gap-3 justify-center">
                   {personalInfo.methodologies.map((skill, index) => (
                     <div
                       key={skill.name}
-                      className="group"
+                      className="group px-5 py-2.5 bg-gradient-to-r from-pink-500/5 to-purple-500/5 backdrop-blur-md border border-pink-500/20 rounded-xl hover:border-pink-400/50 hover:from-pink-500/10 hover:to-purple-500/10 hover:-translate-y-1 hover:shadow-lg hover:shadow-pink-500/10 transition-all duration-300 flex items-center gap-3 cursor-default"
                       style={{
                         animationDelay: `${0.6 + index * 0.1}s`,
-                        transform: isVisible ? 'translateX(0)' : 'translateX(-20px)',
+                        transform: isVisible ? 'translateY(0)' : 'translateY(15px)',
                         opacity: isVisible ? 1 : 0,
                         transition: `all 0.5s ease-out ${0.6 + index * 0.1}s`
                       }}
                     >
-                      <div className="flex justify-between items-center mb-1.5">
-                        <span className="text-slate-200 text-sm font-medium">{skill.name}</span>
-                        <span className="text-pink-300 text-xs font-semibold">{skill.rating}/5</span>
-                      </div>
-                      <div className="w-full bg-slate-700/50 rounded-full h-2 overflow-hidden">
-                        <div
-                          className="h-full bg-gradient-to-r from-pink-400 via-purple-400 to-pink-500 rounded-full transition-all duration-1000 ease-out group-hover:shadow-lg group-hover:shadow-pink-500/25"
-                          style={{
-                            width: isVisible ? `${(skill.rating / 5) * 100}%` : '0%',
-                            transitionDelay: `${0.8 + index * 0.1}s`
-                          }}
-                        />
-                      </div>
+                      <span className="w-2 h-2 rounded-full bg-gradient-to-r from-pink-400 to-purple-400 shadow-[0_0_8px_rgba(244,114,182,0.8)] group-hover:scale-125 transition-transform duration-300"></span>
+                      <span className="text-pink-100 text-sm font-semibold tracking-wide">{skill.name}</span>
                     </div>
                   ))}
                 </div>
