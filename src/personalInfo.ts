@@ -116,7 +116,7 @@ export const personalInfo: PersonalInfo = {
     {
       category: "Testing & QA",
       color: "amber",
-      items: ["Unit Testing", "Integration Testing", "Manual Testing", "QA Automation"]
+      items: ["Unit Testing", "Manual Testing", "QA Automation"]
     }
   ],
 
