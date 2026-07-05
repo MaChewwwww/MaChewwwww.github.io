@@ -36,9 +36,7 @@ export const academicData: AcademicRecord[] = [
       "Grade 11: 91 GWA - With Honors"
     ],
     achievements: [
-      "Representative of VHA in Montalban Gender and Development Seminar",
-      "2nd Place at Quiz Bee 2022",
-      "2nd Place at Spelling Bee 2023"
+      "Representative of VHA in Montalban Gender and Development Seminar"
     ]
   }
 ];

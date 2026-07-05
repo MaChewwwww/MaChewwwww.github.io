@@ -2,6 +2,7 @@ import React, { useEffect, useState, useMemo } from 'react';
 import { useIsMobile } from '../hooks/useIsMobile';
 import Hyperspeed from '../Background/Hyperspeed';
 import ProjectModal from './ProjectModal';
+import GitHubCalendar from 'react-github-calendar';
 
 interface Project {
   id: string;
@@ -69,8 +70,150 @@ const ProjectsSection: React.FC = () => {
   // Sample projects data - you can move this to a separate data file later
   const projects: Project[] = [
     {
-      id: 'typecognito',
+      id: 'wedding-rsvp',
+      date: 'June 2026',
+      name: 'Wedding RSVP',
+      role: ['Full-Stack Developer'],
+      description: 'A modern, responsive Wedding RSVP application built with Next.js App Router, Tailwind CSS, and Supabase.',
+      longDescription: 'A sophisticated Wedding RSVP platform that offers an immersive guest experience starting with an interactive, animated invitation envelope. The application features a robust single-page design with custom watercolor and panoramic backgrounds, an editorial photo timeline, and a dynamic pre-wedding gallery. Guests can seamlessly search for their invitation using fuzzy name matching, submit their attendance and dietary preferences, and instantly receive a personalized wedding pass containing a secure, revocable QR code token. The backend is powered by Supabase PostgreSQL, utilizing pg_trgm for intelligent name matching, strict Row-Level Security (RLS) for data protection, and Supabase Auth for the administrative dashboard.',
+      technologies: [
+        'Next.js',
+        'React',
+        'TypeScript',
+        'TailwindCSS',
+        'Supabase',
+        'PostgreSQL',
+        'Zod',
+        'Framer Motion',
+        'Vercel'
+      ],
+      badges: ['Personal Project', 'Full-Stack', 'Production-Ready'],
+      images: [
+        'images/Wedding_RSVP/1.png',
+        'images/Wedding_RSVP/2.png',
+        'images/Wedding_RSVP/3.png',
+        'images/Wedding_RSVP/4.png',
+        'images/Wedding_RSVP/5.png',
+        'images/Wedding_RSVP/6.png',
+        'images/Wedding_RSVP/7.png',
+        'images/Wedding_RSVP/8.png',
+        'images/Wedding_RSVP/9.png'
+      ],
+      features: [
+        "Interactive Envelope Experience: Animated invitation entrance built with Framer Motion, accessible via keyboard and respecting reduced-motion preferences.",
+        "Intelligent RSVP Lookup: Server-side fuzzy name matching using pg_trgm to find guest invitations without exposing the full guest list.",
+        "Secure Digital Wedding Passes: Automated generation of revocable QR code tokens for each guest, with high-resolution PNG download and email delivery via Resend.",
+        "Dynamic Celebration Site: Immersive sections including a custom Our Story timeline, venue locations, entourage roster, and lazy-loaded image galleries.",
+        "Comprehensive Admin Dashboard: Protected routes utilizing Supabase Auth and RLS to manage guest lists, track attendance via QR scanning, and handle late RSVP overrides."
+      ],
+      challenges: [
+        "Complex Client State & Animation: Orchestrating the initial envelope opening sequence and seamlessly transitioning to the interactive RSVP form without compromising performance or accessibility.",
+        "Name Matching & Privacy: Implementing an intuitive name lookup system that tolerates minor typos (using pg_trgm and unaccent) while strictly protecting the privacy of the guest list.",
+        "QR Code Logistics: Generating robust, scanable QR tokens that function reliably across various mobile devices and physical lighting conditions at the venue."
+      ],
+      liveDemo: 'https://jobert-april-wedding-rsvp.vercel.app/',
+      showLiveDemo: true,
+      showGithub: false
+    },
+    {
+      id: 'uhse',
       date: 'March 2026',
+      name: 'Unified Health Service Ecosystem : A Capstone Project for Bernardino General Hospital',
+      role: ['System Architect', 'Lead Full-Stack Developer'],
+      description: 'A massive microservices-based healthcare ecosystem consolidating 11 independent services, integrating identity management, API gateway routing, electronic health records (EHR), telemedicine, and predictive analytics.',
+      longDescription: 'The Unified Health Service Ecosystem (UHSE) is a comprehensive capstone project developed for Bernardino General Hospital. It utilizes a distributed microservices architecture consisting of 11 distinct repositories running behind a centralized API Gateway. The system features a robust Identity and Authentication service (UHSE_AUTH) supporting biometric enrollment, SSO, and strict role-based access control (RBAC). It includes a centralized Electronic Health Record (EHR) registry, telemedicine and appointment scheduling (VITAL), asset inventory monitoring (AIMS), and a centralized immutable audit logging service. Advanced capabilities include a Natural Language Interface Chatbot powered by RAG, predictive clinical risk analytics using ClickHouse and pgvector, and automated heat-index based suspension logic. The entire infrastructure is orchestrated via Docker Compose with RabbitMQ for event-driven asynchronous communication and observability powered by Loki and Grafana.',
+      technologies: [
+        'Next.js',
+        'React',
+        'FastAPI',
+        'Python',
+        'Node.js',
+        'Express',
+        'Laravel',
+        'PHP',
+        'PostgreSQL',
+        'MongoDB',
+        'ClickHouse',
+        'Redis',
+        'RabbitMQ',
+        'Docker',
+        'Loki',
+        'Grafana',
+        'Prisma',
+        'TailwindCSS'
+      ],
+      badges: ['Microservices', 'Healthcare', 'System Architecture', 'AI/Predictive'],
+      images: [
+        'images/UHSE/1.png',
+        'images/UHSE/2.png',
+        'images/UHSE/3.png',
+        'images/UHSE/4.png',
+        'images/UHSE/5.png',
+        'images/UHSE/6.png'
+      ],
+      features: [
+        "Distributed Microservices Architecture: Orchestrates 11 separate services (Frontend, Gateway, Auth, EHR, VITAL, TRACE, AIMS, Analytics, Audit Logs) via Docker Compose.",
+        "Centralized API Gateway: Browser-facing boundary handling request verification, JWT silent refresh, and routing.",
+        "Advanced Identity & Auth: Custom SSO, biometric identity enrollment for EHR access, and 3-layer JWT validation.",
+        "Electronic Health Records (EHR): Centralized patient master record with immutable IDs, OPD/ER registration, and lab result integration.",
+        "Predictive Analytics & AI: Clinical risk models, pgvector embeddings, and RAG knowledge base integration for chatbot and search.",
+        "Immutable Audit Logging: Centralized MongoDB and RabbitMQ-powered audit trails with forensic metadata and tamper protection.",
+        "Telemedicine & Asset Management: Integrated VITAL services for telehealth and AIMS for IT/CSR inventory workflows.",
+        "Comprehensive Observability: System-wide monitoring and logging using Loki, Grafana, and Prometheus."
+      ],
+      challenges: [
+        "Architecture Orchestration: Designing and integrating 11 distinct microservices with strict network boundaries and Gateway-driven routing.",
+        "Identity Synchronization: Synchronizing Auth-owned identities across multiple services (EHR, TRACE, VITAL, AIMS) using JWT claims and internal control-plane endpoints.",
+        "Event-Driven Data Consistency: Ensuring reliable cross-service communication using RabbitMQ for audit events, notifications, and material writes.",
+        "Scalable Deployment: Managing complex Docker Compose configurations with shared infrastructure (Redis, Postgres, RabbitMQ, MinIO) and automated environment bootstrapping."
+      ],
+      liveDemo: 'http://167.99.73.121:3000/',
+      showLiveDemo: true,
+      showGithub: false
+    },
+    {
+      id: 'veriplay',
+      date: 'March 2026',
+      name: 'Veriplay : Tournament Management System with Blockchain and Face Recognition',
+      role: ['Full-Stack Developer'],
+      description: 'A tournament management system integrated with blockchain for Soulbound Tokens (SBT) and biometric face recognition for secure onboarding and event registration.',
+      longDescription: 'VeriPlay is a tournament management platform that ensures biometric uniqueness using face embeddings extracted and searched via pgvector. It features three-phase onboarding for MLBB players, preventing duplicate entries. Team lifecycle and tournament brackets are seamlessly mirrored to Challonge, ensuring synchronization between local records and external organizers. Furthermore, the platform integrates with EVM-compatible blockchains to distribute Soulbound Tokens (SBTs) and certificates, gated by live face comparison scans. An asynchronous event architecture leveraging RabbitMQ and MongoDB ensures high-performance notifications and tamper-evident audit logging.',
+      technologies: [
+        'Next.js',
+        'React',
+        'TypeScript',
+        'Node.js',
+        'FastAPI',
+        'PostgreSQL',
+        'pgvector',
+        'MongoDB',
+        'RabbitMQ',
+        'web3.py',
+        'Solidity',
+        'Challonge API'
+      ],
+      badges: ['Blockchain', 'Biometrics', 'Web3', 'Tournament Management'],
+      images: [
+        'images/placeholder.png' // Fallback image as requested
+      ],
+      features: [
+        "Biometric Enrollment: Three-phase onboarding capturing face embeddings via Attendify Biometric and ensuring uniqueness with pgvector cosine similarity.",
+        "Blockchain Integration (Soulbound Tokens): Biometric-gated wallet linking and batch-minting/claiming of SBTs and certificates on Sepolia via EIP-712 signatures.",
+        "Tournament Mirroring: Seamless sync with Challonge for brackets, scores, and final rankings.",
+        "Asynchronous Architecture: High-performance non-blocking event publishing with RabbitMQ for tamper-evident audit trails and WebSocket notifications."
+      ],
+      challenges: [
+        "Biometric Privacy: Ensuring raw face image uploads are processed dynamically for embedding extraction and immediately discarded without writing to disk.",
+        "Database Vector Searching: Achieving sub-second cosine distance similarity matching checks using pgvector index against a large pool of templates.",
+        "Asynchronous Event Processing: Maintaining core HTTP response times under 100ms by offloading messaging payloads and audit logs to RabbitMQ.",
+        "Cryptographic Authentication: Implementing and validating EIP-712 signatures specifically bound to chainId and verifyingContract for SBT voucher claims to prevent replay attacks."
+      ],
+      showLiveDemo: false,
+      showGithub: false
+    },
+    {
+      id: 'typecognito',
+      date: 'February 2026',
       name: 'TypeCognito: Intelligent Assessment Platform for Typing & Reading Comprehension',
       role: ['Full-Stack Developer'],
       description: 'A robust Next.js educational platform that merges traditional typing tests with complex cognitive evaluations, featuring interactive mechanics, multi-modal narrative assessments, and comprehensive administrative oversight.',
@@ -193,7 +336,7 @@ const ProjectsSection: React.FC = () => {
         'Auth.js',
         'Nginx'
       ],
-      badges: ['Freelance', 'Deployed'],
+      badges: ['Freelance', 'Local'],
       images: [
         'images/TrustMart/1.png',
         'images/TrustMart/2.png',
@@ -254,7 +397,7 @@ const ProjectsSection: React.FC = () => {
         'Auth.js (NextAuth)',
         'Nominatim Geocoding'
       ],
-      badges: ['Freelance', "Deployed"],
+      badges: ['Freelance', "Local"],
       images: [
         'images/Cyperus/1.png',
         'images/Cyperus/2.png',
@@ -295,7 +438,7 @@ const ProjectsSection: React.FC = () => {
       description: 'A cutting-edge POS and inventory ecosystem for SMEs that integrates predictive analytics and LLM-based reasoning to transform raw sales data into actionable business strategies.',
       longDescription: 'SmartStoreIQ is a modern, web-based solution designed to solve the "Bundle Problem" and inventory waste for small businesses. Unlike traditional POS systems, I engineered a high-performance "Recipe Engine" that automatically deducts raw ingredient stocks (e.g., flour, patties) when a composite product (e.g., a burger) is sold. The system’s standout feature is the "Intelligence Hub," which utilizes a hybrid AI approach: local Holt-Winters algorithms for 7-day sales forecasting and anomaly detection (z-score analysis), combined with Google Gemini for generating plain-English executive summaries. The platform includes a touch-optimized checkout UI, real-time inventory alerts, and automated reorder suggestions based on predicted demand, all secured by a robust OTP-verified authentication layer.',
       technologies: ['Next.js', 'TypeScript', 'Prisma', 'MariaDB', 'Gemini AI API', 'Tailwind CSS', 'Holt-Winters Algorithm', 'Docker', 'Zod', 'Lucide React', 'ARIMA (Optional)'],
-      badges: ['Freelance', 'Deployed'],
+      badges: ['Freelance', 'Local'],
       images: [
         'images/InventoryPOS/1.png',
         'images/InventoryPOS/2.png'
@@ -332,7 +475,7 @@ const ProjectsSection: React.FC = () => {
       description: 'A Laravel-based health and fitness ecosystem that leverages Google Gemini AI and vector embeddings to generate hyper-personalized workout and nutrition plans based on semantic user requests.',
       longDescription: 'Developed as a comprehensive solo project for a private client, this platform utilizes a robust Laravel backend to manage complex user fitness data, including body metrics, exercise logs, and nutritional intake. The core innovation lies in the "AI Templates" engine, which integrates Google Gemini for plan generation and a custom Vector Embedding system. By computing 768-dimensional vectors for a catalog of hundreds of exercises, the system performs semantic matching via cosine similarity to ensure AI-generated plans only include verified, available equipment and movements. The frontend is built with a modern stack of Blade, Tailwind CSS, and Alpine.js, providing a reactive and mobile-optimized experience for tracking sessions in real-time.',
       technologies: ['Laravel', 'MySQL', 'Google Gemini AI', 'Vector Embeddings', 'Tailwind CSS', 'Alpine.js', 'Vite', 'Composer', 'Artisan CLI', 'Cosine Similarity', 'JWT'],
-      badges: ['Freelance', 'Deployed'],
+      badges: ['Freelance', 'Local'],
       images: [
         'images/HealthForge/1.png',
         'images/HealthForge/2.png',
@@ -978,6 +1121,24 @@ const ProjectsSection: React.FC = () => {
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+
+        {/* GitHub Contributions Graph */}
+        <div className="mt-16 bg-slate-900/80 backdrop-blur-sm border border-slate-700/60 rounded-2xl p-8 shadow-xl flex flex-col items-center animate-on-scroll">
+          <h3 className="text-2xl font-bold mb-8 text-center text-white">GitHub Contributions</h3>
+          <div className="w-full overflow-x-auto pb-4 flex justify-center">
+            <div className="min-w-fit">
+              <GitHubCalendar 
+                username="MaChewwwww" 
+                colorScheme="dark"
+                theme={{
+                  dark: ['#0f172a', '#14532d', '#166534', '#15803d', '#16a34a'],
+                }}
+                fontSize={14}
+                blockSize={12}
+              />
+            </div>
           </div>
         </div>
       </div>

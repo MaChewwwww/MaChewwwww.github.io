@@ -57,11 +57,11 @@ export const personalInfo: PersonalInfo = {
   name: "John Mathew Parocha",
   role: "Full Stack Developer",
   roles: [
-    "Backend Engineer"
+    "Software Engineer"
   ],
   profileImage: pfpImage, // Your actual profile photo
   miniAvatarImage: pfpSmallImage, // Small avatar for profile card
-  resumeUrl: "/PAROCHA-CV.pdf", // Updated to use the provided PDF in public folder
+  resumeUrl: "/PAROCHA-CV_v2.pdf", // Updated to use the provided PDF in public folder
   email: "your-email@example.com",
   phone: "+1 (555) 123-4567",
   location: "Your City, Country",
