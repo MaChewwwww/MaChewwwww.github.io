@@ -293,7 +293,7 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, isOpen, onClose })
               {/* Left Side - Project Info + Carousel */}
               <div className="w-1/2 flex flex-col min-h-0 bg-gradient-to-br from-slate-800/50 to-slate-900/50">
                 {/* Top - Project Info */}
-                <div className="p-6 bg-gradient-to-br from-slate-800/60 to-slate-900/60 border-b border-slate-600/40 flex-1 min-h-0 overflow-y-auto">
+                <div className="p-6 bg-gradient-to-br from-slate-800/60 to-slate-900/60 border-b border-slate-600/40 flex-none">
                   <div className="space-y-4 flex flex-col justify-center">
                     {/* Date */}
                     <div className="flex items-center text-sm text-slate-400">
@@ -304,10 +304,6 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, isOpen, onClose })
                       <h2 className="text-xl lg:text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent leading-tight">
                         {project.name}
                       </h2>
-                    </div>
-                    {/* Tech Stack */}
-                    <div className="space-y-2 mt-3">
-                      {renderTechStack(project.technologies)}
                     </div>
                     {/* Description */}
                     <div className="space-y-3 mt-4">
@@ -371,6 +367,21 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, isOpen, onClose })
               {/* Right Side - Project Details */}
               <div className="w-1/2 p-8 overflow-y-auto modal-scrollbar bg-gradient-to-br from-slate-900/40 to-slate-800/40">
                 <div className="space-y-8">
+                  {/* Tech Stack */}
+                  <div className="bg-slate-800/40 rounded-lg p-4 border border-slate-700/50">
+                    <div className="flex items-center gap-2 mb-4">
+                      <div className="w-5 h-5 text-cyan-400">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                          <polygon points="12 2 2 7 12 12 22 7 12 2" />
+                          <polyline points="2 17 12 22 22 17" />
+                          <polyline points="2 12 12 17 22 12" />
+                        </svg>
+                      </div>
+                      <h3 className="text-base font-semibold text-white">Tech Stack</h3>
+                    </div>
+                    {renderTechStack(project.technologies)}
+                  </div>
+
                   {/* Key Features */}
                   {project.features && (
                     <div className="bg-slate-800/40 rounded-lg p-4 border border-slate-700/50">
